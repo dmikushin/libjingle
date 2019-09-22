@@ -1,0 +1,89 @@
+# Libjingle
+
+## Introduction
+
+Libjingle is a set of components provided by Google to implement Jingle
+protocols XEP-166 (http://xmpp.org/extensions/xep-0166.html) and XEP-167
+(http://xmpp.org/extensions/xep-0167.html). Libjingle is also backward
+compatible with
+[http://code.google.com/apis/talk/call_signaling.html](Google Talk Call Signaling). This package will
+create several static libraries you may link to your projects as needed.
+
+```
+|-base              - Contains basic low-level portable utility functions for
+|                     things like threads and sockets
+|-p2p               - The P2P stack
+  |-base            - Base p2p functionality
+  |-client          - Hooks to tie it into XMPP
+|-session           - Signaling
+  |-phone           - Signaling code specific to making phone calls
+    |-testdata      - Samples of RTP voice and video dump
+  |-tunnel          - Tunnel session and channel
+|-third_party       - Folder for third party libraries
+  |-libudev         - Folder containing libudev.h
+|-xmllite           - XML parser
+|-xmpp              - XMPP engine
+```
+
+In addition, this package contains two examples in talk/examples which
+illustrate the basic concepts of how the provided classes work.
+
+## Building
+
+Prerequisites:
+
+```
+sudo apt install gcc cmake libssl-dev, libasound2-dev gtk+2.0 libexpat-dev
+```
+
+`HAS_OPENSSL_1_0`
+
+Building from source with CMake:
+
+```
+git clone --recursive https://github.com/dmikushin/libjingle.git
+cd libjingle
+mkdir build
+cmake ..
+make -j48
+```
+
+## Testing
+
+When the build is complete, you can run the
+examples, login or call. For the call sample, you can specify the input and
+output RTP dump for voice and video. This package provides two samples of input
+RTP dump: voice.rtpdump is a single channel, 16Khz voice encoded with G722, and
+video.rtpdump is 320x240 video encoded with H264 AVC at 30 frames per second.
+These provided samples will inter-operate with Google Talk Video. If you use
+other input RTP dump, you may need to change the codecs in `call_main.cc`, lines
+215 - 222.
+
+Libjingle also builds two server tools, a relay server and a STUN server. The
+relay server may be used to relay traffic when a direct peer-to-peer connection
+could not be established. The STUN Server implements the STUN protocol for
+Session Traversal Utilities for NAT(rfc5389), and the TURN server is in active
+development to reach compatibility with rfc5766. See the
+[http://developers.google.com/talk/libjingle/developer_guide](Libjingle Developer Guide) for
+information about configuring a client to use this relay server and this STUN
+server.
+
+## LinphoneMediaEngine
+
+To use LinphoneMediaEngine, you need to perform the following additional steps:
+  * Download and install the "MediaStreamer" library on your
+    machine.
+  * Add the following lines into the libjingle.scons file.
+    In the "talk.Library(env, name = "libjingle",..." section, you need to add:
+      "HAVE_LINPHONE",
+      "HAVE_SPEEX",
+      "HAVE_ILBC",
+    to the "cppdefines = [".
+
+    In the "talk.App(env, name = "call",..." section, you need to add:
+      "mediastreamer",
+    to the "libs = [".
+  * In the libjingle.scons file, add the following line into the "srcs = [ ..."
+    section of the "libjingle" Library.
+      "session/phone/linphonemediaengine.cc",
+
