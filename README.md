@@ -6,7 +6,7 @@ Libjingle is a set of components provided by Google to implement Jingle
 protocols XEP-166 (http://xmpp.org/extensions/xep-0166.html) and XEP-167
 (http://xmpp.org/extensions/xep-0167.html). Libjingle is also backward
 compatible with
-[http://code.google.com/apis/talk/call_signaling.html](Google Talk Call Signaling). This package will
+[Google Talk Call Signaling](http://code.google.com/apis/talk/call_signaling.html). This package will
 create several static libraries you may link to your projects as needed.
 
 ```
@@ -33,7 +33,7 @@ illustrate the basic concepts of how the provided classes work.
 Prerequisites:
 
 ```
-sudo apt install gcc cmake libssl-dev, libasound2-dev gtk+2.0 libexpat-dev
+sudo apt install gcc cmake libssl-dev, libasound2-dev gtk+2.0 libexpat-dev libsrtp2-dev
 ```
 
 `HAS_OPENSSL_1_0`
@@ -64,7 +64,7 @@ relay server may be used to relay traffic when a direct peer-to-peer connection
 could not be established. The STUN Server implements the STUN protocol for
 Session Traversal Utilities for NAT(rfc5389), and the TURN server is in active
 development to reach compatibility with rfc5766. See the
-[http://developers.google.com/talk/libjingle/developer_guide](Libjingle Developer Guide) for
+[Libjingle Developer Guide](http://developers.google.com/talk/libjingle/developer_guide) for
 information about configuring a client to use this relay server and this STUN
 server.
 

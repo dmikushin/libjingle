@@ -25,16 +25,22 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-{
-  'targets': [
-    {
-      'target_name': 'All', 
-      'type': 'none',   
-      'dependencies': [ 
-        'libjingle.gyp:*',  
-        'libjingle_examples.gyp:*',  
-        'libjingle_tests.gyp:*',  
-      ],
-    },
-  ],
-}
+cmake_minimum_required (VERSION 3.1)
+
+project(jingle)
+
+# Prevent GoogleTest from overriding our compiler/linker options
+# when building with Visual Studio
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+# Add googletest directly to our build. This adds
+# the following targets: gtest, gtest_main, gmock
+# and gmock_main
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/googletest" EXCLUDE_FROM_ALL)
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmllite")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
+
