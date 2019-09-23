@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/alsasymboltable.h"
+#include "sound/alsasymboltable.h"
 
 namespace cricket {
 
 #define LATE_BINDING_SYMBOL_TABLE_CLASS_NAME ALSA_SYMBOLS_CLASS_NAME
 #define LATE_BINDING_SYMBOL_TABLE_SYMBOLS_LIST ALSA_SYMBOLS_LIST
 #define LATE_BINDING_SYMBOL_TABLE_DLL_NAME "libasound.so.2"
-#include "talk/base/latebindingsymboltable.cc.def"
+#include "base/latebindingsymboltable.cc.def"
 
 }  // namespace cricket

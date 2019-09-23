@@ -28,8 +28,8 @@
 
 #include <vector>
 
-#include "talk/base/stringutils.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "base/stringutils.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 // Fake class for mocking out webrtc::VideoCaptureModule::DeviceInfo.
 class FakeWebRtcDeviceInfo : public webrtc::VideoCaptureModule::DeviceInfo {

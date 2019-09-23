@@ -28,7 +28,7 @@
 #ifndef TALK_BASE_ASYNCFILE_H__
 #define TALK_BASE_ASYNCFILE_H__
 
-#include "talk/base/sigslot.h"
+#include "base/sigslot.h"
 
 namespace talk_base {
 

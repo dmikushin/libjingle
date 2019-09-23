@@ -25,8 +25,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/stringutils.h"
-#include "talk/base/common.h"
+#include "base/stringutils.h"
+#include "base/common.h"
 
 namespace talk_base {
 

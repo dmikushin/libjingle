@@ -25,14 +25,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/mediastreamsignaling.h"
+#include "app/webrtc/mediastreamsignaling.h"
 
 #include <vector>
 
-#include "talk/app/webrtc/audiotrack.h"
-#include "talk/app/webrtc/mediastreamproxy.h"
-#include "talk/app/webrtc/mediastreamtrackproxy.h"
-#include "talk/app/webrtc/videotrack.h"
+#include "app/webrtc/audiotrack.h"
+#include "app/webrtc/mediastreamproxy.h"
+#include "app/webrtc/mediastreamtrackproxy.h"
+#include "app/webrtc/videotrack.h"
 
 static const char kDefaultStreamLabel[] = "default";
 static const char kDefaultAudioTrackLabel[] = "defaulta0";

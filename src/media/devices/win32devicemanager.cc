@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/win32devicemanager.h"
+#include "media/devices/win32devicemanager.h"
 
 #include <atlbase.h>
 #include <dbt.h>
@@ -38,12 +38,12 @@
 #include <functiondiscoverykeys_devpkey.h>
 #include <uuids.h>
 
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/base/win32.h"  // ToUtf8
-#include "talk/base/win32window.h"
-#include "talk/media/base/mediacommon.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "base/win32.h"  // ToUtf8
+#include "base/win32window.h"
+#include "media/base/mediacommon.h"
 #ifdef HAVE_LOGITECH_HEADERS
 #include "third_party/logitech/files/logitechquickcam.h"
 #endif

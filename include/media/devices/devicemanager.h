@@ -32,11 +32,11 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/window.h"
-#include "talk/media/base/videocommon.h"
+#include "base/scoped_ptr.h"
+#include "base/sigslot.h"
+#include "base/stringencode.h"
+#include "base/window.h"
+#include "media/base/videocommon.h"
 
 namespace talk_base {
 

@@ -26,14 +26,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/p2p/base/dtlstransportchannel.h"
+#include "p2p/base/dtlstransportchannel.h"
 
-#include "talk/base/buffer.h"
-#include "talk/base/messagequeue.h"
-#include "talk/base/stream.h"
-#include "talk/base/sslstreamadapter.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/common.h"
+#include "base/buffer.h"
+#include "base/messagequeue.h"
+#include "base/stream.h"
+#include "base/sslstreamadapter.h"
+#include "base/thread.h"
+#include "p2p/base/common.h"
 
 namespace cricket {
 

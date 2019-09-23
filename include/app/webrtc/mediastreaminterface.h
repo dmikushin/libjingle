@@ -37,9 +37,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/refcount.h"
-#include "talk/base/scoped_ref_ptr.h"
+#include "base/basictypes.h"
+#include "base/refcount.h"
+#include "base/scoped_ref_ptr.h"
 
 namespace cricket {
 

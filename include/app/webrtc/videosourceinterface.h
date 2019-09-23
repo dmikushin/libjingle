@@ -28,8 +28,8 @@
 #ifndef TALK_APP_WEBRTC_VIDEOSOURCEINTERFACE_H_
 #define TALK_APP_WEBRTC_VIDEOSOURCEINTERFACE_H_
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/media/base/mediachannel.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "media/base/mediachannel.h"
 
 namespace webrtc {
 

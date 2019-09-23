@@ -37,9 +37,9 @@
 #ifndef TALK_APP_WEBRTC_TEST_FAKEAUDIOCAPTUREMODULE_H_
 #define TALK_APP_WEBRTC_TEST_FAKEAUDIOCAPTUREMODULE_H_
 
-#include "talk/base/basictypes.h"
-#include "talk/base/messagehandler.h"
-#include "talk/base/scoped_ref_ptr.h"
+#include "base/basictypes.h"
+#include "base/messagehandler.h"
+#include "base/scoped_ref_ptr.h"
 #include "webrtc/common_types.h"
 #include "webrtc/modules/audio_device/include/audio_device.h"
 

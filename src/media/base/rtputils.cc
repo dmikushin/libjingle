@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/rtputils.h"
+#include "media/base/rtputils.h"
 
 namespace cricket {
 

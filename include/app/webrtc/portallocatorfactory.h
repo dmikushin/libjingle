@@ -33,8 +33,8 @@
 #ifndef TALK_APP_WEBRTC_PORTALLOCATORFACTORY_H_
 #define TALK_APP_WEBRTC_PORTALLOCATORFACTORY_H_
 
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/base/scoped_ptr.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "base/scoped_ptr.h"
 
 namespace cricket {
 class PortAllocator;

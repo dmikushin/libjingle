@@ -25,15 +25,15 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/macdevicemanager.h"
+#include "media/devices/macdevicemanager.h"
 
 #include <CoreAudio/CoreAudio.h>
 #include <QuickTime/QuickTime.h>
 
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/mediacommon.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "media/base/mediacommon.h"
 
 class DeviceWatcherImpl;
 

@@ -25,14 +25,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/dtmfsender.h"
+#include "app/webrtc/dtmfsender.h"
 
 #include <ctype.h>
 
 #include <string>
 
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
+#include "base/logging.h"
+#include "base/thread.h"
 
 namespace webrtc {
 

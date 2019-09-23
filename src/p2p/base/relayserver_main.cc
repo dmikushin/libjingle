@@ -27,9 +27,9 @@
 
 #include <iostream>  // NOLINT
 
-#include "talk/base/thread.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/p2p/base/relayserver.h"
+#include "base/thread.h"
+#include "base/scoped_ptr.h"
+#include "p2p/base/relayserver.h"
 
 int main(int argc, char **argv) {
   if (argc != 3) {

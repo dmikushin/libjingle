@@ -32,9 +32,9 @@
 
 #include <string>
 
-#include "talk/app/webrtc/jsep.h"
-#include "talk/base/constructormagic.h"
-#include "talk/p2p/base/candidate.h"
+#include "app/webrtc/jsep.h"
+#include "base/constructormagic.h"
+#include "p2p/base/candidate.h"
 
 namespace webrtc {
 

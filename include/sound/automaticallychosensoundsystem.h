@@ -28,11 +28,11 @@
 #ifndef TALK_SOUND_AUTOMATICALLYCHOSENSOUNDSYSTEM_H_
 #define TALK_SOUND_AUTOMATICALLYCHOSENSOUNDSYSTEM_H_
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/sound/soundsysteminterface.h"
-#include "talk/sound/soundsystemproxy.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "sound/soundsysteminterface.h"
+#include "sound/soundsystemproxy.h"
 
 namespace cricket {
 

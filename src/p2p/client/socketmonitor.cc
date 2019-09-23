@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/p2p/client/socketmonitor.h"
+#include "p2p/client/socketmonitor.h"
 
-#include "talk/base/common.h"
+#include "base/common.h"
 
 namespace cricket {
 

@@ -31,7 +31,7 @@
 #include <map>
 #include <string>
 
-#include "talk/media/base/constants.h"
+#include "media/base/constants.h"
 
 namespace cricket {
 

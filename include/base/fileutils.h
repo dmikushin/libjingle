@@ -31,7 +31,7 @@
 #include <string>
 
 #ifdef WIN32
-#include "talk/base/win32.h"
+#include "base/win32.h"
 #else
 #include <sys/types.h>
 #include <dirent.h>
@@ -39,9 +39,9 @@
 #include <unistd.h>
 #endif
 
-#include "talk/base/basictypes.h"
-#include "talk/base/common.h"
-#include "talk/base/scoped_ptr.h"
+#include "base/basictypes.h"
+#include "base/common.h"
+#include "base/scoped_ptr.h"
 
 namespace talk_base {
 

@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/deviceinfo.h"
+#include "media/devices/deviceinfo.h"
 
-#include "talk/base/common.h"  // for ASSERT
-#include "talk/media/devices/libudevsymboltable.h"
+#include "base/common.h"  // for ASSERT
+#include "media/devices/libudevsymboltable.h"
 
 namespace cricket {
 

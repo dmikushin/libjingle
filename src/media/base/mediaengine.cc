@@ -25,16 +25,16 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#include "talk/media/base/mediaengine.h"
+#include "media/base/mediaengine.h"
 
 #if defined(HAVE_LINPHONE)
-#include "talk/media/other/linphonemediaengine.h"
+#include "media/other/linphonemediaengine.h"
 #endif  // HAVE_LINPHONE
 #if defined(HAVE_WEBRTC_VOICE)
-#include "talk/media/webrtc/webrtcvoiceengine.h"
+#include "media/webrtc/webrtcvoiceengine.h"
 #endif  // HAVE_WEBRTC_VOICE
 #if defined(HAVE_WEBRTC_VIDEO)
-#include "talk/media/webrtc/webrtcvideoengine.h"
+#include "media/webrtc/webrtcvideoengine.h"
 #endif  // HAVE_WEBRTC_VIDEO
 
 namespace cricket {

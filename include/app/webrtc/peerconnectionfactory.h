@@ -29,11 +29,11 @@
 
 #include <string>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/thread.h"
-#include "talk/session/media/channelmanager.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "base/scoped_ptr.h"
+#include "base/thread.h"
+#include "session/media/channelmanager.h"
 
 namespace webrtc {
 

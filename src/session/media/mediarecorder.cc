@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/mediarecorder.h"
+#include "session/media/mediarecorder.h"
 
 #include <limits.h>
 
 #include <string>
 
-#include "talk/base/fileutils.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/media/base/rtpdump.h"
+#include "base/fileutils.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "media/base/rtpdump.h"
 
 
 namespace cricket {

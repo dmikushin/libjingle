@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/mediastreamtrackproxy.h"
+#include "app/webrtc/mediastreamtrackproxy.h"
 
-#include "talk/media/base/videocapturer.h"
-#include "talk/app/webrtc/videosourceinterface.h"
+#include "media/base/videocapturer.h"
+#include "app/webrtc/videosourceinterface.h"
 
 namespace {
 

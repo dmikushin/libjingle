@@ -30,10 +30,10 @@
 #ifndef TALK_SESSION_MEDIA_MEDIAMONITOR_H_
 #define TALK_SESSION_MEDIA_MEDIAMONITOR_H_
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/mediachannel.h"
+#include "base/criticalsection.h"
+#include "base/sigslot.h"
+#include "base/thread.h"
+#include "media/base/mediachannel.h"
 
 namespace cricket {
 

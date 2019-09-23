@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/ssrcmuxfilter.h"
+#include "session/media/ssrcmuxfilter.h"
 
 #include <algorithm>
 
-#include "talk/base/logging.h"
-#include "talk/media/base/rtputils.h"
+#include "base/logging.h"
+#include "media/base/rtputils.h"
 
 namespace cricket {
 

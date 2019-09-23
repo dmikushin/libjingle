@@ -30,8 +30,8 @@
 
 #include <string>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/notifier.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/notifier.h"
 
 namespace webrtc {
 

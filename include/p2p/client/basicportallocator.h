@@ -31,12 +31,12 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/messagequeue.h"
-#include "talk/base/network.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/port.h"
-#include "talk/p2p/base/portallocator.h"
+#include "base/messagequeue.h"
+#include "base/network.h"
+#include "base/scoped_ptr.h"
+#include "base/thread.h"
+#include "p2p/base/port.h"
+#include "p2p/base/portallocator.h"
 
 namespace cricket {
 

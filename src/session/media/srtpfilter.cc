@@ -27,23 +27,23 @@
 
 #undef HAVE_CONFIG_H
 
-#include "talk/session/media/srtpfilter.h"
+#include "session/media/srtpfilter.h"
 
 #include <algorithm>
 #include <cstring>
 
-#include "talk/base/base64.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/timeutils.h"
-#include "talk/media/base/rtputils.h"
+#include "base/base64.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "base/timeutils.h"
+#include "media/base/rtputils.h"
 
 // Enable this line to turn on SRTP debugging
 // #define SRTP_DEBUG
 
 #ifdef HAVE_SRTP
 #ifdef SRTP_RELATIVE_PATH
-#include "srtp.h"  // NOLINT
+#include "srtp/srtp.h"  // NOLINT
 #else
 #include "third_party/libsrtp/include/srtp.h"
 #endif  // SRTP_RELATIVE_PATH

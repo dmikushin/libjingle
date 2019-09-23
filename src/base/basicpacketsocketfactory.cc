@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/basicpacketsocketfactory.h"
+#include "base/basicpacketsocketfactory.h"
 
-#include "talk/base/asyncudpsocket.h"
-#include "talk/base/asynctcpsocket.h"
-#include "talk/base/logging.h"
-#include "talk/base/socketadapters.h"
-#include "talk/base/thread.h"
+#include "base/asyncudpsocket.h"
+#include "base/asynctcpsocket.h"
+#include "base/logging.h"
+#include "base/socketadapters.h"
+#include "base/thread.h"
 
 namespace talk_base {
 

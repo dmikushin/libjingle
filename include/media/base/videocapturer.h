@@ -31,14 +31,14 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/criticalsection.h"
-#include "talk/base/messagehandler.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/devices/devicemanager.h"
+#include "base/basictypes.h"
+#include "base/criticalsection.h"
+#include "base/messagehandler.h"
+#include "base/scoped_ptr.h"
+#include "base/sigslot.h"
+#include "base/thread.h"
+#include "media/base/videocommon.h"
+#include "media/devices/devicemanager.h"
 
 namespace cricket {
 

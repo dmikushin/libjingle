@@ -25,18 +25,18 @@
 //
 // Implementation file of class VideoCapturer.
 
-#include "talk/media/base/videocapturer.h"
+#include "media/base/videocapturer.h"
 
 #include <algorithm>
 
 #if defined(HAVE_YUV)
 #include "libyuv/scale_argb.h"
 #endif
-#include "talk/base/logging.h"
-#include "talk/media/base/videoprocessor.h"
+#include "base/logging.h"
+#include "media/base/videoprocessor.h"
 
 #if defined(HAVE_WEBRTC_VIDEO)
-#include "talk/media/webrtc/webrtcvideoframe.h"
+#include "media/webrtc/webrtcvideoframe.h"
 #endif  // HAVE_WEBRTC_VIDEO
 
 

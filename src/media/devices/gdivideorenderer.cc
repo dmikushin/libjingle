@@ -27,13 +27,13 @@
 
 #ifdef WIN32
 
-#include "talk/media/devices/gdivideorenderer.h"
+#include "media/devices/gdivideorenderer.h"
 
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/thread.h"
-#include "talk/base/win32window.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/base/videoframe.h"
+#include "base/scoped_ptr.h"
+#include "base/thread.h"
+#include "base/win32window.h"
+#include "media/base/videocommon.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

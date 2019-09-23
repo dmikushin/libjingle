@@ -31,16 +31,16 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/logging.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/socket.h"
-#include "talk/base/window.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/constants.h"
-#include "talk/media/base/streamparams.h"
+#include "base/basictypes.h"
+#include "base/logging.h"
+#include "base/sigslot.h"
+#include "base/socket.h"
+#include "base/window.h"
+#include "media/base/codec.h"
+#include "media/base/constants.h"
+#include "media/base/streamparams.h"
 // TODO(juberti): re-evaluate this include
-#include "talk/session/media/audiomonitor.h"
+#include "session/media/audiomonitor.h"
 
 namespace talk_base {
 class Buffer;

@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/soundclip.h"
+#include "session/media/soundclip.h"
 
 namespace cricket {
 

@@ -25,598 +25,267 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-{
-  'includes': ['build/common.gypi'],
+cmake_minimum_required (VERSION 3.1)
 
-  'conditions': [
-    [ 'os_posix == 1 and OS != "mac" and OS != "ios"', {
-      'conditions': [
-        ['sysroot!=""', {
-          'variables': {
-            'pkg-config': '../../../build/linux/pkg-config-wrapper "<(sysroot)" "<(target_arch)"',
-          },
-        }, {
-          'variables': {
-            'pkg-config': 'pkg-config'
-          },
-        }],
-      ],
-    }],
+project(jingle_core)
 
-    ['libjingle_java == 1', {
-      'targets': [
-        {
-          'target_name': 'libjingle_peerconnection_so',
-          'type': 'loadable_module',
-          'dependencies': [
-            'libjingle_peerconnection',
-            '<(DEPTH)/third_party/icu/icu.gyp:icuuc',
-          ],
-          'sources': [
-            'app/webrtc/java/jni/peerconnection_jni.cc'
-          ],
-          'conditions': [
-            ['OS=="linux"', {
-              'include_dirs': [
-                '/usr/local/buildtools/java/jdk7-64/include',
-                '/usr/local/buildtools/java/jdk7-64/include/linux',
-              ],
-              'link_settings': {
-                'libraries': [
-                  '<!@(pkg-config --libs-only-l gtk+-2.0 gthread-2.0)',
-                ],
-              },
-            }],
-          ],
-        },
-        {
-          'target_name': 'libjingle_peerconnection_jar',
-          'type': 'none',
-          'actions': [
-            {
-              'variables': {
-                'java_src_dir': 'app/webrtc/java/src',
-                'java_files': [
-                  'app/webrtc/java/src/org/webrtc/AudioSource.java',
-                  'app/webrtc/java/src/org/webrtc/AudioTrack.java',
-                  'app/webrtc/java/src/org/webrtc/IceCandidate.java',
-                  'app/webrtc/java/src/org/webrtc/LocalMediaStream.java',
-                  'app/webrtc/java/src/org/webrtc/MediaConstraints.java',
-                  'app/webrtc/java/src/org/webrtc/MediaSource.java',
-                  'app/webrtc/java/src/org/webrtc/MediaStream.java',
-                  'app/webrtc/java/src/org/webrtc/MediaStreamTrack.java',
-                  'app/webrtc/java/src/org/webrtc/PeerConnectionFactory.java',
-                  'app/webrtc/java/src/org/webrtc/PeerConnection.java',
-                  'app/webrtc/java/src/org/webrtc/SdpObserver.java',
-                  'app/webrtc/java/src/org/webrtc/SessionDescription.java',
-                  'app/webrtc/java/src/org/webrtc/VideoCapturer.java',
-                  'app/webrtc/java/src/org/webrtc/VideoRenderer.java',
-                  'app/webrtc/java/src/org/webrtc/VideoSource.java',
-                  'app/webrtc/java/src/org/webrtc/VideoTrack.java',
-                ],
-              },
-              'action_name': 'create_jar',
-              'inputs': [
-                'build/build_jar.sh',
-                '<@(java_files)',
-              ],
-              'outputs': [
-                '<(PRODUCT_DIR)/libjingle_peerconnection.jar',
-              ],
-              'action': [
-                'build/build_jar.sh', '<@(_outputs)', '<(INTERMEDIATE_DIR)',
-                '<(java_src_dir)',
-                '<(PRODUCT_DIR)/libjingle_peerconnection_so.so',
-                '', '<@(java_files)'
-              ],
-            },
-          ],
-          'dependencies': [
-            'libjingle_peerconnection_so',
-          ],
-        },
-      ],
-    }],
-  ],
+find_package(SRTP REQUIRED)
 
-  'targets': [
-    {
-      'target_name': 'libjingle',
-      'type': 'static_library',
-      'dependencies': [
-        '<(DEPTH)/third_party/expat/expat.gyp:expat',
-        '<(DEPTH)/third_party/jsoncpp/jsoncpp.gyp:jsoncpp',
-      ],
-      'export_dependent_settings': [
-        '<(DEPTH)/third_party/expat/expat.gyp:expat',
-        '<(DEPTH)/third_party/jsoncpp/jsoncpp.gyp:jsoncpp',
-      ],
-      'sources': [
-        'base/asyncfile.cc',
-        'base/asynchttprequest.cc',
-        'base/asyncsocket.cc',
-        'base/asynctcpsocket.cc',
-        'base/asyncudpsocket.cc',
-        'base/autodetectproxy.cc',
-        'base/bandwidthsmoother.cc',
-        'base/base64.cc',
-        'base/basicpacketsocketfactory.cc',
-        'base/bytebuffer.cc',
-        'base/checks.cc',
-        'base/common.cc',
-        'base/cpumonitor.cc',
-        'base/crc32.cc',
-        'base/diskcache.cc',
-        'base/event.cc',
-        'base/filelock.cc',
-        'base/fileutils.cc',
-        'base/firewallsocketserver.cc',
-        'base/flags.cc',
-        'base/helpers.cc',
-        'base/host.cc',
-        'base/httpbase.cc',
-        'base/httpclient.cc',
-        'base/httpcommon.cc',
-        'base/httprequest.cc',
-        'base/httpserver.cc',
-        'base/ipaddress.cc',
-        'base/json.cc',
-        'base/logging.cc',
-        'base/md5.cc',
-        'base/messagedigest.cc',
-        'base/messagehandler.cc',
-        'base/messagequeue.cc',
-        'base/multipart.cc',
-        'base/natserver.cc',
-        'base/natsocketfactory.cc',
-        'base/nattypes.cc',
-        'base/nethelpers.cc',
-        'base/network.cc',
-        'base/nssidentity.cc',
-        'base/nssstreamadapter.cc',
-        'base/optionsfile.cc',
-        'base/pathutils.cc',
-        'base/physicalsocketserver.cc',
-        'base/proxydetect.cc',
-        'base/proxyinfo.cc',
-        'base/proxyserver.cc',
-        'base/ratelimiter.cc',
-        'base/ratetracker.cc',
-        'base/sha1.cc',
-        'base/sharedexclusivelock.cc',
-        'base/signalthread.cc',
-        'base/socketadapters.cc',
-        'base/socketaddress.cc',
-        'base/socketaddresspair.cc',
-        'base/socketpool.cc',
-        'base/socketstream.cc',
-        'base/ssladapter.cc',
-        'base/sslsocketfactory.cc',
-        'base/sslidentity.cc',
-        'base/sslstreamadapter.cc',
-        'base/sslstreamadapterhelper.cc',
-        'base/stream.cc',
-        'base/stringencode.cc',
-        'base/stringutils.cc',
-        'base/systeminfo.cc',
-        'base/task.cc',
-        'base/taskparent.cc',
-        'base/taskrunner.cc',
-        'base/testclient.cc',
-        'base/thread.cc',
-        'base/timeutils.cc',
-        'base/timing.cc',
-        'base/transformadapter.cc',
-        'base/urlencode.cc',
-        'base/versionparsing.cc',
-        'base/virtualsocketserver.cc',
-        'base/worker.cc',
-        'xmllite/qname.cc',
-        'xmllite/xmlbuilder.cc',
-        'xmllite/xmlconstants.cc',
-        'xmllite/xmlelement.cc',
-        'xmllite/xmlnsstack.cc',
-        'xmllite/xmlparser.cc',
-        'xmllite/xmlprinter.cc',
-        'xmpp/chatroommoduleimpl.cc',
-        'xmpp/constants.cc',
-        'xmpp/discoitemsquerytask.cc',
-        'xmpp/hangoutpubsubclient.cc',
-        'xmpp/iqtask.cc',
-        'xmpp/jid.cc',
-        'xmpp/moduleimpl.cc',
-        'xmpp/mucroomconfigtask.cc',
-        'xmpp/mucroomdiscoverytask.cc',
-        'xmpp/mucroomlookuptask.cc',
-        'xmpp/mucroomuniquehangoutidtask.cc',
-        'xmpp/pingtask.cc',
-        'xmpp/presenceouttask.cc',
-        'xmpp/presencereceivetask.cc',
-        'xmpp/presencestatus.cc',
-        'xmpp/pubsubclient.cc',
-        'xmpp/pubsub_task.cc',
-        'xmpp/pubsubtasks.cc',
-        'xmpp/receivetask.cc',
-        'xmpp/rostermoduleimpl.cc',
-        'xmpp/saslmechanism.cc',
-        'xmpp/xmppclient.cc',
-        'xmpp/xmppengineimpl.cc',
-        'xmpp/xmppengineimpl_iq.cc',
-        'xmpp/xmpplogintask.cc',
-        'xmpp/xmppstanzaparser.cc',
-        'xmpp/xmpptask.cc',
-        'xmpp/xmppauth.cc',
-        'xmpp/xmpppump.cc',
-        'xmpp/xmppsocket.cc',
-        'xmpp/xmppthread.cc',
-      ],
-      'conditions': [
-        ['OS=="mac" or OS=="win"', {
-          'dependencies': [
-            # The chromium copy of nss should NOT be used on platforms that
-            # have NSS as system libraries, such as linux.
-            '<(DEPTH)/third_party/nss/nss.gyp:nss',
-          ],
-        }],
-        ['OS=="android"', {
-          'sources': [
-            'base/ifaddrs-android.cc',
-          ],
-          'link_settings': {
-            'libraries': [
-              '-llog',
-              '-lGLESv2',
-            ],
-          },
-        }],
-        ['OS=="linux" or OS=="android"', {
-          'sources': [
-            'base/linux.cc',
-          ],
-        }],
-        ['OS=="linux"', {
-          'sources': [
-            'base/dbus.cc',
-            'base/libdbusglibsymboltable.cc',
-            'base/linuxfdwalk.c',
-            'base/linuxwindowpicker.cc',
-          ],
-          'link_settings': {
-            'libraries': [
-              '-lcrypto',
-              '-ldl',
-              '-lrt',
-              '-lssl',
-              '-lXext',
-              '-lX11',
-              '-lXcomposite',
-              '-lXrender',
-              '<!@(<(pkg-config) --libs-only-l nss | sed -e "s/-lssl3//")',
-            ],
-          },
-          'cflags': [
-            '<!@(<(pkg-config) --cflags nss)',
-          ],
-          'ldflags': [
-            '<!@(<(pkg-config) --libs-only-L --libs-only-other nss)',
-          ],
-        }],
-        ['OS=="mac"', {
-          'sources': [
-            'base/macasyncsocket.cc',
-            'base/maccocoasocketserver.mm',
-            'base/maccocoathreadhelper.mm',
-            'base/macconversion.cc',
-            'base/macsocketserver.cc',
-            'base/macutils.cc',
-            'base/macwindowpicker.cc',
-            'base/scoped_autorelease_pool.mm',
-          ],
-          'link_settings': {
-            'libraries': [
-             '$(SDKROOT)/usr/lib/libcrypto.dylib',
-             '$(SDKROOT)/usr/lib/libssl.dylib',
-            ],
-            'xcode_settings': {
-              'OTHER_LDFLAGS': [
-                '-framework Carbon',
-                '-framework Cocoa',
-                '-framework IOKit',
-                '-framework Security',
-                '-framework SystemConfiguration',
-              ],
-            },
-          },
-        }],
-        ['OS=="win"', {
-          'sources': [
-            'base/diskcache_win32.cc',
-            'base/schanneladapter.cc',
-            'base/win32.cc',
-            'base/win32filesystem.cc',
-            'base/win32regkey.cc',
-            'base/win32securityerrors.cc',
-            'base/win32socketinit.cc',
-            'base/win32socketserver.cc',
-            'base/win32window.cc',
-            'base/win32windowpicker.cc',
-            'base/winfirewall.cc',
-            'base/winping.cc',
-          ],
-          # Suppress warnings about WIN32_LEAN_AND_MEAN.
-          'msvs_disabled_warnings': [4005],
-          'msvs_settings': {
-            'VCLibrarianTool': {
-              'AdditionalDependencies': [
-                'crypt32.lib',
-                'iphlpapi.lib',
-                'secur32.lib',
-              ],
-            },
-          },
-        }],
-        ['os_posix==1', {
-          'sources': [
-            'base/latebindingsymboltable.cc',
-            'base/openssladapter.cc',
-            'base/openssldigest.cc',
-            'base/opensslidentity.cc',
-            'base/opensslstreamadapter.cc',
-            'base/posix.cc',
-            'base/unixfilesystem.cc',
-          ],
-          'conditions': [
-            ['OS=="android"', {
-              'dependencies': [
-                '<(DEPTH)/third_party/openssl/openssl.gyp:openssl',
-              ],
-            }],
-          ],
-        }],
-      ],  # conditions
-    },  # target libjingle
-    {
-      'target_name': 'libjingle_sound',
-      'type': 'static_library',
-      'dependencies': [
-        'libjingle',
-      ],
-      'sources': [
-        'sound/nullsoundsystem.cc',
-        'sound/nullsoundsystemfactory.cc',
-        'sound/platformsoundsystem.cc',
-        'sound/platformsoundsystemfactory.cc',
-        'sound/soundsysteminterface.cc',
-        'sound/soundsystemproxy.cc',
-      ],
-      'conditions': [
-        ['OS=="linux"', {
-          'sources': [
-            'sound/alsasoundsystem.cc',
-            'sound/alsasymboltable.cc',
-            'sound/linuxsoundsystem.cc',
-            'sound/pulseaudiosoundsystem.cc',
-            'sound/pulseaudiosymboltable.cc',
-          ],
-        }],
-      ],
-    },  # target libjingle_sound
-    {
-      'target_name': 'libjingle_media',
-      'type': 'static_library',
-      'dependencies': [
-        '<(DEPTH)/third_party/libyuv/libyuv.gyp:libyuv',
-        '<(DEPTH)/third_party/webrtc/modules/modules.gyp:video_capture_module',
-        '<(DEPTH)/third_party/webrtc/modules/modules.gyp:video_render_module',
-        '<(DEPTH)/third_party/webrtc/video_engine/video_engine.gyp:video_engine_core',
-        '<(DEPTH)/third_party/webrtc/voice_engine/voice_engine.gyp:voice_engine_core',
-        '<(DEPTH)/third_party/webrtc/system_wrappers/source/system_wrappers.gyp:system_wrappers',
-        'libjingle',
-        'libjingle_sound',
-      ],
-      'sources': [
-        'media/base/capturemanager.cc',
-        'media/base/capturerenderadapter.cc',
-        'media/base/codec.cc',
-        'media/base/constants.cc',
-        'media/base/cpuid.cc',
-        'media/base/filemediaengine.cc',
-        'media/base/hybridvideoengine.cc',
-        'media/base/mediaengine.cc',
-        'media/base/rtpdataengine.cc',
-        'media/base/rtpdump.cc',
-        'media/base/rtputils.cc',
-        'media/base/streamparams.cc',
-        'media/base/videoadapter.cc',
-        'media/base/videocapturer.cc',
-        'media/base/videocommon.cc',
-        'media/base/videoframe.cc',
-        'media/devices/devicemanager.cc',
-        'media/devices/filevideocapturer.cc',
-        'media/webrtc/webrtcpassthroughrender.cc',
-        'media/webrtc/webrtcpassthroughrender.h',
-        'media/webrtc/webrtcvideocapturer.cc',
-        'media/webrtc/webrtcvideocapturer.h',
-        'media/webrtc/webrtcvideoengine.cc',
-        'media/webrtc/webrtcvideoengine.h',
-        'media/webrtc/webrtcvideoframe.cc',
-        'media/webrtc/webrtcvideoframe.h',
-        'media/webrtc/webrtcvie.h',
-        'media/webrtc/webrtcvoe.h',
-        'media/webrtc/webrtcvoiceengine.cc',
-        'media/webrtc/webrtcvoiceengine.h',
-        'media/webrtc/webrtccommon.h',
-      ],
-      'conditions': [
-        ['OS=="linux"', {
-          'sources': [
-            'media/devices/gtkvideorenderer.cc',
-            'media/devices/libudevsymboltable.cc',
-            'media/devices/linuxdeviceinfo.cc',
-            'media/devices/linuxdevicemanager.cc',
-            'media/devices/v4llookup.cc',
-          ],
-          'include_dirs': [
-            'third_party/libudev'
-          ],
-          'cflags': [
-            '<!@(pkg-config --cflags gtk+-2.0)',
-          ],
-          'libraries': [
-            '-lrt',
-            '-lXext',
-            '-lX11',
-          ],
-        }],
-        ['OS=="win"', {
-          'sources': [
-            'media/devices/gdivideorenderer.cc',
-            'media/devices/win32deviceinfo.cc',
-            'media/devices/win32devicemanager.cc',
-          ],
-          'msvs_settings': {
-            'VCLibrarianTool': {
-              'AdditionalDependencies': [
-                'd3d9.lib',
-                'gdi32.lib',
-                'strmiids.lib',
-                'winmm.lib',
-              ],
-            },
-          },
-        }],
-        ['OS=="mac"', {
-          'sources': [
-            'media/devices/carbonvideorenderer.cc',
-            'media/devices/macdeviceinfo.cc',
-            'media/devices/macdevicemanager.cc',
-            'media/devices/macdevicemanagermm.mm',
-          ],
-          'xcode_settings': {
-            'WARNING_CFLAGS': [
-              # TODO(ronghuawu): Update macdevicemanager.cc to stop using
-              # deprecated functions and remove this flag.
-              '-Wno-deprecated-declarations',
-            ],
-          },
-          'link_settings': {
-            'xcode_settings': {
-              'OTHER_LDFLAGS': [
-                '-framework Cocoa',
-                '-framework CoreAudio',
-                '-framework CoreVideo',
-                '-framework OpenGL',
-                '-framework QTKit',
-              ],
-            },
-          },
-        }],
-      ],
-    },  # target libjingle_media
-    {
-      'target_name': 'libjingle_p2p',
-      'type': 'static_library',
-      'dependencies': [
-        '<(DEPTH)/third_party/libsrtp/libsrtp.gyp:libsrtp',
-        'libjingle',
-        'libjingle_media',
-      ],
-      'include_dirs': [
-        '<(DEPTH)/third_party/gtest/include',
-      ],
-      'direct_dependent_settings': {
-        'include_dirs': [
-          '<(DEPTH)/third_party/gtest/include',
-        ],
-      },
-      'sources': [
-        'p2p/base/constants.cc',
-        'p2p/base/dtlstransportchannel.cc',
-        'p2p/base/p2ptransport.cc',
-        'p2p/base/p2ptransportchannel.cc',
-        'p2p/base/parsing.cc',
-        'p2p/base/port.cc',
-        'p2p/base/portallocator.cc',
-        'p2p/base/portallocatorsessionproxy.cc',
-        'p2p/base/portproxy.cc',
-        'p2p/base/pseudotcp.cc',
-        'p2p/base/relayport.cc',
-        'p2p/base/relayserver.cc',
-        'p2p/base/rawtransport.cc',
-        'p2p/base/rawtransportchannel.cc',
-        'p2p/base/session.cc',
-        'p2p/base/sessiondescription.cc',
-        'p2p/base/sessionmanager.cc',
-        'p2p/base/sessionmessages.cc',
-        'p2p/base/stun.cc',
-        'p2p/base/stunport.cc',
-        'p2p/base/stunrequest.cc',
-        'p2p/base/stunserver.cc',
-        'p2p/base/tcpport.cc',
-        'p2p/base/transport.cc',
-        'p2p/base/transportchannel.cc',
-        'p2p/base/transportchannelproxy.cc',
-        'p2p/base/transportdescriptionfactory.cc',
-        'p2p/base/transportdescriptionfactory.h',
-        'p2p/base/turnport.cc',
-        'p2p/base/turnserver.cc',
-        'p2p/client/basicportallocator.cc',
-        'p2p/client/connectivitychecker.cc',
-        'p2p/client/httpportallocator.cc',
-        'p2p/client/socketmonitor.cc',
-        'session/tunnel/pseudotcpchannel.cc',
-        'session/tunnel/tunnelsessionclient.cc',
-        'session/tunnel/securetunnelsessionclient.cc',
-        'session/media/audiomonitor.cc',
-        'session/media/call.cc',
-        'session/media/channel.cc',
-        'session/media/channelmanager.cc',
-        'session/media/currentspeakermonitor.cc',
-        'session/media/mediamessages.cc',
-        'session/media/mediamonitor.cc',
-        'session/media/mediarecorder.cc',
-        'session/media/mediasession.cc',
-        'session/media/mediasessionclient.cc',
-        'session/media/rtcpmuxfilter.cc',
-        'session/media/rtcpmuxfilter.cc',
-        'session/media/soundclip.cc',
-        'session/media/srtpfilter.cc',
-        'session/media/ssrcmuxfilter.cc',
-        'session/media/typingmonitor.cc',
-      ],
-    },  # target libjingle_p2p
-    {
-      'target_name': 'libjingle_peerconnection',
-      'type': 'static_library',
-      'dependencies': [
-        'libjingle',
-        'libjingle_media',
-        'libjingle_p2p',
-      ],
-      'sources': [
-        'app/webrtc/audiotrack.cc',
-        'app/webrtc/datachannel.cc',
-        'app/webrtc/dtmfsender.cc',
-        'app/webrtc/jsepicecandidate.cc',
-        'app/webrtc/jsepsessiondescription.cc',
-        'app/webrtc/localaudiosource.cc',
-        'app/webrtc/localvideosource.cc',
-        'app/webrtc/mediastream.cc',
-        'app/webrtc/mediastreamhandler.cc',
-        'app/webrtc/mediastreamproxy.cc',
-        'app/webrtc/mediastreamsignaling.cc',
-        'app/webrtc/mediastreamtrackproxy.cc',
-        'app/webrtc/peerconnection.cc',
-        'app/webrtc/peerconnectionfactory.cc',
-        'app/webrtc/peerconnectionproxy.cc',
-        'app/webrtc/portallocatorfactory.cc',
-        'app/webrtc/statscollector.cc',
-        'app/webrtc/videosourceproxy.cc',
-        'app/webrtc/videotrack.cc',
-        'app/webrtc/videotrackrenderers.cc',
-        'app/webrtc/webrtcsdp.cc',
-        'app/webrtc/webrtcsession.cc',
-      ],
-    },  # target libjingle_peerconnection
-  ],
-}
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK2 REQUIRED gtk+-2.0)
+
+set(${PROJECT_NAME}_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/asyncfile.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/asynchttprequest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/asyncsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/asynctcpsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/asyncudpsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/autodetectproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/bandwidthsmoother.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/base64.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/basicpacketsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/bytebuffer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/checks.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/common.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/cpumonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/crc32.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/diskcache.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/event.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/filelock.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/fileutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/firewallsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/flags.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/helpers.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/host.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/httpbase.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/httpclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/httpcommon.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/httprequest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/httpserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/ipaddress.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/json.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/logging.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/md5.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/messagedigest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/messagehandler.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/messagequeue.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/multipart.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/natserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/natsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/nattypes.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/nethelpers.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/network.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/nssidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/nssstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/optionsfile.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/pathutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/physicalsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/proxydetect.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/proxyinfo.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/proxyserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/ratelimiter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/ratetracker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sha1.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sharedexclusivelock.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/signalthread.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/socketadapters.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/socketaddress.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/socketaddresspair.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/socketpool.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/socketstream.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/ssladapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sslsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sslidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sslstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/sslstreamadapterhelper.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/stream.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/stringencode.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/stringutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/systeminfo.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/task.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/taskparent.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/taskrunner.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/testclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/thread.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/timeutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/timing.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/transformadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/urlencode.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/versionparsing.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/virtualsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/worker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/linux.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/dbus.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/libdbusglibsymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/linuxfdwalk.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/linuxwindowpicker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/latebindingsymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/openssladapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/openssldigest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/opensslidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/opensslstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/posix.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/base/unixfilesystem.cc")
+
+add_library(${PROJECT_NAME} OBJECT ${${PROJECT_NAME}_SRCS})
+set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(${PROJECT_NAME} PRIVATE ${JSONCPP_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PRIVATE "${NSS_INCLUDE_DIRS}")
+
+set(jingle_sound_SRCS 
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/nullsoundsystem.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/nullsoundsystemfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/platformsoundsystem.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/platformsoundsystemfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/soundsysteminterface.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/soundsystemproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/alsasoundsystem.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/alsasymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/linuxsoundsystem.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/pulseaudiosoundsystem.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/sound/pulseaudiosymboltable.cc")
+
+add_library(jingle_sound STATIC ${jingle_sound_SRCS})
+target_include_directories(jingle_sound PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+
+set(jingle_media_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/capturemanager.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/capturerenderadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/codec.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/constants.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/cpuid.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/filemediaengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/hybridvideoengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/mediaengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/rtpdataengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/rtpdump.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/rtputils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/streamparams.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/videoadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/videocapturer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/videocommon.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/videoframe.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/devicemanager.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/filevideocapturer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcpassthroughrender.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcvideocapturer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcvideoengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcvideoframe.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcvoiceengine.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/gtkvideorenderer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/libudevsymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/linuxdeviceinfo.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/linuxdevicemanager.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/devices/v4llookup.cc")
+
+add_library(jingle_media STATIC ${jingle_media_SRCS})
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/libudev")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc/webrtc")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/libyuv/include")
+target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_include_directories(jingle_media PRIVATE ${GTK2_INCLUDE_DIRS})
+set_target_properties(jingle_media PROPERTIES COMPILE_FLAGS ${GTK2_CFLAGS_OTHER})
+target_link_libraries(jingle_media ${GTK2_LIBRARIES} rt Xext X11)
+
+set(jingle_p2p_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/constants.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/dtlstransportchannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/p2ptransport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/p2ptransportchannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/parsing.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/port.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/portallocator.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/portallocatorsessionproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/portproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/pseudotcp.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/relayport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/relayserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/rawtransport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/rawtransportchannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/session.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/sessiondescription.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/sessionmanager.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/sessionmessages.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/stun.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/stunport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/stunrequest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/stunserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/tcpport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/transport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/transportchannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/transportchannelproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/transportdescriptionfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/turnport.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/turnserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/client/basicportallocator.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/client/connectivitychecker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/client/httpportallocator.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/client/socketmonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/tunnel/pseudotcpchannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/tunnel/tunnelsessionclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/tunnel/securetunnelsessionclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/audiomonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/call.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/channel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/channelmanager.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/currentspeakermonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/mediamessages.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/mediamonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/mediarecorder.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/mediasession.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/mediasessionclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/rtcpmuxfilter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/rtcpmuxfilter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/soundclip.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/srtpfilter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/ssrcmuxfilter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/session/media/typingmonitor.cc")
+
+add_library(jingle_p2p STATIC ${jingle_p2p_SRCS})
+target_include_directories(jingle_p2p PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_p2p PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_p2p PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_include_directories(jingle_p2p PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include/session/tunnel")
+target_include_directories(jingle_p2p PUBLIC "${gtest_SOURCE_DIR}/include")
+target_include_directories(jingle_p2p PUBLIC "${gmock_SOURCE_DIR}/include")
+target_include_directories(jingle_p2p PUBLIC "${SRTP_INCLUDE_DIRS}")
+target_link_libraries(jingle_p2p ${SRTP_LIBRARIES})
+
+set(jingle_peerconnection_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/audiotrack.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/datachannel.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/dtmfsender.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/jsepicecandidate.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/jsepsessiondescription.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/localaudiosource.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/localvideosource.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/mediastream.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/mediastreamhandler.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/mediastreamproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/mediastreamsignaling.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/mediastreamtrackproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/peerconnection.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/peerconnectionfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/peerconnectionproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/portallocatorfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/statscollector.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/videosourceproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/videotrack.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/videotrackrenderers.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/webrtcsdp.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/webrtcsession.cc")
+
+add_library(jingle_peerconnection STATIC ${jingle_peerconnection_SRCS})
+target_include_directories(jingle_peerconnection PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_peerconnection PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_peerconnection PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_include_directories(jingle_peerconnection PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc")
+target_include_directories(jingle_peerconnection PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc/webrtc")
+target_include_directories(jingle_peerconnection PUBLIC "${gtest_SOURCE_DIR}/include")
+target_include_directories(jingle_peerconnection PUBLIC "${gmock_SOURCE_DIR}/include")
+
+

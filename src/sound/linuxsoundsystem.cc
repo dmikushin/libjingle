@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/linuxsoundsystem.h"
+#include "sound/linuxsoundsystem.h"
 
-#include "talk/sound/alsasoundsystem.h"
-#include "talk/sound/pulseaudiosoundsystem.h"
+#include "sound/alsasoundsystem.h"
+#include "sound/pulseaudiosoundsystem.h"
 
 namespace cricket {
 

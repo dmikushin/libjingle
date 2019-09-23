@@ -25,23 +25,23 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/webrtcsession.h"
+#include "app/webrtc/webrtcsession.h"
 
 #include <algorithm>
 #include <vector>
 
-#include "talk/app/webrtc/jsepicecandidate.h"
-#include "talk/app/webrtc/jsepsessiondescription.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/mediastreamsignaling.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/session/media/channel.h"
-#include "talk/session/media/channelmanager.h"
-#include "talk/session/media/mediasession.h"
+#include "app/webrtc/jsepicecandidate.h"
+#include "app/webrtc/jsepsessiondescription.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/mediastreamsignaling.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "media/base/videocapturer.h"
+#include "session/media/channel.h"
+#include "session/media/channelmanager.h"
+#include "session/media/mediasession.h"
 
 using cricket::ContentInfo;
 using cricket::ContentInfos;

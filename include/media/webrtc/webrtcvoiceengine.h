@@ -33,15 +33,15 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/buffer.h"
-#include "talk/base/byteorder.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stream.h"
-#include "talk/media/base/rtputils.h"
-#include "talk/media/webrtc/webrtccommon.h"
-#include "talk/media/webrtc/webrtcvoe.h"
-#include "talk/session/media/channel.h"
+#include "base/buffer.h"
+#include "base/byteorder.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "base/stream.h"
+#include "media/base/rtputils.h"
+#include "media/webrtc/webrtccommon.h"
+#include "media/webrtc/webrtcvoe.h"
+#include "session/media/channel.h"
 
 
 namespace cricket {

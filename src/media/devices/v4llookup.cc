@@ -6,7 +6,7 @@
  * The functionality is implemented as a class with virtual methods for
  * the purpose of unit testing.
  */
-#include "talk/media/devices/v4llookup.h"
+#include "media/devices/v4llookup.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -19,7 +19,7 @@
 
 #include <cstring>
 
-#include "talk/base/logging.h"
+#include "base/logging.h"
 
 namespace cricket {
 

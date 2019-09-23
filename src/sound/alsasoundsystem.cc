@@ -25,17 +25,17 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/alsasoundsystem.h"
+#include "sound/alsasoundsystem.h"
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/timeutils.h"
-#include "talk/base/worker.h"
-#include "talk/sound/sounddevicelocator.h"
-#include "talk/sound/soundinputstreaminterface.h"
-#include "talk/sound/soundoutputstreaminterface.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "base/stringutils.h"
+#include "base/timeutils.h"
+#include "base/worker.h"
+#include "sound/sounddevicelocator.h"
+#include "sound/soundinputstreaminterface.h"
+#include "sound/soundoutputstreaminterface.h"
 
 namespace cricket {
 

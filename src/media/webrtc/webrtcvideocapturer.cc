@@ -25,19 +25,19 @@
 //
 // Implementation of class WebRtcVideoCapturer.
 
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
 #ifdef HAVE_WEBRTC_VIDEO
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
-#include "talk/base/timeutils.h"
-#include "talk/media/webrtc/webrtcvideoframe.h"
+#include "base/logging.h"
+#include "base/thread.h"
+#include "base/timeutils.h"
+#include "media/webrtc/webrtcvideoframe.h"
 
-#include "talk/base/win32.h"  // Need this to #include the impl files.
+#include "base/win32.h"  // Need this to #include the impl files.
 #include "webrtc/modules/video_capture/include/video_capture_factory.h"
 
 namespace cricket {

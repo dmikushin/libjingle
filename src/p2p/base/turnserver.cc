@@ -25,18 +25,18 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/p2p/base/turnserver.h"
+#include "p2p/base/turnserver.h"
 
-#include "talk/base/asyncpacketsocket.h"
-#include "talk/base/bytebuffer.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/messagedigest.h"
-#include "talk/base/packetsocketfactory.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/common.h"
-#include "talk/p2p/base/stun.h"
+#include "base/asyncpacketsocket.h"
+#include "base/bytebuffer.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/messagedigest.h"
+#include "base/packetsocketfactory.h"
+#include "base/stringencode.h"
+#include "base/thread.h"
+#include "p2p/base/common.h"
+#include "p2p/base/stun.h"
 
 namespace cricket {
 

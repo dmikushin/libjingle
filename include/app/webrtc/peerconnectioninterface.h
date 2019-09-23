@@ -71,12 +71,12 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/datachannelinterface.h"
-#include "talk/app/webrtc/dtmfsenderinterface.h"
-#include "talk/app/webrtc/jsep.h"
-#include "talk/app/webrtc/statstypes.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/base/socketaddress.h"
+#include "app/webrtc/datachannelinterface.h"
+#include "app/webrtc/dtmfsenderinterface.h"
+#include "app/webrtc/jsep.h"
+#include "app/webrtc/statstypes.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "base/socketaddress.h"
 
 namespace talk_base {
 class Thread;

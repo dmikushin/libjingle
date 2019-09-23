@@ -2,7 +2,7 @@
 // Google.
 
 // It was generated with the following command line:
-// > python //depot/googleclient/talk/tools/generate_sslroots.py
+// > python //depot/googleclient/tools/generate_sslroots.py
 //    //depot/google3/security/cacerts/for_connecting_to_google/roots.pem
 
 /* subject:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root */

@@ -30,7 +30,7 @@
 
 #include <string.h>
 
-#include "talk/base/common.h"
+#include "base/common.h"
 
 namespace talk_base {
 
@@ -45,7 +45,7 @@ typedef void *DllHandle;
 // Linux and OS X, and pure C symbols (or extern "C" symbols that wrap C++
 // functions).  Sub-classes for specific DLLs are generated via the "supermacro"
 // files latebindingsymboltable.h.def and latebindingsymboltable.cc.def. See
-// talk/sound/pulseaudiosymboltable.(h|cc) for an example.
+// sound/pulseaudiosymboltable.(h|cc) for an example.
 class LateBindingSymbolTable {
  public:
   struct TableInfo {

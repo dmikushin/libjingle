@@ -28,8 +28,8 @@
 
 #include <vector>
 
-#include "talk/media/webrtc/fakewebrtcvideocapturemodule.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/fakewebrtcvideocapturemodule.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 // Factory class to allow the fakes above to be injected into
 // WebRtcVideoCapturer.

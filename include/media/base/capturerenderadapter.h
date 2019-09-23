@@ -36,9 +36,9 @@
 
 #include <vector>
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/sigslot.h"
-#include "talk/media/base/videocapturer.h"
+#include "base/criticalsection.h"
+#include "base/sigslot.h"
+#include "media/base/videocapturer.h"
 
 namespace cricket {
 

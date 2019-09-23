@@ -30,9 +30,9 @@
 
 #include <string>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/base/common.h"
-#include "talk/base/refcount.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "base/common.h"
+#include "base/refcount.h"
 
 // This file contains interfaces for DtmfSender.
 

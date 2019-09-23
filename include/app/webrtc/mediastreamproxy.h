@@ -31,8 +31,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/mediastream.h"
-#include "talk/base/thread.h"
+#include "app/webrtc/mediastream.h"
+#include "base/thread.h"
 
 namespace webrtc {
 using talk_base::scoped_refptr;

@@ -31,11 +31,11 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/window.h"
-#include "talk/base/windowpicker.h"
-#include "talk/media/base/fakevideocapturer.h"
-#include "talk/media/base/mediacommon.h"
-#include "talk/media/devices/devicemanager.h"
+#include "base/window.h"
+#include "base/windowpicker.h"
+#include "media/base/fakevideocapturer.h"
+#include "media/base/mediacommon.h"
+#include "media/devices/devicemanager.h"
 
 namespace cricket {
 

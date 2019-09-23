@@ -31,9 +31,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/sigslot.h"
-#include "talk/base/stringencode.h"
-#include "talk/media/devices/devicemanager.h"
+#include "base/sigslot.h"
+#include "base/stringencode.h"
+#include "media/devices/devicemanager.h"
 
 namespace cricket {
 

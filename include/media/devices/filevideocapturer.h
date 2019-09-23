@@ -37,9 +37,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/stream.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/videocapturer.h"
+#include "base/stream.h"
+#include "base/stringutils.h"
+#include "media/base/videocapturer.h"
 
 namespace talk_base {
 class FileStream;

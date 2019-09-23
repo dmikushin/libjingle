@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/host.h"
+#include "base/host.h"
 
 #ifdef POSIX
 #include <sys/utsname.h>

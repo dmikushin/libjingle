@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/nullsoundsystem.h"
+#include "sound/nullsoundsystem.h"
 
-#include "talk/base/logging.h"
-#include "talk/sound/sounddevicelocator.h"
-#include "talk/sound/soundinputstreaminterface.h"
-#include "talk/sound/soundoutputstreaminterface.h"
+#include "base/logging.h"
+#include "sound/sounddevicelocator.h"
+#include "sound/soundinputstreaminterface.h"
+#include "sound/soundoutputstreaminterface.h"
 
 namespace talk_base {
 

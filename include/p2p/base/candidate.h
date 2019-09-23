@@ -33,9 +33,9 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include "talk/base/basictypes.h"
-#include "talk/base/socketaddress.h"
-#include "talk/p2p/base/constants.h"
+#include "base/basictypes.h"
+#include "base/socketaddress.h"
+#include "p2p/base/constants.h"
 
 namespace cricket {
 

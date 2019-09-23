@@ -32,9 +32,9 @@
 
 #include <vector>
 
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/base/videoframe.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

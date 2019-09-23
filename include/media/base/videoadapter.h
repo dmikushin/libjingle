@@ -26,10 +26,10 @@
 #ifndef TALK_MEDIA_BASE_VIDEOADAPTER_H_  // NOLINT
 #define TALK_MEDIA_BASE_VIDEOADAPTER_H_
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/media/base/videocommon.h"
+#include "base/criticalsection.h"
+#include "base/scoped_ptr.h"
+#include "base/sigslot.h"
+#include "media/base/videocommon.h"
 
 namespace cricket {
 

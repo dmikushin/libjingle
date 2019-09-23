@@ -49,7 +49,7 @@
 #include <cstring>
 #include <string>
 
-#include "talk/base/basictypes.h"
+#include "base/basictypes.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 // Generic string/memory utilities

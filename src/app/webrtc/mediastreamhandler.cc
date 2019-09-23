@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/mediastreamhandler.h"
+#include "app/webrtc/mediastreamhandler.h"
 
-#include "talk/app/webrtc/localaudiosource.h"
-#include "talk/app/webrtc/localvideosource.h"
-#include "talk/app/webrtc/videosourceinterface.h"
+#include "app/webrtc/localaudiosource.h"
+#include "app/webrtc/localvideosource.h"
+#include "app/webrtc/videosourceinterface.h"
 
 namespace webrtc {
 

@@ -25,18 +25,18 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/peerconnection.h"
+#include "app/webrtc/peerconnection.h"
 
 #include <vector>
 
-#include "talk/app/webrtc/dtmfsender.h"
-#include "talk/app/webrtc/jsepicecandidate.h"
-#include "talk/app/webrtc/jsepsessiondescription.h"
-#include "talk/app/webrtc/mediastreamhandler.h"
-#include "talk/app/webrtc/streamcollection.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/session/media/channelmanager.h"
+#include "app/webrtc/dtmfsender.h"
+#include "app/webrtc/jsepicecandidate.h"
+#include "app/webrtc/jsepsessiondescription.h"
+#include "app/webrtc/mediastreamhandler.h"
+#include "app/webrtc/streamcollection.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "session/media/channelmanager.h"
 
 namespace {
 

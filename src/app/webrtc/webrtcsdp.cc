@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/webrtcsdp.h"
+#include "app/webrtc/webrtcsdp.h"
 
 #include <limits.h>
 #include <stdio.h>
@@ -33,20 +33,20 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/jsepicecandidate.h"
-#include "talk/app/webrtc/jsepsessiondescription.h"
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/messagedigest.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/constants.h"
-#include "talk/media/base/cryptoparams.h"
-#include "talk/p2p/base/candidate.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/port.h"
-#include "talk/session/media/mediasession.h"
-#include "talk/session/media/mediasessionclient.h"
+#include "app/webrtc/jsepicecandidate.h"
+#include "app/webrtc/jsepsessiondescription.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/messagedigest.h"
+#include "base/stringutils.h"
+#include "media/base/codec.h"
+#include "media/base/constants.h"
+#include "media/base/cryptoparams.h"
+#include "p2p/base/candidate.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/port.h"
+#include "session/media/mediasession.h"
+#include "session/media/mediasessionclient.h"
 
 using cricket::AudioContentDescription;
 using cricket::Candidate;

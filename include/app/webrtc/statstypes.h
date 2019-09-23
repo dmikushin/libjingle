@@ -34,8 +34,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/stringencode.h"
+#include "base/basictypes.h"
+#include "base/stringencode.h"
 
 namespace webrtc {
 

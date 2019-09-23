@@ -31,10 +31,10 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/helpers.h"
-#include "talk/p2p/base/candidate.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/transportdescription.h"
+#include "base/helpers.h"
+#include "p2p/base/candidate.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/transportdescription.h"
 
 namespace cricket {
 

@@ -31,24 +31,24 @@
 
 #ifdef HAVE_WEBRTC_VOICE
 
-#include "talk/media/webrtc/webrtcvoiceengine.h"
+#include "media/webrtc/webrtcvoiceengine.h"
 
 #include <algorithm>
 #include <cstdio>
 #include <string>
 #include <vector>
 
-#include "talk/base/base64.h"
-#include "talk/base/byteorder.h"
-#include "talk/base/common.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/constants.h"
-#include "talk/media/base/streamparams.h"
-#include "talk/media/base/voiceprocessor.h"
-#include "talk/media/webrtc/webrtcvoe.h"
+#include "base/base64.h"
+#include "base/byteorder.h"
+#include "base/common.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "base/stringutils.h"
+#include "media/base/constants.h"
+#include "media/base/streamparams.h"
+#include "media/base/voiceprocessor.h"
+#include "media/webrtc/webrtcvoe.h"
 
 #ifdef WIN32
 #include <objbase.h>  // NOLINT

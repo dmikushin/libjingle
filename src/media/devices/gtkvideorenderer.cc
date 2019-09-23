@@ -25,12 +25,12 @@
 //
 // Implementation of GtkVideoRenderer
 
-#include "talk/media/devices/gtkvideorenderer.h"
+#include "media/devices/gtkvideorenderer.h"
 
 #include <gtk/gtk.h>
 
-#include "talk/media/base/videocommon.h"
-#include "talk/media/base/videoframe.h"
+#include "media/base/videocommon.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

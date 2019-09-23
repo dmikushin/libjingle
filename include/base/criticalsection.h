@@ -28,10 +28,10 @@
 #ifndef TALK_BASE_CRITICALSECTION_H__
 #define TALK_BASE_CRITICALSECTION_H__
 
-#include "talk/base/constructormagic.h"
+#include "base/constructormagic.h"
 
 #ifdef WIN32
-#include "talk/base/win32.h"
+#include "base/win32.h"
 #endif
 
 #ifdef POSIX

@@ -28,11 +28,11 @@
 #ifndef TALK_SESSION_TUNNEL_PSEUDOTCPCHANNEL_H_
 #define TALK_SESSION_TUNNEL_PSEUDOTCPCHANNEL_H_
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/messagequeue.h"
-#include "talk/base/stream.h"
-#include "talk/p2p/base/pseudotcp.h"
-#include "talk/p2p/base/session.h"
+#include "base/criticalsection.h"
+#include "base/messagequeue.h"
+#include "base/stream.h"
+#include "p2p/base/pseudotcp.h"
+#include "p2p/base/session.h"
 
 namespace talk_base {
 class Thread;

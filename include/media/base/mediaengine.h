@@ -36,15 +36,15 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/sigslotrepeater.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/mediacommon.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/base/videoprocessor.h"
-#include "talk/media/base/voiceprocessor.h"
-#include "talk/media/devices/devicemanager.h"
+#include "base/sigslotrepeater.h"
+#include "media/base/codec.h"
+#include "media/base/mediachannel.h"
+#include "media/base/mediacommon.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
+#include "media/base/videoprocessor.h"
+#include "media/base/voiceprocessor.h"
+#include "media/devices/devicemanager.h"
 
 namespace cricket {
 

@@ -30,9 +30,9 @@
 
 #include <vector>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/base/criticalsection.h"
-#include "talk/media/base/videorenderer.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "base/criticalsection.h"
+#include "media/base/videorenderer.h"
 
 namespace webrtc {
 

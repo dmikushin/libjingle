@@ -28,8 +28,8 @@
 #ifndef TALK_APP_WEBRTC_PEERCONNECTIONPROXY_H_
 #define TALK_APP_WEBRTC_PEERCONNECTIONPROXY_H_
 
-#include "talk/app/webrtc/mediastreamsignaling.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
+#include "app/webrtc/mediastreamsignaling.h"
+#include "app/webrtc/peerconnectioninterface.h"
 
 namespace talk_base {
 class Thread;

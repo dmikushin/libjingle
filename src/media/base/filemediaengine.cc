@@ -23,18 +23,18 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "talk/media/base/filemediaengine.h"
+#include "media/base/filemediaengine.h"
 
 #include <climits>
 
-#include "talk/base/buffer.h"
-#include "talk/base/event.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/stream.h"
-#include "talk/media/base/rtpdump.h"
-#include "talk/media/base/rtputils.h"
-#include "talk/media/base/streamparams.h"
+#include "base/buffer.h"
+#include "base/event.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "base/stream.h"
+#include "media/base/rtpdump.h"
+#include "media/base/rtputils.h"
+#include "media/base/streamparams.h"
 
 namespace cricket {
 

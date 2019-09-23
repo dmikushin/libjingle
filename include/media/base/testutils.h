@@ -31,12 +31,12 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/window.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
+#include "base/basictypes.h"
+#include "base/sigslot.h"
+#include "base/window.h"
+#include "media/base/mediachannel.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
 
 namespace talk_base {
 class ByteBuffer;

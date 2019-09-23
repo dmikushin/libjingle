@@ -46,10 +46,10 @@
 #include <map>
 #include <vector>
 
-#include "talk/base/sigslotrepeater.h"
-#include "talk/media/base/capturerenderadapter.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
+#include "base/sigslotrepeater.h"
+#include "media/base/capturerenderadapter.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
 
 namespace cricket {
 

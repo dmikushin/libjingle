@@ -25,21 +25,21 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/basicdefs.h"
-#include "talk/base/basictypes.h"
-#include "talk/base/common.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/transportchannel.h"
-#include "talk/xmllite/xmlelement.h"
+#include "base/basicdefs.h"
+#include "base/basictypes.h"
+#include "base/common.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/transportchannel.h"
+#include "xmlelement.h"
 #include "pseudotcpchannel.h"
 #include "tunnelsessionclient.h"
 
 namespace cricket {
 
-const char NS_TUNNEL[] = "http://www.google.com/talk/tunnel";
+const char NS_TUNNEL[] = "http://www.google.com/tunnel";
 const buzz::StaticQName QN_TUNNEL_DESCRIPTION = { NS_TUNNEL, "description" };
 const buzz::StaticQName QN_TUNNEL_TYPE = { NS_TUNNEL, "type" };
 const char CN_TUNNEL[] = "tunnel";

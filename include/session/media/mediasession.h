@@ -34,15 +34,15 @@
 #include <vector>
 #include <algorithm>
 
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/constants.h"
-#include "talk/media/base/cryptoparams.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/streamparams.h"
-#include "talk/p2p/base/sessiondescription.h"
-#include "talk/p2p/base/transport.h"
-#include "talk/p2p/base/transportdescriptionfactory.h"
+#include "base/scoped_ptr.h"
+#include "media/base/codec.h"
+#include "media/base/constants.h"
+#include "media/base/cryptoparams.h"
+#include "media/base/mediachannel.h"
+#include "media/base/streamparams.h"
+#include "p2p/base/sessiondescription.h"
+#include "p2p/base/transport.h"
+#include "p2p/base/transportdescriptionfactory.h"
 
 namespace cricket {
 

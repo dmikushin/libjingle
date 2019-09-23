@@ -30,7 +30,7 @@
 
 #include <string>
 #include <vector>
-#include "talk/p2p/base/transport.h"
+#include "p2p/base/transport.h"
 
 namespace cricket {
 

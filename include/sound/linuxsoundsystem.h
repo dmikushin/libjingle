@@ -28,7 +28,7 @@
 #ifndef TALK_SOUND_LINUXSOUNDSYSTEM_H_
 #define TALK_SOUND_LINUXSOUNDSYSTEM_H_
 
-#include "talk/sound/automaticallychosensoundsystem.h"
+#include "sound/automaticallychosensoundsystem.h"
 
 namespace cricket {
 

@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/localaudiosource.h"
+#include "app/webrtc/localaudiosource.h"
 
 #include <vector>
 
-#include "talk/media/base/mediaengine.h"
+#include "media/base/mediaengine.h"
 
 using webrtc::MediaConstraintsInterface;
 using webrtc::MediaSourceInterface;

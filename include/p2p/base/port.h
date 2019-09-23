@@ -32,18 +32,18 @@
 #include <vector>
 #include <map>
 
-#include "talk/base/network.h"
-#include "talk/base/packetsocketfactory.h"
-#include "talk/base/proxyinfo.h"
-#include "talk/base/ratetracker.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/socketaddress.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/candidate.h"
-#include "talk/p2p/base/portinterface.h"
-#include "talk/p2p/base/stun.h"
-#include "talk/p2p/base/stunrequest.h"
-#include "talk/p2p/base/transport.h"
+#include "base/network.h"
+#include "base/packetsocketfactory.h"
+#include "base/proxyinfo.h"
+#include "base/ratetracker.h"
+#include "base/sigslot.h"
+#include "base/socketaddress.h"
+#include "base/thread.h"
+#include "p2p/base/candidate.h"
+#include "p2p/base/portinterface.h"
+#include "p2p/base/stun.h"
+#include "p2p/base/stunrequest.h"
+#include "p2p/base/transport.h"
 
 namespace talk_base {
 class AsyncPacketSocket;

@@ -32,7 +32,7 @@
 
 #include <string>
 
-#include "talk/app/webrtc/datachannelinterface.h"
+#include "app/webrtc/datachannelinterface.h"
 
 namespace webrtc {
 

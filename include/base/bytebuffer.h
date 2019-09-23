@@ -30,8 +30,8 @@
 
 #include <string>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/constructormagic.h"
+#include "base/basictypes.h"
+#include "base/constructormagic.h"
 
 namespace talk_base {
 

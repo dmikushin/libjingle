@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/typingmonitor.h"
+#include "session/media/typingmonitor.h"
 
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
-#include "talk/session/media/channel.h"
+#include "base/logging.h"
+#include "base/thread.h"
+#include "session/media/channel.h"
 
 namespace cricket {
 

@@ -29,15 +29,15 @@
  * Documentation is in mediamessages.h.
  */
 
-#include "talk/session/media/mediamessages.h"
+#include "session/media/mediamessages.h"
 
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/media/base/streamparams.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/parsing.h"
-#include "talk/session/media/mediasessionclient.h"
-#include "talk/xmllite/xmlelement.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "media/base/streamparams.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/parsing.h"
+#include "session/media/mediasessionclient.h"
+#include "xmlelement.h"
 
 namespace cricket {
 

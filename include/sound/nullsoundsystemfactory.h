@@ -28,7 +28,7 @@
 #ifndef TALK_SOUND_NULLSOUNDSYSTEMFACTORY_H_
 #define TALK_SOUND_NULLSOUNDSYSTEMFACTORY_H_
 
-#include "talk/sound/soundsystemfactory.h"
+#include "sound/soundsystemfactory.h"
 
 namespace cricket {
 

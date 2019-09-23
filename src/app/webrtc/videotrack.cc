@@ -24,11 +24,11 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#include "talk/app/webrtc/videotrack.h"
+#include "app/webrtc/videotrack.h"
 
 #include <string>
 
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 namespace webrtc {
 

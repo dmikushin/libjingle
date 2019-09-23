@@ -31,9 +31,9 @@
 
 #include <Carbon/Carbon.h>
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/videorenderer.h"
+#include "base/criticalsection.h"
+#include "base/scoped_ptr.h"
+#include "media/base/videorenderer.h"
 
 namespace cricket {
 

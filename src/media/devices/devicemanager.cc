@@ -25,23 +25,23 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/devicemanager.h"
+#include "media/devices/devicemanager.h"
 
-#include "talk/base/fileutils.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/base/windowpicker.h"
-#include "talk/base/windowpickerfactory.h"
-#include "talk/media/base/mediacommon.h"
-#include "talk/media/devices/deviceinfo.h"
-#include "talk/media/devices/filevideocapturer.h"
+#include "base/fileutils.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "base/windowpicker.h"
+#include "base/windowpickerfactory.h"
+#include "media/base/mediacommon.h"
+#include "media/devices/deviceinfo.h"
+#include "media/devices/filevideocapturer.h"
 
 #if !(defined(IOS) || defined(ANDROID))
 
 #if defined(HAVE_WEBRTC_VIDEO)
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 #endif
 
 

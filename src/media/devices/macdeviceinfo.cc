@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/deviceinfo.h"
+#include "media/devices/deviceinfo.h"
 
 namespace cricket {
 

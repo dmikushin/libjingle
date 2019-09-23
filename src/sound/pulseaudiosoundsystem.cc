@@ -25,18 +25,18 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/pulseaudiosoundsystem.h"
+#include "sound/pulseaudiosoundsystem.h"
 
 #ifdef HAVE_LIBPULSE
 
-#include "talk/base/common.h"
-#include "talk/base/fileutils.h"  // for GetApplicationName()
-#include "talk/base/logging.h"
-#include "talk/base/worker.h"
-#include "talk/base/timeutils.h"
-#include "talk/sound/sounddevicelocator.h"
-#include "talk/sound/soundinputstreaminterface.h"
-#include "talk/sound/soundoutputstreaminterface.h"
+#include "base/common.h"
+#include "base/fileutils.h"  // for GetApplicationName()
+#include "base/logging.h"
+#include "base/worker.h"
+#include "base/timeutils.h"
+#include "sound/sounddevicelocator.h"
+#include "sound/soundinputstreaminterface.h"
+#include "sound/soundoutputstreaminterface.h"
 
 namespace cricket {
 

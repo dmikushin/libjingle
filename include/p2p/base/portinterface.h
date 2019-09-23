@@ -30,8 +30,8 @@
 
 #include <string>
 
-#include "talk/base/socketaddress.h"
-#include "talk/p2p/base/transport.h"
+#include "base/socketaddress.h"
+#include "p2p/base/transport.h"
 
 namespace talk_base {
 class Network;

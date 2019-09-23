@@ -25,22 +25,22 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/testutils.h"
+#include "media/base/testutils.h"
 
 #include <math.h>
 
 #ifdef HAVE_YUV
 #include "libyuv/compare.h"
 #endif
-#include "talk/base/bytebuffer.h"
-#include "talk/base/fileutils.h"
-#include "talk/base/gunit.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/stream.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/rtpdump.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videoframe.h"
+#include "base/bytebuffer.h"
+#include "base/fileutils.h"
+#include "base/gunit.h"
+#include "base/pathutils.h"
+#include "base/stream.h"
+#include "base/stringutils.h"
+#include "media/base/rtpdump.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

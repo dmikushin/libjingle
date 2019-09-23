@@ -41,16 +41,16 @@
 #include <security.h>
 #endif
 
-#include "talk/base/bytebuffer.h"
-#include "talk/base/common.h"
-#include "talk/base/httpcommon.h"
-#include "talk/base/logging.h"
-#include "talk/base/socketadapters.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/stringutils.h"
+#include "base/bytebuffer.h"
+#include "base/common.h"
+#include "base/httpcommon.h"
+#include "base/logging.h"
+#include "base/socketadapters.h"
+#include "base/stringencode.h"
+#include "base/stringutils.h"
 
 #ifdef WIN32
-#include "talk/base/sec_buffer.h"
+#include "base/sec_buffer.h"
 #endif  // WIN32
 
 namespace talk_base {
@@ -411,7 +411,7 @@ void AsyncHttpsProxySocket::ProcessLine(char * data, size_t len) {
           "with your proxy.\r\nPlease help us resolve this issue by submitting the "
           "following information to us using our technical issue submission form "
           "at:\r\n\r\n"
-          "http://www.google.com/support/talk/bin/request.py\r\n\r\n"
+          "http://www.google.com/support/bin/request.py\r\n\r\n"
           "We apologize for the inconvenience.\r\n\r\n"
           "Information to submit to Google: "
           );

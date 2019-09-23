@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/jsepicecandidate.h"
+#include "app/webrtc/jsepicecandidate.h"
 
 #include <vector>
 
-#include "talk/app/webrtc/webrtcsdp.h"
-#include "talk/base/stringencode.h"
+#include "app/webrtc/webrtcsdp.h"
+#include "base/stringencode.h"
 
 namespace webrtc {
 

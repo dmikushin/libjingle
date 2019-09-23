@@ -31,11 +31,11 @@
 #include <map>
 #include <string>
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/session/media/channel.h"
-#include "talk/session/media/mediasink.h"
+#include "base/criticalsection.h"
+#include "base/scoped_ptr.h"
+#include "base/sigslot.h"
+#include "session/media/channel.h"
+#include "session/media/mediasink.h"
 
 namespace talk_base {
 class Pathname;

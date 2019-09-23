@@ -26,14 +26,14 @@
  */
 
 #include <string>
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
-#include "talk/base/window.h"
-#include "talk/media/base/screencastid.h"
-#include "talk/p2p/base/parsing.h"
-#include "talk/session/media/call.h"
-#include "talk/session/media/mediasessionclient.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/thread.h"
+#include "base/window.h"
+#include "media/base/screencastid.h"
+#include "p2p/base/parsing.h"
+#include "session/media/call.h"
+#include "session/media/mediasessionclient.h"
 
 namespace cricket {
 

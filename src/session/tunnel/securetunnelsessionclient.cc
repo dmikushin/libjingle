@@ -27,24 +27,24 @@
 
 // SecureTunnelSessionClient and SecureTunnelSession implementation.
 
-#include "talk/session/tunnel/securetunnelsessionclient.h"
-#include "talk/base/basicdefs.h"
-#include "talk/base/basictypes.h"
-#include "talk/base/common.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/sslidentity.h"
-#include "talk/base/sslstreamadapter.h"
-#include "talk/p2p/base/transportchannel.h"
-#include "talk/xmllite/xmlelement.h"
-#include "talk/session/tunnel/pseudotcpchannel.h"
+#include "session/tunnel/securetunnelsessionclient.h"
+#include "base/basicdefs.h"
+#include "base/basictypes.h"
+#include "base/common.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "base/sslidentity.h"
+#include "base/sslstreamadapter.h"
+#include "p2p/base/transportchannel.h"
+#include "xmlelement.h"
+#include "session/tunnel/pseudotcpchannel.h"
 
 namespace cricket {
 
 // XML elements and namespaces for XMPP stanzas used in content exchanges.
 
-const char NS_SECURE_TUNNEL[] = "http://www.google.com/talk/securetunnel";
+const char NS_SECURE_TUNNEL[] = "http://www.google.com/securetunnel";
 const buzz::StaticQName QN_SECURE_TUNNEL_DESCRIPTION =
     { NS_SECURE_TUNNEL, "description" };
 const buzz::StaticQName QN_SECURE_TUNNEL_TYPE =
@@ -179,7 +179,7 @@ void SecureTunnelSessionClient::OnIncomingTunnel(const buzz::Jid &jid,
 //   <session xmlns="http://www.google.com/session"
 //       type="initiate" id="2508605813"
 //       initiator="INITIATOR@gmail.com/pcpE101B7F4">
-//     <description xmlns="http://www.google.com/talk/securetunnel">
+//     <description xmlns="http://www.google.com/securetunnel">
 //       <type>send:filename</type>
 //       <client-cert>
 //         -----BEGIN CERTIFICATE-----
@@ -199,7 +199,7 @@ void SecureTunnelSessionClient::OnIncomingTunnel(const buzz::Jid &jid,
 //   <session xmlns="http://www.google.com/session"
 //       type="accept" id="2508605813"
 //       initiator="sdoyon911@gmail.com/pcpE101B7F4">
-//     <description xmlns="http://www.google.com/talk/securetunnel">
+//     <description xmlns="http://www.google.com/securetunnel">
 //       <type>send:FILENAME</type>
 //       <client-cert>
 //         -----BEGIN CERTIFICATE-----

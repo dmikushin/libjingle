@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/soundsystemproxy.h"
+#include "sound/soundsystemproxy.h"
 
 namespace cricket {
 

@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/constants.h"
+#include "media/base/constants.h"
 
 #include <string>
 

@@ -29,21 +29,21 @@
 #include "config.h"
 #endif  // HAVE_CONFIG_H
 
-#include "talk/base/ssladapter.h"
+#include "base/ssladapter.h"
 
-#include "talk/base/sslconfig.h"
+#include "base/sslconfig.h"
 
 #if SSL_USE_SCHANNEL
 
-#include "schanneladapter.h"
+#include "base/schanneladapter.h"
 
 #elif SSL_USE_OPENSSL  // && !SSL_USE_SCHANNEL
 
-#include "openssladapter.h"
+#include "base/openssladapter.h"
 
 #elif SSL_USE_NSS     // && !SSL_USE_CHANNEL && !SSL_USE_OPENSSL
 
-#include "nssstreamadapter.h"
+#include "base/nssstreamadapter.h"
 
 #endif  // SSL_USE_OPENSSL && !SSL_USE_SCHANNEL && !SSL_USE_NSS
 

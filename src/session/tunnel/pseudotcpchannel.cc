@@ -26,13 +26,13 @@
  */
 
 #include <string>
-#include "talk/base/basictypes.h"
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stringutils.h"
-#include "talk/p2p/base/candidate.h"
-#include "talk/p2p/base/transportchannel.h"
+#include "base/basictypes.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "base/stringutils.h"
+#include "p2p/base/candidate.h"
+#include "p2p/base/transportchannel.h"
 #include "pseudotcpchannel.h"
 
 using namespace talk_base;

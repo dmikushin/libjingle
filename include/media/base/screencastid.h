@@ -9,8 +9,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/window.h"
-#include "talk/base/windowpicker.h"
+#include "base/window.h"
+#include "base/windowpicker.h"
 
 namespace cricket {
 

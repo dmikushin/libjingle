@@ -36,7 +36,7 @@
 #include <stdlib.h>
 #endif
 
-#include "talk/base/basictypes.h"
+#include "base/basictypes.h"
 
 namespace talk_base {
 

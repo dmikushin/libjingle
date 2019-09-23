@@ -39,9 +39,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/p2p/base/parsing.h"
-#include "talk/p2p/base/sessiondescription.h"
+#include "base/basictypes.h"
+#include "p2p/base/parsing.h"
+#include "p2p/base/sessiondescription.h"
 
 namespace cricket {
 

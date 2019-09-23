@@ -34,8 +34,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/base/thread.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "base/thread.h"
 
 namespace webrtc {
 

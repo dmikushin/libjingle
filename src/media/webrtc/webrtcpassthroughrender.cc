@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/webrtc/webrtcpassthroughrender.h"
+#include "media/webrtc/webrtcpassthroughrender.h"
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
+#include "base/common.h"
+#include "base/logging.h"
 
 namespace cricket {
 

@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/soundsysteminterface.h"
+#include "sound/soundsysteminterface.h"
 
-#include "talk/sound/sounddevicelocator.h"
+#include "sound/sounddevicelocator.h"
 
 namespace cricket {
 

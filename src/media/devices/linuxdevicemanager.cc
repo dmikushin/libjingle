@@ -25,24 +25,24 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/linuxdevicemanager.h"
+#include "media/devices/linuxdevicemanager.h"
 
 #include <unistd.h>
-#include "talk/base/fileutils.h"
-#include "talk/base/linux.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/physicalsocketserver.h"
-#include "talk/base/stream.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/mediacommon.h"
-#include "talk/media/devices/libudevsymboltable.h"
-#include "talk/media/devices/v4llookup.h"
-#include "talk/sound/platformsoundsystem.h"
-#include "talk/sound/platformsoundsystemfactory.h"
-#include "talk/sound/sounddevicelocator.h"
-#include "talk/sound/soundsysteminterface.h"
+#include "base/fileutils.h"
+#include "base/linux.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "base/physicalsocketserver.h"
+#include "base/stream.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "media/base/mediacommon.h"
+#include "media/devices/libudevsymboltable.h"
+#include "media/devices/v4llookup.h"
+#include "sound/platformsoundsystem.h"
+#include "sound/platformsoundsystemfactory.h"
+#include "sound/sounddevicelocator.h"
+#include "sound/soundsysteminterface.h"
 
 namespace cricket {
 

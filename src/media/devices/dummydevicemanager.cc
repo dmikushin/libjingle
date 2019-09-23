@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/dummydevicemanager.h"
+#include "media/devices/dummydevicemanager.h"
 
 namespace cricket {
 

@@ -36,10 +36,10 @@
 #include <list>
 #include <vector>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/mediastreamprovider.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/base/thread.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/mediastreamprovider.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "base/thread.h"
 
 namespace webrtc {
 

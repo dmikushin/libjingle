@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/platformsoundsystem.h"
+#include "sound/platformsoundsystem.h"
 
-#include "talk/base/common.h"
+#include "base/common.h"
 #ifdef LINUX
-#include "talk/sound/linuxsoundsystem.h"
+#include "sound/linuxsoundsystem.h"
 #else
-#include "talk/sound/nullsoundsystem.h"
+#include "sound/nullsoundsystem.h"
 #endif
 
 namespace cricket {

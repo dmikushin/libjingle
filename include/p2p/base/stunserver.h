@@ -28,9 +28,9 @@
 #ifndef TALK_P2P_BASE_STUNSERVER_H_
 #define TALK_P2P_BASE_STUNSERVER_H_
 
-#include "talk/base/asyncudpsocket.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/p2p/base/stun.h"
+#include "base/asyncudpsocket.h"
+#include "base/scoped_ptr.h"
+#include "p2p/base/stun.h"
 
 namespace cricket {
 

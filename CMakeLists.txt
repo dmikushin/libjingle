@@ -29,6 +29,33 @@ cmake_minimum_required (VERSION 3.1)
 
 project(jingle)
 
+# Search path for CMake include files.
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+find_package(NSS REQUIRED)
+
+add_compile_options(-DPOSIX)
+add_compile_options(-DWEBRTC_POSIX)
+add_compile_options(-DEXPAT_RELATIVE_PATH)
+add_compile_options(-DFEATURE_ENABLE_VOICEMAIL)
+add_compile_options(-DGTEST_RELATIVE_PATH)
+add_compile_options(-DJSONCPP_RELATIVE_PATH)
+add_compile_options(-DLOGGING=1)
+add_compile_options(-DSRTP_RELATIVE_PATH)
+
+# Feature selection
+add_compile_options(-DFEATURE_ENABLE_SSL)
+add_compile_options(-DSSL_USE_NSS)
+add_compile_options(-DSSL_USE_NSS_RNG)
+add_compile_options(-DFEATURE_ENABLE_VOICEMAIL)
+add_compile_options(-DFEATURE_ENABLE_PSTN)
+add_compile_options(-DHAVE_SRTP)
+add_compile_options(-DHAVE_WEBRTC_VIDEO)
+add_compile_options(-DHAVE_WEBRTC_VOICE)
+add_compile_options(-DUSE_WEBRTC_DEV_BRANCH)
+
+add_compile_options(-DLINUX)
+
 # Prevent GoogleTest from overriding our compiler/linker options
 # when building with Visual Studio
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -40,7 +67,16 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/googletest" EXCLUDE_FRO
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmllite")
 
+set(JSONCPP_WITH_TESTS OFF CACHE BOOL "")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp" EXCLUDE_FROM_ALL)
+set_property(TARGET jsoncpp_lib_static PROPERTY POSITION_INDEPENDENT_CODE ON)
+set(JSONCPP_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp/include")
+set(JSONCPP_LIBRARY jsoncpp_lib_static)
+
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
+add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:jingle_core>)
+target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
+
+#add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
+#add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
 

@@ -30,8 +30,8 @@
 
 #include <vector>
 
-#include "talk/media/base/mediacommon.h"
-#include "talk/media/devices/fakedevicemanager.h"
+#include "media/base/mediacommon.h"
+#include "media/devices/fakedevicemanager.h"
 
 namespace cricket {
 

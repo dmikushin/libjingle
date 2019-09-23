@@ -28,13 +28,13 @@
 #ifndef TALK_APP_WEBRTC_LOCALVIDEOSOURCE_H_
 #define TALK_APP_WEBRTC_LOCALVIDEOSOURCE_H_
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/notifier.h"
-#include "talk/app/webrtc/videosourceinterface.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/notifier.h"
+#include "app/webrtc/videosourceinterface.h"
+#include "base/scoped_ptr.h"
+#include "base/sigslot.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
 
 // LocalVideoSource implements VideoSourceInterface. It owns a
 // cricket::VideoCapturer and make sure the camera is started at a resolution

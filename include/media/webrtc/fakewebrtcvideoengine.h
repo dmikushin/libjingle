@@ -32,11 +32,11 @@
 #include <map>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/webrtc/fakewebrtccommon.h"
-#include "talk/media/webrtc/webrtcvie.h"
+#include "base/basictypes.h"
+#include "base/stringutils.h"
+#include "media/base/codec.h"
+#include "media/webrtc/fakewebrtccommon.h"
+#include "media/webrtc/webrtcvie.h"
 
 namespace webrtc {
 

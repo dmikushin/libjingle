@@ -27,12 +27,12 @@
 
 #include <iostream>  // NOLINT
 
-#include "talk/base/asyncudpsocket.h"
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/optionsfile.h"
-#include "talk/base/thread.h"
-#include "talk/base/stringencode.h"
-#include "talk/p2p/base/turnserver.h"
+#include "base/asyncudpsocket.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/optionsfile.h"
+#include "base/thread.h"
+#include "base/stringencode.h"
+#include "p2p/base/turnserver.h"
 
 static const char kSoftware[] = "libjingle TurnServer";
 

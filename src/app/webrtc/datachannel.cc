@@ -24,13 +24,13 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#include "talk/app/webrtc/datachannel.h"
+#include "app/webrtc/datachannel.h"
 
 #include <string>
 
-#include "talk/app/webrtc/webrtcsession.h"
-#include "talk/base/logging.h"
-#include "talk/base/refcount.h"
+#include "app/webrtc/webrtcsession.h"
+#include "base/logging.h"
+#include "base/refcount.h"
 
 namespace webrtc {
 

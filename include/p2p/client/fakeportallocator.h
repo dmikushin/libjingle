@@ -6,10 +6,10 @@
 #define TALK_P2P_CLIENT_FAKEPORTALLOCATOR_H_
 
 #include <string>
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/p2p/base/portallocator.h"
-#include "talk/p2p/base/udpport.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/scoped_ptr.h"
+#include "p2p/base/portallocator.h"
+#include "p2p/base/udpport.h"
 
 namespace talk_base {
 class SocketFactory;

@@ -27,7 +27,7 @@
 
 #include <string>
 
-#include "talk/media/devices/devicemanager.h"
+#include "media/devices/devicemanager.h"
 
 namespace cricket {
 

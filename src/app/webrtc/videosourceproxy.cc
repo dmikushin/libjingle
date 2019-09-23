@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/videosourceproxy.h"
+#include "app/webrtc/videosourceproxy.h"
 
-#include "talk/media/base/videocapturer.h"
+#include "media/base/videocapturer.h"
 
 namespace {
 

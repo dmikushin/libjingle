@@ -33,18 +33,18 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/messagequeue.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/screencastid.h"
-#include "talk/media/base/streamparams.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/p2p/base/session.h"
-#include "talk/p2p/client/socketmonitor.h"
-#include "talk/session/media/audiomonitor.h"
-#include "talk/session/media/currentspeakermonitor.h"
-#include "talk/session/media/mediamessages.h"
-#include "talk/session/media/mediasession.h"
-#include "talk/xmpp/jid.h"
+#include "base/messagequeue.h"
+#include "media/base/mediachannel.h"
+#include "media/base/screencastid.h"
+#include "media/base/streamparams.h"
+#include "media/base/videocommon.h"
+#include "p2p/base/session.h"
+#include "p2p/client/socketmonitor.h"
+#include "session/media/audiomonitor.h"
+#include "session/media/currentspeakermonitor.h"
+#include "session/media/mediamessages.h"
+#include "session/media/mediasession.h"
+#include "jid.h"
 
 namespace cricket {
 

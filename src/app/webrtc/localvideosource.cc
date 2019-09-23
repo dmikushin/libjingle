@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/localvideosource.h"
+#include "app/webrtc/localvideosource.h"
 
 #include <vector>
 
-#include "talk/session/media/channelmanager.h"
+#include "session/media/channelmanager.h"
 
 using cricket::CaptureState;
 using webrtc::MediaConstraintsInterface;

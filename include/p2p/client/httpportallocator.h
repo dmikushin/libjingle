@@ -32,8 +32,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/gunit_prod.h"
-#include "talk/p2p/client/basicportallocator.h"
+#include "base/gunit_prod.h"
+#include "p2p/client/basicportallocator.h"
 
 class HttpPortAllocatorTest_TestSessionRequestUrl_Test;
 

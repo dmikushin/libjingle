@@ -30,17 +30,17 @@
 
 #include <string>
 
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/app/webrtc/dtmfsender.h"
-#include "talk/app/webrtc/mediastreamprovider.h"
-#include "talk/app/webrtc/datachannel.h"
-#include "talk/app/webrtc/statstypes.h"
-#include "talk/base/sigslot.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/p2p/base/session.h"
-#include "talk/p2p/base/transportdescriptionfactory.h"
-#include "talk/session/media/mediasession.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "app/webrtc/dtmfsender.h"
+#include "app/webrtc/mediastreamprovider.h"
+#include "app/webrtc/datachannel.h"
+#include "app/webrtc/statstypes.h"
+#include "base/sigslot.h"
+#include "base/thread.h"
+#include "media/base/mediachannel.h"
+#include "p2p/base/session.h"
+#include "p2p/base/transportdescriptionfactory.h"
+#include "session/media/mediasession.h"
 
 namespace cricket {
 

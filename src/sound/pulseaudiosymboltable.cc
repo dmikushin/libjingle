@@ -27,14 +27,14 @@
 
 #ifdef HAVE_LIBPULSE
 
-#include "talk/sound/pulseaudiosymboltable.h"
+#include "sound/pulseaudiosymboltable.h"
 
 namespace cricket {
 
 #define LATE_BINDING_SYMBOL_TABLE_CLASS_NAME PULSE_AUDIO_SYMBOLS_CLASS_NAME
 #define LATE_BINDING_SYMBOL_TABLE_SYMBOLS_LIST PULSE_AUDIO_SYMBOLS_LIST
 #define LATE_BINDING_SYMBOL_TABLE_DLL_NAME "libpulse.so.0"
-#include "talk/base/latebindingsymboltable.cc.def"
+#include "base/latebindingsymboltable.cc.def"
 
 }  // namespace cricket
 

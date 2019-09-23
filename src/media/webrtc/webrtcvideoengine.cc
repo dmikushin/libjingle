@@ -26,7 +26,7 @@
  */
 
 #ifdef HAVE_WEBRTC_VIDEO
-#include "talk/media/webrtc/webrtcvideoengine.h"
+#include "media/webrtc/webrtcvideoengine.h"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -34,24 +34,24 @@
 
 #include <math.h>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/buffer.h"
-#include "talk/base/byteorder.h"
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/base/timeutils.h"
-#include "talk/media/base/rtputils.h"
-#include "talk/media/base/streamparams.h"
-#include "talk/media/base/videorenderer.h"
-#include "talk/media/devices/filevideocapturer.h"
-#include "talk/media/webrtc/webrtcpassthroughrender.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
-#include "talk/media/webrtc/webrtcvideoframe.h"
-#include "talk/media/webrtc/webrtcvie.h"
-#include "talk/media/webrtc/webrtcvoe.h"
-#include "talk/media/webrtc/webrtcvoiceengine.h"
+#include "base/basictypes.h"
+#include "base/buffer.h"
+#include "base/byteorder.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "base/timeutils.h"
+#include "media/base/rtputils.h"
+#include "media/base/streamparams.h"
+#include "media/base/videorenderer.h"
+#include "media/devices/filevideocapturer.h"
+#include "media/webrtc/webrtcpassthroughrender.h"
+#include "media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/webrtcvideoframe.h"
+#include "media/webrtc/webrtcvie.h"
+#include "media/webrtc/webrtcvoe.h"
+#include "media/webrtc/webrtcvoiceengine.h"
 
 
 namespace cricket {

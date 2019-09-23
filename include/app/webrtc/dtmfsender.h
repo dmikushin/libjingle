@@ -30,12 +30,12 @@
 
 #include <string>
 
-#include "talk/app/webrtc/dtmfsenderinterface.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/proxy.h"
-#include "talk/base/common.h"
-#include "talk/base/messagehandler.h"
-#include "talk/base/refcount.h"
+#include "app/webrtc/dtmfsenderinterface.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/proxy.h"
+#include "base/common.h"
+#include "base/messagehandler.h"
+#include "base/refcount.h"
 
 // DtmfSender is the native implementation of the RTCDTMFSender defined by
 // the WebRTC W3C Editor's Draft.

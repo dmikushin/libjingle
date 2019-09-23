@@ -25,11 +25,11 @@
 //
 // Implementation of CarbonVideoRenderer
 
-#include "talk/media/devices/carbonvideorenderer.h"
+#include "media/devices/carbonvideorenderer.h"
 
-#include "talk/base/logging.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/base/videoframe.h"
+#include "base/logging.h"
+#include "media/base/videocommon.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

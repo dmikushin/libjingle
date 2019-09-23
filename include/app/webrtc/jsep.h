@@ -33,8 +33,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/refcount.h"
+#include "base/basictypes.h"
+#include "base/refcount.h"
 
 namespace cricket {
 class SessionDescription;

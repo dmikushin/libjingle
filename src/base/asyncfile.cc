@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/asyncfile.h"
+#include "base/asyncfile.h"
 
 namespace talk_base {
 

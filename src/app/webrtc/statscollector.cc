@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/statscollector.h"
+#include "app/webrtc/statscollector.h"
 
 #include <utility>
 #include <vector>
 
-#include "talk/session/media/channel.h"
+#include "session/media/channel.h"
 
 namespace webrtc {
 

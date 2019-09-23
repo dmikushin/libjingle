@@ -28,6 +28,6 @@
 #ifndef _VOICECHANNEL_H_
 #define _VOICECHANNEL_H_
 
-#include "talk/session/media/channel.h"
+#include "session/media/channel.h"
 
 #endif // _VOICECHANNEL_H_

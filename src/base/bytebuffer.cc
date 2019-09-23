@@ -25,14 +25,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/bytebuffer.h"
+#include "base/bytebuffer.h"
 
 #include <algorithm>
 #include <cassert>
 #include <cstring>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/byteorder.h"
+#include "base/basictypes.h"
+#include "base/byteorder.h"
 
 namespace talk_base {
 

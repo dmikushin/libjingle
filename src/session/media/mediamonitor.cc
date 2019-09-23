@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/common.h"
-#include "talk/session/media/channelmanager.h"
-#include "talk/session/media/mediamonitor.h"
+#include "base/common.h"
+#include "session/media/channelmanager.h"
+#include "session/media/mediamonitor.h"
 
 namespace cricket {
 

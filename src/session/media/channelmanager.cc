@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/channelmanager.h"
+#include "session/media/channelmanager.h"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -33,14 +33,14 @@
 
 #include <algorithm>
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/sigslotrepeater.h"
-#include "talk/base/stringencode.h"
-#include "talk/media/base/capturemanager.h"
-#include "talk/media/base/rtpdataengine.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/session/media/soundclip.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/sigslotrepeater.h"
+#include "base/stringencode.h"
+#include "media/base/capturemanager.h"
+#include "media/base/rtpdataengine.h"
+#include "media/base/videocapturer.h"
+#include "session/media/soundclip.h"
 
 namespace cricket {
 

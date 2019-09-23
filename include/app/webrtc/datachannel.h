@@ -31,11 +31,11 @@
 #include <string>
 #include <queue>
 
-#include "talk/app/webrtc/datachannelinterface.h"
-#include "talk/app/webrtc/proxy.h"
-#include "talk/base/scoped_ref_ptr.h"
-#include "talk/base/sigslot.h"
-#include "talk/session/media/channel.h"
+#include "app/webrtc/datachannelinterface.h"
+#include "app/webrtc/proxy.h"
+#include "base/scoped_ref_ptr.h"
+#include "base/sigslot.h"
+#include "session/media/channel.h"
 
 namespace webrtc {
 

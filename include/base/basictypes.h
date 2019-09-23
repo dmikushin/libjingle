@@ -38,7 +38,7 @@
 #include "config.h"  // NOLINT
 #endif
 
-#include "talk/base/constructormagic.h"
+#include "base/constructormagic.h"
 
 #if !defined(INT_TYPES_DEFINED)
 #define INT_TYPES_DEFINED

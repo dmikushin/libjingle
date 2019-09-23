@@ -25,14 +25,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/webrtc/webrtcvideoframe.h"
+#include "media/webrtc/webrtcvideoframe.h"
 
 #include "libyuv/convert.h"
 #include "libyuv/convert_from.h"
 #include "libyuv/planar_functions.h"
-#include "talk/base/logging.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
+#include "base/logging.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
 
 namespace cricket {
 

@@ -28,7 +28,7 @@
 #ifndef TALK_BASE_PACKETSOCKETFACTORY_H_
 #define TALK_BASE_PACKETSOCKETFACTORY_H_
 
-#include "talk/base/proxyinfo.h"
+#include "base/proxyinfo.h"
 
 namespace talk_base {
 

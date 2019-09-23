@@ -31,11 +31,11 @@
 #include <map>
 #include <vector>
 
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/webrtc/webrtccommon.h"
-#include "talk/session/media/channel.h"
+#include "base/scoped_ptr.h"
+#include "media/base/codec.h"
+#include "media/base/videocommon.h"
+#include "media/webrtc/webrtccommon.h"
+#include "session/media/channel.h"
 #include "webrtc/video_engine/include/vie_base.h"
 
 namespace webrtc {

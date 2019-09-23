@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/mediastreamproxy.h"
-#include "talk/base/refcount.h"
-#include "talk/base/scoped_ref_ptr.h"
+#include "app/webrtc/mediastreamproxy.h"
+#include "base/refcount.h"
+#include "base/scoped_ref_ptr.h"
 
 namespace {
 

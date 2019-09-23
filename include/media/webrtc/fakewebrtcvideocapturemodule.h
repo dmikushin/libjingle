@@ -28,9 +28,9 @@
 
 #include <vector>
 
-#include "talk/media/base/testutils.h"
-#include "talk/media/webrtc/fakewebrtcdeviceinfo.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "media/base/testutils.h"
+#include "media/webrtc/fakewebrtcdeviceinfo.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 class FakeWebRtcVcmFactory;
 

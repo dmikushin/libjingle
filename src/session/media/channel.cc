@@ -25,18 +25,18 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/channel.h"
+#include "session/media/channel.h"
 
-#include "talk/base/buffer.h"
-#include "talk/base/byteorder.h"
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/media/base/rtputils.h"
-#include "talk/p2p/base/transportchannel.h"
-#include "talk/session/media/channelmanager.h"
-#include "talk/session/media/mediamessages.h"
-#include "talk/session/media/rtcpmuxfilter.h"
-#include "talk/session/media/typingmonitor.h"
+#include "base/buffer.h"
+#include "base/byteorder.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "media/base/rtputils.h"
+#include "p2p/base/transportchannel.h"
+#include "session/media/channelmanager.h"
+#include "session/media/mediamessages.h"
+#include "session/media/rtcpmuxfilter.h"
+#include "session/media/typingmonitor.h"
 
 
 namespace cricket {

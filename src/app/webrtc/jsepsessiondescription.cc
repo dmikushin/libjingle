@@ -24,11 +24,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/jsepsessiondescription.h"
+#include "app/webrtc/jsepsessiondescription.h"
 
-#include "talk/app/webrtc/webrtcsdp.h"
-#include "talk/base/stringencode.h"
-#include "talk/session/media/mediasession.h"
+#include "app/webrtc/webrtcsdp.h"
+#include "base/stringencode.h"
+#include "session/media/mediasession.h"
 
 using talk_base::scoped_ptr;
 using cricket::SessionDescription;

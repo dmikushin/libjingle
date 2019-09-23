@@ -31,9 +31,9 @@
 
 #include <iostream>
 
-#include "talk/base/host.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/stunserver.h"
+#include "base/host.h"
+#include "base/thread.h"
+#include "p2p/base/stunserver.h"
 
 using namespace cricket;
 

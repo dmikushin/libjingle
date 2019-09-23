@@ -28,16 +28,16 @@
 #include <cassert>
 
 #ifdef WIN32
-#include "talk/base/win32.h"
+#include "base/win32.h"
 #endif
 
-#include "talk/base/pathutils.h"
-#include "talk/base/fileutils.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/stream.h"
+#include "base/pathutils.h"
+#include "base/fileutils.h"
+#include "base/stringutils.h"
+#include "base/stream.h"
 
-#include "talk/base/unixfilesystem.h"
-#include "talk/base/win32filesystem.h"
+#include "base/unixfilesystem.h"
+#include "base/win32filesystem.h"
 
 #ifndef WIN32
 #define MAX_PATH 260

@@ -27,21 +27,21 @@
 
 #include <string>
 
-#include "talk/session/media/mediasessionclient.h"
+#include "session/media/mediasessionclient.h"
 
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/cryptoparams.h"
-#include "talk/media/base/capturemanager.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/parsing.h"
-#include "talk/session/media/mediamessages.h"
-#include "talk/session/media/srtpfilter.h"
-#include "talk/xmllite/qname.h"
-#include "talk/xmllite/xmlconstants.h"
-#include "talk/xmpp/constants.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/stringencode.h"
+#include "base/stringutils.h"
+#include "media/base/cryptoparams.h"
+#include "media/base/capturemanager.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/parsing.h"
+#include "session/media/mediamessages.h"
+#include "session/media/srtpfilter.h"
+#include "qname.h"
+#include "xmlconstants.h"
+#include "constants.h"
 
 namespace cricket {
 

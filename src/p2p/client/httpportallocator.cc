@@ -25,19 +25,19 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/p2p/client/httpportallocator.h"
+#include "p2p/client/httpportallocator.h"
 
 #include <algorithm>
 #include <map>
 
-#include "talk/base/asynchttprequest.h"
-#include "talk/base/basicdefs.h"
-#include "talk/base/common.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/nethelpers.h"
-#include "talk/base/signalthread.h"
-#include "talk/base/stringencode.h"
+#include "base/asynchttprequest.h"
+#include "base/basicdefs.h"
+#include "base/common.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/nethelpers.h"
+#include "base/signalthread.h"
+#include "base/stringencode.h"
 
 namespace {
 

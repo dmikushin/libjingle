@@ -23,14 +23,14 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "talk/media/base/videoadapter.h"
+#include "media/base/videoadapter.h"
 
 #include <limits.h>
 
-#include "talk/media/base/constants.h"
-#include "talk/base/logging.h"
-#include "talk/base/timeutils.h"
-#include "talk/media/base/videoframe.h"
+#include "media/base/constants.h"
+#include "base/logging.h"
+#include "base/timeutils.h"
+#include "media/base/videoframe.h"
 
 namespace cricket {
 

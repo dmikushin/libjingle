@@ -28,9 +28,9 @@
 #ifndef TALK_SESSION_MEDIA_AUDIOMONITOR_H_
 #define TALK_SESSION_MEDIA_AUDIOMONITOR_H_
 
-#include "talk/base/sigslot.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/port.h"
+#include "base/sigslot.h"
+#include "base/thread.h"
+#include "p2p/base/port.h"
 #include <vector>
 
 namespace cricket {

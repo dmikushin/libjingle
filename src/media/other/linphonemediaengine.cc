@@ -36,14 +36,14 @@ extern "C" {
 #include <mediastreamer2/msfilter.h>
 }
 
-#include "talk/media/other/linphonemediaengine.h"
+#include "media/other/linphonemediaengine.h"
 
-#include "talk/base/buffer.h"
-#include "talk/base/event.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/stream.h"
-#include "talk/media/base/rtpdump.h"
+#include "base/buffer.h"
+#include "base/event.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "base/stream.h"
+#include "media/base/rtpdump.h"
 
 #ifndef WIN32
 #include <libgen.h>

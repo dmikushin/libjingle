@@ -30,16 +30,16 @@
 
 #include <vector>
 
-#include "talk/base/criticalsection.h"
-#include "talk/base/stream.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/pseudotcp.h"
-#include "talk/p2p/base/session.h"
-#include "talk/p2p/base/sessiondescription.h"
-#include "talk/p2p/base/sessionmanager.h"
-#include "talk/p2p/base/sessionclient.h"
-#include "talk/xmllite/qname.h"
-#include "talk/xmpp/constants.h"
+#include "base/criticalsection.h"
+#include "base/stream.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/pseudotcp.h"
+#include "p2p/base/session.h"
+#include "p2p/base/sessiondescription.h"
+#include "p2p/base/sessionmanager.h"
+#include "p2p/base/sessionclient.h"
+#include "qname.h"
+#include "constants.h"
 
 namespace cricket {
 

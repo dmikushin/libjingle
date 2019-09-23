@@ -30,7 +30,7 @@
 
 #include <vector>
 
-#include "talk/base/constructormagic.h"
+#include "base/constructormagic.h"
 
 namespace cricket {
 

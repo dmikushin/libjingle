@@ -28,8 +28,8 @@
 #ifndef TALK_SOUND_SOUNDOUTPUTSTREAMINTERFACE_H_
 #define TALK_SOUND_SOUNDOUTPUTSTREAMINTERFACE_H_
 
-#include "talk/base/constructormagic.h"
-#include "talk/base/sigslot.h"
+#include "base/constructormagic.h"
+#include "base/sigslot.h"
 
 namespace cricket {
 

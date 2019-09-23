@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/rtcpmuxfilter.h"
+#include "session/media/rtcpmuxfilter.h"
 
-#include "talk/base/logging.h"
+#include "base/logging.h"
 
 namespace cricket {
 

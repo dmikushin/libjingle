@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/capturemanager.h"
+#include "media/base/capturemanager.h"
 
 #include <algorithm>
 
-#include "talk/base/logging.h"
-#include "talk/media/base/videoprocessor.h"
-#include "talk/media/base/videorenderer.h"
+#include "base/logging.h"
+#include "media/base/videoprocessor.h"
+#include "media/base/videorenderer.h"
 
 namespace cricket {
 

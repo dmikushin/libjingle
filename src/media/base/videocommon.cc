@@ -23,12 +23,12 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "talk/media/base/videocommon.h"
+#include "media/base/videocommon.h"
 
 #include <math.h>
 #include <sstream>
 
-#include "talk/base/common.h"
+#include "base/common.h"
 
 namespace cricket {
 

@@ -34,11 +34,11 @@
 #include <string>
 #include <map>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/statstypes.h"
-#include "talk/app/webrtc/webrtcsession.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/statstypes.h"
+#include "app/webrtc/webrtcsession.h"
 
-#include "talk/base/timing.h"
+#include "base/timing.h"
 
 namespace webrtc {
 

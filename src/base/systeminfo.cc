@@ -25,30 +25,30 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/systeminfo.h"
+#include "base/systeminfo.h"
 
 #ifdef WIN32
-#include "talk/base/win32.h"  // NOLINT first because it brings in win32 stuff
+#include "base/win32.h"  // NOLINT first because it brings in win32 stuff
 #ifndef EXCLUDE_D3D9
 #include <d3d9.h>
 #endif
 #include <intrin.h>  // for __cpuid()
-#include "talk/base/scoped_ptr.h"
+#include "base/scoped_ptr.h"
 #elif defined(OSX)
 #include <ApplicationServices/ApplicationServices.h>
 #include <CoreServices/CoreServices.h>
 #include <sys/sysctl.h>
-#include "talk/base/macconversion.h"
+#include "base/macconversion.h"
 #elif defined(IOS)
 #include <sys/sysctl.h>  // NOLINT - lint thinks this is duplicate include
 #elif defined(LINUX) || defined(ANDROID)
 #include <unistd.h>
-#include "talk/base/linux.h"
+#include "base/linux.h"
 #endif
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
 
 namespace talk_base {
 

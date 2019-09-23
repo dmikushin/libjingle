@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/test/fakeaudiocapturemodule.h"
+#include "app/webrtc/test/fakeaudiocapturemodule.h"
 
-#include "talk/base/common.h"
-#include "talk/base/refcount.h"
-#include "talk/base/thread.h"
-#include "talk/base/timeutils.h"
+#include "base/common.h"
+#include "base/refcount.h"
+#include "base/thread.h"
+#include "base/timeutils.h"
 
 // Audio sample value that is high enough that it doesn't occur naturally when
 // frames are being faked. E.g. NetEq will not generate this large sample value

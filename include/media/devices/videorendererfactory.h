@@ -29,13 +29,13 @@
 #define TALK_MEDIA_DEVICES_VIDEORENDERERFACTORY_H_
 
 #if defined(LINUX)
-#include "talk/media/devices/gtkvideorenderer.h"
+#include "media/devices/gtkvideorenderer.h"
 #elif defined(OSX) && !defined(CARBON_DEPRECATED)
-#include "talk/media/devices/carbonvideorenderer.h"
+#include "media/devices/carbonvideorenderer.h"
 #elif defined(IOS) || defined(OSX)
-#include "talk/media/base/videorenderer.h"  // for base VideoRenderer decl.
+#include "media/base/videorenderer.h"  // for base VideoRenderer decl.
 #elif defined(WIN32)
-#include "talk/media/devices/gdivideorenderer.h"
+#include "media/devices/gdivideorenderer.h"
 #endif
 
 namespace cricket {

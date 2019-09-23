@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/videoframe.h"
+#include "media/base/videoframe.h"
 
 #include <cstring>
 
@@ -35,8 +35,8 @@
 #include "libyuv/scale.h"
 #endif
 
-#include "talk/base/logging.h"
-#include "talk/media/base/videocommon.h"
+#include "base/logging.h"
+#include "media/base/videocommon.h"
 
 namespace cricket {
 

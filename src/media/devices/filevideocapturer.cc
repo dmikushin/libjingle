@@ -25,11 +25,11 @@
 //
 // Implementation of VideoRecorder and FileVideoCapturer.
 
-#include "talk/media/devices/filevideocapturer.h"
+#include "media/devices/filevideocapturer.h"
 
-#include "talk/base/bytebuffer.h"
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
+#include "base/bytebuffer.h"
+#include "base/logging.h"
+#include "base/thread.h"
 
 namespace cricket {
 

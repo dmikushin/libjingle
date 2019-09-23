@@ -31,8 +31,8 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/base/stringencode.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "base/stringencode.h"
 
 namespace webrtc {
 

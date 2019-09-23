@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/sound/nullsoundsystemfactory.h"
+#include "sound/nullsoundsystemfactory.h"
 
-#include "talk/sound/nullsoundsystem.h"
+#include "sound/nullsoundsystem.h"
 
 namespace cricket {
 

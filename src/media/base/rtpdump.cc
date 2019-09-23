@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/rtpdump.h"
+#include "media/base/rtpdump.h"
 
 #include <ctype.h>
 
 #include <string>
 
-#include "talk/base/byteorder.h"
-#include "talk/base/logging.h"
-#include "talk/base/timeutils.h"
-#include "talk/media/base/rtputils.h"
+#include "base/byteorder.h"
+#include "base/logging.h"
+#include "base/timeutils.h"
+#include "media/base/rtputils.h"
 
 namespace {
 static const int kRtpSsrcOffset = 8;

@@ -28,8 +28,8 @@
 #ifndef TALK_BASE_COMMON_H_
 #define TALK_BASE_COMMON_H_
 
-#include "talk/base/basictypes.h"
-#include "talk/base/constructormagic.h"
+#include "base/basictypes.h"
+#include "base/constructormagic.h"
 
 #if defined(_MSC_VER)
 // warning C4355: 'this' : used in base member initializer list

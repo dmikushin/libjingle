@@ -31,9 +31,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/timing.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/mediaengine.h"
+#include "base/timing.h"
+#include "media/base/mediachannel.h"
+#include "media/base/mediaengine.h"
 
 namespace cricket {
 

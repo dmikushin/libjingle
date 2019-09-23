@@ -28,9 +28,9 @@
 #ifndef TALK_APP_WEBRTC_VIDEOSOURCEPROXY_H_
 #define TALK_APP_WEBRTC_VIDEOSOURCEPROXY_H_
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/videosourceinterface.h"
-#include "talk/base/messagehandler.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/videosourceinterface.h"
+#include "base/messagehandler.h"
 
 namespace talk_base {
 

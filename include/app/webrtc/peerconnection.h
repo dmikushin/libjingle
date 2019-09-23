@@ -30,13 +30,13 @@
 
 #include <string>
 
-#include "talk/app/webrtc/mediastreamsignaling.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/app/webrtc/peerconnectionfactory.h"
-#include "talk/app/webrtc/statscollector.h"
-#include "talk/app/webrtc/streamcollection.h"
-#include "talk/app/webrtc/webrtcsession.h"
-#include "talk/base/scoped_ptr.h"
+#include "app/webrtc/mediastreamsignaling.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "app/webrtc/peerconnectionfactory.h"
+#include "app/webrtc/statscollector.h"
+#include "app/webrtc/streamcollection.h"
+#include "app/webrtc/webrtcsession.h"
+#include "base/scoped_ptr.h"
 
 namespace webrtc {
 class MediaStreamHandlers;

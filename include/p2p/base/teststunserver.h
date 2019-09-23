@@ -28,9 +28,9 @@
 #ifndef TALK_P2P_BASE_TESTSTUNSERVER_H_
 #define TALK_P2P_BASE_TESTSTUNSERVER_H_
 
-#include "talk/base/socketaddress.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/stunserver.h"
+#include "base/socketaddress.h"
+#include "base/thread.h"
+#include "p2p/base/stunserver.h"
 
 namespace cricket {
 

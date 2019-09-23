@@ -25,20 +25,20 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/peerconnectionfactory.h"
+#include "app/webrtc/peerconnectionfactory.h"
 
-#include "talk/app/webrtc/audiotrack.h"
-#include "talk/app/webrtc/localaudiosource.h"
-#include "talk/app/webrtc/localvideosource.h"
-#include "talk/app/webrtc/mediastreamproxy.h"
-#include "talk/app/webrtc/mediastreamtrackproxy.h"
-#include "talk/app/webrtc/peerconnection.h"
-#include "talk/app/webrtc/peerconnectionproxy.h"
-#include "talk/app/webrtc/portallocatorfactory.h"
-#include "talk/app/webrtc/videosourceproxy.h"
-#include "talk/app/webrtc/videotrack.h"
-#include "talk/media/devices/dummydevicemanager.h"
-#include "talk/media/webrtc/webrtcmediaengine.h"
+#include "app/webrtc/audiotrack.h"
+#include "app/webrtc/localaudiosource.h"
+#include "app/webrtc/localvideosource.h"
+#include "app/webrtc/mediastreamproxy.h"
+#include "app/webrtc/mediastreamtrackproxy.h"
+#include "app/webrtc/peerconnection.h"
+#include "app/webrtc/peerconnectionproxy.h"
+#include "app/webrtc/portallocatorfactory.h"
+#include "app/webrtc/videosourceproxy.h"
+#include "app/webrtc/videotrack.h"
+#include "media/devices/dummydevicemanager.h"
+#include "media/webrtc/webrtcmediaengine.h"
 
 using talk_base::scoped_refptr;
 

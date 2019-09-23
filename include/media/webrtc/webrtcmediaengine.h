@@ -28,9 +28,9 @@
 #ifndef TALK_MEDIA_WEBRTCMEDIAENGINE_H_
 #define TALK_MEDIA_WEBRTCMEDIAENGINE_H_
 
-#include "talk/media/base/mediaengine.h"
-#include "talk/media/webrtc/webrtcvideoengine.h"
-#include "talk/media/webrtc/webrtcvoiceengine.h"
+#include "media/base/mediaengine.h"
+#include "media/webrtc/webrtcvideoengine.h"
+#include "media/webrtc/webrtcvoiceengine.h"
 
 namespace webrtc {
 class AudioDeviceModule;

@@ -28,7 +28,7 @@
 #include <cstddef>             // for std::ptrdiff_t
 #include <stdlib.h>            // for free() decl
 
-#include "talk/base/common.h"  // for ASSERT
+#include "base/common.h"  // for ASSERT
 
 #ifdef _WIN32
 namespace std { using ::ptrdiff_t; };

@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/json.h"
+#include "base/json.h"
 
 #include <errno.h>
 

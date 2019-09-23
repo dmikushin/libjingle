@@ -25,19 +25,19 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/mediasession.h"
+#include "session/media/mediasession.h"
 
 #include <functional>
 #include <set>
 
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/cryptoparams.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/session/media/channelmanager.h"
-#include "talk/session/media/srtpfilter.h"
-#include "talk/xmpp/constants.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "media/base/cryptoparams.h"
+#include "p2p/base/constants.h"
+#include "session/media/channelmanager.h"
+#include "session/media/srtpfilter.h"
+#include "constants.h"
 
 namespace {
 const char kInline[] = "inline:";

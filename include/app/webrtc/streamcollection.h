@@ -31,7 +31,7 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/peerconnectioninterface.h"
+#include "app/webrtc/peerconnectioninterface.h"
 
 namespace webrtc {
 

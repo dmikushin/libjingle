@@ -33,9 +33,9 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/jsep.h"
-#include "talk/app/webrtc/jsepicecandidate.h"
-#include "talk/base/scoped_ptr.h"
+#include "app/webrtc/jsep.h"
+#include "app/webrtc/jsepicecandidate.h"
+#include "base/scoped_ptr.h"
 
 namespace cricket {
 class SessionDescription;

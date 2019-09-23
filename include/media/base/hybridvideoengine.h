@@ -31,12 +31,12 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/logging.h"
-#include "talk/base/sigslotrepeater.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocommon.h"
+#include "base/logging.h"
+#include "base/sigslotrepeater.h"
+#include "media/base/codec.h"
+#include "media/base/mediachannel.h"
+#include "media/base/videocapturer.h"
+#include "media/base/videocommon.h"
 
 namespace cricket {
 

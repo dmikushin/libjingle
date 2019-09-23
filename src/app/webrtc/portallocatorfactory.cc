@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/portallocatorfactory.h"
+#include "app/webrtc/portallocatorfactory.h"
 
-#include "talk/base/logging.h"
-#include "talk/base/network.h"
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/client/httpportallocator.h"
+#include "base/logging.h"
+#include "base/network.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/thread.h"
+#include "p2p/client/httpportallocator.h"
 
 static const char kUserAgent[] = "PeerConnection User Agent";
 
