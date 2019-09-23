@@ -4,9 +4,6 @@
 [submodule "ThirdParty/jsoncpp"]
 	path = ThirdParty/jsoncpp
 	url = https://github.com/open-source-parsers/jsoncpp.git
-[submodule "ThirdParty/webrtc"]
-	path = ThirdParty/webrtc
-	url = https://github.com/lukeadams/webrtc-cmake.git
 [submodule "ThirdParty/libyuv"]
 	path = ThirdParty/libyuv
 	url = https://chromium.googlesource.com/libyuv/libyuv
