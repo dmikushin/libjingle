@@ -29,6 +29,8 @@ cmake_minimum_required (VERSION 3.1)
 
 project(xmllite)
 
+find_package(EXPAT REQUIRED)
+
 set(${PROJECT_NAME}_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/qname.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/xmlbuilder.cc"
@@ -41,4 +43,15 @@ set(${PROJECT_NAME}_SRCS
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRCS})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+file(GLOB ${PROJECT_NAME}_UNIT_TESTS
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/*_unittest.cc")
+
+add_executable(${PROJECT_NAME}_unittest ${${PROJECT_NAME}_UNIT_TESTS})
+target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
+target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gtest_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gmock_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${EXPAT_INCLUDE_DIRS}")
+target_link_libraries(${PROJECT_NAME}_unittest ${PROJECT_NAME} ${EXPAT_LIBRARIES} gtest gtest_main jingle)
 

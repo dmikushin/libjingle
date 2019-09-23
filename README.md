@@ -33,7 +33,7 @@ illustrate the basic concepts of how the provided classes work.
 Prerequisites:
 
 ```
-sudo apt install gcc cmake libnss3-dev libasound2-dev gtk+2.0 libexpat-dev libsrtp-dev
+sudo apt install gcc cmake libnss3-dev libasound2-dev gtk+2.0 libexpat-dev libsrtp-dev libnspr4-dev
 ```
 
 `HAS_OPENSSL_1_0`

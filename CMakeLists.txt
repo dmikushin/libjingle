@@ -33,6 +33,7 @@ project(jingle)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(NSS REQUIRED)
+find_package(NSPR REQUIRED)
 
 add_compile_options(-DPOSIX)
 add_compile_options(-DWEBRTC_POSIX)
@@ -47,6 +48,8 @@ add_compile_options(-DSRTP_RELATIVE_PATH)
 add_compile_options(-DFEATURE_ENABLE_SSL)
 add_compile_options(-DSSL_USE_NSS)
 add_compile_options(-DSSL_USE_NSS_RNG)
+add_compile_options(-DHAVE_NSS_SSL_H)
+add_compile_options(-DNSS_SSL_RELATIVE_PATH)
 add_compile_options(-DFEATURE_ENABLE_VOICEMAIL)
 add_compile_options(-DFEATURE_ENABLE_PSTN)
 add_compile_options(-DHAVE_SRTP)
@@ -65,7 +68,109 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # and gmock_main
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/googletest" EXCLUDE_FROM_ALL)
 
+set(${PROJECT_NAME}_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/asyncfile.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/asynchttprequest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/asyncsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/asynctcpsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/asyncudpsocket.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/autodetectproxy.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/bandwidthsmoother.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/base64.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/basicpacketsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/bytebuffer.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/checks.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/common.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/cpumonitor.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/crc32.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/diskcache.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/event.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/filelock.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/fileutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/firewallsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/flags.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/helpers.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/host.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/httpbase.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/httpclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/httpcommon.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/httprequest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/httpserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/ipaddress.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/json.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/logging.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/md5.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/messagedigest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/messagehandler.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/messagequeue.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/multipart.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/natserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/natsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/nattypes.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/nethelpers.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/network.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/nssidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/nssstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/optionsfile.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/pathutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/physicalsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/proxydetect.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/proxyinfo.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/proxyserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/ratelimiter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/ratetracker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sha1.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sharedexclusivelock.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/signalthread.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/socketadapters.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/socketaddress.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/socketaddresspair.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/socketpool.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/socketstream.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/ssladapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sslsocketfactory.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sslidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sslstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/sslstreamadapterhelper.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/stream.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/stringencode.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/stringutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/systeminfo.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/task.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/taskparent.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/taskrunner.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/testclient.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/thread.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/timeutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/timing.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/transformadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/urlencode.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/versionparsing.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/virtualsocketserver.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/worker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/linux.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/dbus.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/libdbusglibsymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/linuxfdwalk.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/linuxwindowpicker.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/latebindingsymboltable.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/openssladapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/openssldigest.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/opensslidentity.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/opensslstreamadapter.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/posix.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/base/unixfilesystem.cc")
+
+add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_SRCS})
+set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME} PRIVATE ${JSONCPP_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PRIVATE "${NSS_INCLUDE_DIRS}")
+target_include_directories(${PROJECT_NAME} PRIVATE "${NSPR_INCLUDE_DIRS}")
+
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmllite")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmpp")
 
 set(JSONCPP_WITH_TESTS OFF CACHE BOOL "")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp" EXCLUDE_FROM_ALL)
@@ -74,8 +179,7 @@ set(JSONCPP_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp/include
 set(JSONCPP_LIBRARY jsoncpp_lib_static)
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
-add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:jingle_core>)
-target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
+target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${NSPR_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
 
 #add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
 #add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
