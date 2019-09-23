@@ -43,6 +43,8 @@ set(${PROJECT_NAME}_SRCS
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRCS})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME} PUBLIC "${EXPAT_INCLUDE_DIRS}")
+target_link_libraries(${PROJECT_NAME} ${EXPAT_LIBRARIES})
 
 file(GLOB ${PROJECT_NAME}_UNIT_TESTS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/*_unittest.cc")
@@ -53,5 +55,5 @@ target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOU
 target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gtest_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gmock_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${EXPAT_INCLUDE_DIRS}")
-target_link_libraries(${PROJECT_NAME}_unittest ${PROJECT_NAME} ${EXPAT_LIBRARIES} gtest gtest_main jingle)
+target_link_libraries(${PROJECT_NAME}_unittest ${PROJECT_NAME} gtest gtest_main jingle)
 

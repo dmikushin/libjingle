@@ -27,7 +27,7 @@
 
 cmake_minimum_required (VERSION 3.1)
 
-project(xmllite)
+project(xmpp)
 
 set(${PROJECT_NAME}_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/chatroommoduleimpl.cc"
@@ -63,5 +63,22 @@ set(${PROJECT_NAME}_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/xmppthread.cc")
 
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRCS})
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../xmllite/include")
+
+file(GLOB ${PROJECT_NAME}_UNIT_TESTS
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/*_unittest.cc")
+
+# Remove a broken unit test.
+list(REMOVE_ITEM ${PROJECT_NAME}_UNIT_TESTS
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/chatroommodule_unittest.cc")
+
+add_executable(${PROJECT_NAME}_unittest ${${PROJECT_NAME}_UNIT_TESTS})
+target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
+target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gtest_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PUBLIC "${gmock_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../xmllite/include")
+target_link_libraries(${PROJECT_NAME}_unittest ${PROJECT_NAME} gtest gtest_main jingle xmllite)
 

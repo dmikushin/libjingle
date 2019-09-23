@@ -3,15 +3,15 @@
 
 #include <string>
 
-#include "talk/base/faketaskrunner.h"
-#include "talk/base/gunit.h"
-#include "talk/base/sigslot.h"
-#include "talk/xmllite/qname.h"
-#include "talk/xmllite/xmlelement.h"
-#include "talk/xmpp/constants.h"
-#include "talk/xmpp/fakexmppclient.h"
-#include "talk/xmpp/jid.h"
-#include "talk/xmpp/pubsubclient.h"
+#include "base/faketaskrunner.h"
+#include "base/gunit.h"
+#include "base/sigslot.h"
+#include "qname.h"
+#include "xmlelement.h"
+#include "constants.h"
+#include "fakexmppclient.h"
+#include "jid.h"
+#include "pubsubclient.h"
 
 struct HandledPubSubItem {
   std::string itemid;

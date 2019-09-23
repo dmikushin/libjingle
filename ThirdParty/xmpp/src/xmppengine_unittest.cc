@@ -4,14 +4,14 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "talk/base/common.h"
-#include "talk/base/gunit.h"
-#include "talk/xmllite/xmlelement.h"
-#include "talk/xmpp/constants.h"
-#include "talk/xmpp/util_unittest.h"
-#include "talk/xmpp/saslplainmechanism.h"
-#include "talk/xmpp/plainsaslhandler.h"
-#include "talk/xmpp/xmppengine.h"
+#include "base/common.h"
+#include "base/gunit.h"
+#include "xmlelement.h"
+#include "constants.h"
+#include "util_unittest.h"
+#include "saslplainmechanism.h"
+#include "plainsaslhandler.h"
+#include "xmppengine.h"
 
 using buzz::Jid;
 using buzz::QName;
@@ -136,7 +136,7 @@ void XmppEngineTest::RunLogin() {
       "mechanism=\"PLAIN\" "
       "auth:allow-non-google-login=\"true\" "
       "auth:client-uses-full-bind-result=\"true\" "
-      "xmlns:auth=\"http://www.google.com/talk/protocol/auth\""
+      "xmlns:auth=\"http://www.google.com/protocol/auth\""
       ">AGRhdmlkAGRhdmlk</auth>",
       handler_->OutputActivity());
 
