@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/dtmfsender.h"
+#include "app/webrtc/dtmfsender.h"
 
 #include <set>
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/audiotrack.h"
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/timeutils.h"
+#include "app/webrtc/audiotrack.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/timeutils.h"
 
 using webrtc::AudioTrackInterface;
 using webrtc::AudioTrack;

@@ -28,16 +28,16 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/gunit.h"
-#include "talk/base/fakesslidentity.h"
-#include "talk/base/messagedigest.h"
-#include "talk/media/base/codec.h"
-#include "talk/media/base/testutils.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/transportdescription.h"
-#include "talk/p2p/base/transportinfo.h"
-#include "talk/session/media/mediasession.h"
-#include "talk/session/media/srtpfilter.h"
+#include "base/gunit.h"
+#include "base/fakesslidentity.h"
+#include "base/messagedigest.h"
+#include "media/base/codec.h"
+#include "media/base/testutils.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/transportdescription.h"
+#include "p2p/base/transportinfo.h"
+#include "session/media/mediasession.h"
+#include "session/media/srtpfilter.h"
 
 #ifdef HAVE_SRTP
 #define ASSERT_CRYPTO(cd, s, cs) \

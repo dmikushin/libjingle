@@ -27,19 +27,19 @@
 
 #include <string>
 
-#include "talk/app/webrtc/fakeportallocatorfactory.h"
-#include "talk/app/webrtc/jsepsessiondescription.h"
-#include "talk/app/webrtc/localvideosource.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/app/webrtc/test/fakeconstraints.h"
-#include "talk/app/webrtc/test/mockpeerconnectionobservers.h"
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/fakevideocapturer.h"
-#include "talk/session/media/mediasession.h"
+#include "app/webrtc/fakeportallocatorfactory.h"
+#include "app/webrtc/jsepsessiondescription.h"
+#include "app/webrtc/localvideosource.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "app/webrtc/test/fakeconstraints.h"
+#include "app/webrtc/test/mockpeerconnectionobservers.h"
+#include "base/gunit.h"
+#include "base/scoped_ptr.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "media/base/fakevideocapturer.h"
+#include "session/media/mediasession.h"
 
 static const char kStreamLabel1[] = "local_stream_1";
 static const char kStreamLabel2[] = "local_stream_2";

@@ -25,8 +25,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/media/devices/dummydevicemanager.h"
+#include "base/gunit.h"
+#include "media/devices/dummydevicemanager.h"
 
 using cricket::Device;
 using cricket::DummyDeviceManager;

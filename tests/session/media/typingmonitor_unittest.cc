@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/session/media/channel.h"
-#include "talk/session/media/currentspeakermonitor.h"
-#include "talk/session/media/typingmonitor.h"
+#include "base/gunit.h"
+#include "media/base/fakemediaengine.h"
+#include "p2p/base/fakesession.h"
+#include "session/media/channel.h"
+#include "session/media/currentspeakermonitor.h"
+#include "session/media/typingmonitor.h"
 
 namespace cricket {
 

@@ -29,18 +29,18 @@
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/jsepsessiondescription.h"
-#include "talk/app/webrtc/webrtcsdp.h"
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/messagedigest.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sslfingerprint.h"
-#include "talk/base/stringencode.h"
-#include "talk/base/stringutils.h"
-#include "talk/media/base/constants.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/session/media/mediasession.h"
+#include "app/webrtc/jsepsessiondescription.h"
+#include "app/webrtc/webrtcsdp.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/messagedigest.h"
+#include "base/scoped_ptr.h"
+#include "base/sslfingerprint.h"
+#include "base/stringencode.h"
+#include "base/stringutils.h"
+#include "media/base/constants.h"
+#include "p2p/base/constants.h"
+#include "session/media/mediasession.h"
 
 using cricket::AudioCodec;
 using cricket::AudioContentDescription;

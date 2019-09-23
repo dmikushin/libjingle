@@ -26,15 +26,15 @@
 
 #include <stdio.h>
 
-#include "talk/app/webrtc/statscollector.h"
+#include "app/webrtc/statscollector.h"
 
-#include "talk/app/webrtc/mediastream.h"
-#include "talk/app/webrtc/videotrack.h"
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/devices/fakedevicemanager.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/session/media/channelmanager.h"
+#include "app/webrtc/mediastream.h"
+#include "app/webrtc/videotrack.h"
+#include "base/gunit.h"
+#include "media/base/fakemediaengine.h"
+#include "media/devices/fakedevicemanager.h"
+#include "p2p/base/fakesession.h"
+#include "session/media/channelmanager.h"
 #include "testing/base/public/gmock.h"
 
 using testing::_;

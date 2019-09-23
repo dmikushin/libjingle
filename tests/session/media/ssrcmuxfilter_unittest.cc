@@ -26,8 +26,8 @@
  */
 
 
-#include "talk/base/gunit.h"
-#include "talk/session/media/ssrcmuxfilter.h"
+#include "base/gunit.h"
+#include "session/media/ssrcmuxfilter.h"
 
 static const int kSsrc1 = 0x1111;
 static const int kSsrc2 = 0x2222;

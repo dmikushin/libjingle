@@ -26,16 +26,16 @@
  */
 
 #include <string>
-#include "talk/base/gunit.h"
-#include "talk/base/messagehandler.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stream.h"
-#include "talk/base/thread.h"
-#include "talk/base/timeutils.h"
-#include "talk/p2p/base/sessionmanager.h"
-#include "talk/p2p/base/transport.h"
-#include "talk/p2p/client/fakeportallocator.h"
-#include "talk/session/tunnel/tunnelsessionclient.h"
+#include "base/gunit.h"
+#include "base/messagehandler.h"
+#include "base/scoped_ptr.h"
+#include "base/stream.h"
+#include "base/thread.h"
+#include "base/timeutils.h"
+#include "p2p/base/sessionmanager.h"
+#include "p2p/base/transport.h"
+#include "p2p/client/fakeportallocator.h"
+#include "session/tunnel/tunnelsessionclient.h"
 
 static const int kTimeoutMs = 10000;
 static const int kBlockSize = 4096;

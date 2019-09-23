@@ -27,11 +27,11 @@
 
 #include <string>
 
-#include "talk/app/webrtc/test/fakevideotrackrenderer.h"
-#include "talk/app/webrtc/videotrack.h"
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/webrtc/webrtcvideoframe.h"
+#include "app/webrtc/test/fakevideotrackrenderer.h"
+#include "app/webrtc/videotrack.h"
+#include "base/gunit.h"
+#include "base/scoped_ptr.h"
+#include "media/webrtc/webrtcvideoframe.h"
 
 using webrtc::FakeVideoTrackRenderer;
 using webrtc::VideoTrack;

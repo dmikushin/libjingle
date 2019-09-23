@@ -3,16 +3,16 @@
 
 #include <string>
 
-#include "talk/base/asynchttprequest.h"
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/gunit.h"
-#include "talk/base/fakenetwork.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/socketaddress.h"
-#include "talk/p2p/base/relayport.h"
-#include "talk/p2p/base/stunport.h"
-#include "talk/p2p/client/connectivitychecker.h"
-#include "talk/p2p/client/httpportallocator.h"
+#include "base/asynchttprequest.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/gunit.h"
+#include "base/fakenetwork.h"
+#include "base/scoped_ptr.h"
+#include "base/socketaddress.h"
+#include "p2p/base/relayport.h"
+#include "p2p/base/stunport.h"
+#include "p2p/client/connectivitychecker.h"
+#include "p2p/client/httpportallocator.h"
 
 namespace cricket {
 

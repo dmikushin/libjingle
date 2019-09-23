@@ -27,15 +27,15 @@
 
 #include <string>
 
-#include "talk/base/buffer.h"
-#include "talk/base/gunit.h"
-#include "talk/base/helpers.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/timing.h"
-#include "talk/media/base/constants.h"
-#include "talk/media/base/fakenetworkinterface.h"
-#include "talk/media/base/rtpdataengine.h"
-#include "talk/media/base/rtputils.h"
+#include "base/buffer.h"
+#include "base/gunit.h"
+#include "base/helpers.h"
+#include "base/scoped_ptr.h"
+#include "base/timing.h"
+#include "media/base/constants.h"
+#include "media/base/fakenetworkinterface.h"
+#include "media/base/rtpdataengine.h"
+#include "media/base/rtputils.h"
 
 class FakeTiming : public talk_base::Timing {
  public:

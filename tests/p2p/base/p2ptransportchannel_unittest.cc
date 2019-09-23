@@ -25,22 +25,22 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/fakenetwork.h"
-#include "talk/base/firewallsocketserver.h"
-#include "talk/base/gunit.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/natserver.h"
-#include "talk/base/natsocketfactory.h"
-#include "talk/base/physicalsocketserver.h"
-#include "talk/base/proxyserver.h"
-#include "talk/base/socketaddress.h"
-#include "talk/base/thread.h"
-#include "talk/base/virtualsocketserver.h"
-#include "talk/p2p/base/p2ptransportchannel.h"
-#include "talk/p2p/base/testrelayserver.h"
-#include "talk/p2p/base/teststunserver.h"
-#include "talk/p2p/client/basicportallocator.h"
+#include "base/fakenetwork.h"
+#include "base/firewallsocketserver.h"
+#include "base/gunit.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/natserver.h"
+#include "base/natsocketfactory.h"
+#include "base/physicalsocketserver.h"
+#include "base/proxyserver.h"
+#include "base/socketaddress.h"
+#include "base/thread.h"
+#include "base/virtualsocketserver.h"
+#include "p2p/base/p2ptransportchannel.h"
+#include "p2p/base/testrelayserver.h"
+#include "p2p/base/teststunserver.h"
+#include "p2p/client/basicportallocator.h"
 
 using cricket::kDefaultPortAllocatorFlags;
 using cricket::PORTALLOCATOR_ENABLE_SHARED_UFRAG;

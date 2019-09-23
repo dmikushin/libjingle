@@ -25,8 +25,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/media/base/codec.h"
+#include "base/gunit.h"
+#include "media/base/codec.h"
 
 using cricket::AudioCodec;
 using cricket::DataCodec;

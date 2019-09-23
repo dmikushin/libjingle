@@ -23,10 +23,10 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "talk/session/media/rtcpmuxfilter.h"
+#include "session/media/rtcpmuxfilter.h"
 
-#include "talk/base/gunit.h"
-#include "talk/media/base/testutils.h"
+#include "base/gunit.h"
+#include "media/base/testutils.h"
 
 TEST(RtcpMuxFilterTest, DemuxRtcpSender) {
   cricket::RtcpMuxFilter filter;

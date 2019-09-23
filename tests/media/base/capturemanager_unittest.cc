@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/capturemanager.h"
+#include "media/base/capturemanager.h"
 
-#include "talk/base/gunit.h"
-#include "talk/base/sigslot.h"
-#include "talk/media/base/fakemediaprocessor.h"
-#include "talk/media/base/fakevideocapturer.h"
-#include "talk/media/base/fakevideorenderer.h"
+#include "base/gunit.h"
+#include "base/sigslot.h"
+#include "media/base/fakemediaprocessor.h"
+#include "media/base/fakevideocapturer.h"
+#include "media/base/fakevideorenderer.h"
 
 const int kMsCallbackWait = 50;
 

@@ -23,16 +23,16 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/fakecapturemanager.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/fakemediaprocessor.h"
-#include "talk/media/base/nullvideorenderer.h"
-#include "talk/media/devices/fakedevicemanager.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/session/media/channelmanager.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/thread.h"
+#include "media/base/fakecapturemanager.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/fakemediaprocessor.h"
+#include "media/base/nullvideorenderer.h"
+#include "media/devices/fakedevicemanager.h"
+#include "p2p/base/fakesession.h"
+#include "session/media/channelmanager.h"
 
 class ChannelManagerTest : public testing::Test {
  protected:

@@ -25,29 +25,29 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/devices/devicemanager.h"
+#include "media/devices/devicemanager.h"
 
 #ifdef WIN32
-#include "talk/base/win32.h"
+#include "base/win32.h"
 #include <objbase.h>
 #endif
 #include <string>
 
-#include "talk/base/fileutils.h"
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/stream.h"
-#include "talk/base/windowpickerfactory.h"
-#include "talk/media/base/fakevideocapturer.h"
-#include "talk/media/base/testutils.h"
-#include "talk/media/devices/filevideocapturer.h"
-#include "talk/media/devices/v4llookup.h"
+#include "base/fileutils.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/pathutils.h"
+#include "base/scoped_ptr.h"
+#include "base/stream.h"
+#include "base/windowpickerfactory.h"
+#include "media/base/fakevideocapturer.h"
+#include "media/base/testutils.h"
+#include "media/devices/filevideocapturer.h"
+#include "media/devices/v4llookup.h"
 
 #ifdef LINUX
 // TODO(juberti): Figure out why this doesn't compile on Windows.
-#include "talk/base/fileutils_mock.h"
+#include "base/fileutils_mock.h"
 #endif  // LINUX
 
 using talk_base::Pathname;

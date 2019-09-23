@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/localvideosource.h"
+#include "app/webrtc/localvideosource.h"
 
 #include <string>
 #include <vector>
 
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/fakevideorenderer.h"
-#include "talk/media/devices/fakedevicemanager.h"
-#include "talk/session/media/channelmanager.h"
+#include "base/gunit.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/fakevideorenderer.h"
+#include "media/devices/fakedevicemanager.h"
+#include "session/media/channelmanager.h"
 
 using webrtc::LocalVideoSource;
 using webrtc::MediaConstraintsInterface;

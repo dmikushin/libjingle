@@ -25,20 +25,20 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/fakemediaprocessor.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/media/base/testutils.h"
-#include "talk/media/base/videoengine_unittest.h"
-#include "talk/media/webrtc/fakewebrtcvideocapturemodule.h"
-#include "talk/media/webrtc/fakewebrtcvideoengine.h"
-#include "talk/media/webrtc/fakewebrtcvoiceengine.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
-#include "talk/media/webrtc/webrtcvideoengine.h"
-#include "talk/media/webrtc/webrtcvideoframe.h"
-#include "talk/media/webrtc/webrtcvoiceengine.h"
-#include "talk/session/media/mediasession.h"
+#include "base/gunit.h"
+#include "base/scoped_ptr.h"
+#include "media/base/fakemediaprocessor.h"
+#include "media/base/mediachannel.h"
+#include "media/base/testutils.h"
+#include "media/base/videoengine_unittest.h"
+#include "media/webrtc/fakewebrtcvideocapturemodule.h"
+#include "media/webrtc/fakewebrtcvideoengine.h"
+#include "media/webrtc/fakewebrtcvoiceengine.h"
+#include "media/webrtc/webrtcvideocapturer.h"
+#include "media/webrtc/webrtcvideoengine.h"
+#include "media/webrtc/webrtcvideoframe.h"
+#include "media/webrtc/webrtcvoiceengine.h"
+#include "session/media/mediasession.h"
 
 // Tests for the WebRtcVideoEngine/VideoChannel code.
 
@@ -61,6 +61,8 @@ static const unsigned int kStartBandwidthKbps = 300;
 static const unsigned int kMaxBandwidthKbps = 2000;
 
 static const unsigned int kNumberOfTemporalLayers = 1;
+
+static const uint32_t kSsrcs2[] = {1, 2};
 
 
 class FakeViEWrapper : public cricket::ViEWrapper {

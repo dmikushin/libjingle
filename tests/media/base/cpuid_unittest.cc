@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/media/base/cpuid.h"
+#include "media/base/cpuid.h"
 
 #include <iostream>
 
-#include "talk/base/basictypes.h"
-#include "talk/base/gunit.h"
-#include "talk/base/systeminfo.h"
+#include "base/basictypes.h"
+#include "base/gunit.h"
+#include "base/systeminfo.h"
 
 TEST(CpuInfoTest, CpuId) {
   LOG(LS_INFO) << "ARM: "

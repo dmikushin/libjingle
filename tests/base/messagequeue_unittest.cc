@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/timeutils.h"
-#include "talk/base/messagequeue.h"
-#include "talk/base/nullsocketserver.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/timeutils.h"
+#include "base/messagequeue.h"
+#include "base/nullsocketserver.h"
 
 using namespace talk_base;
 

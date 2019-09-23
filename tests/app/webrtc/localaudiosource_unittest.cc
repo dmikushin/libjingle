@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/localaudiosource.h"
+#include "app/webrtc/localaudiosource.h"
 
 #include <string>
 #include <vector>
 
-#include "talk/app/webrtc/test/fakeconstraints.h"
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/fakevideorenderer.h"
-#include "talk/media/devices/fakedevicemanager.h"
+#include "app/webrtc/test/fakeconstraints.h"
+#include "base/gunit.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/fakevideorenderer.h"
+#include "media/devices/fakedevicemanager.h"
 
 using webrtc::LocalAudioSource;
 using webrtc::MediaConstraintsInterface;

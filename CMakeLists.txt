@@ -29,6 +29,11 @@ cmake_minimum_required (VERSION 3.1)
 
 project(jingle)
 
+# Enable C++ 11 support
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 # Search path for CMake include files.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
@@ -182,5 +187,5 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
 target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${NSPR_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
 
 #add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
-#add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
 

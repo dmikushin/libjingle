@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/gunit.h"
-#include "talk/base/helpers.h"
-#include "talk/base/socketaddress.h"
-#include "talk/p2p/base/stunport.h"
-#include "talk/p2p/base/teststunserver.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/gunit.h"
+#include "base/helpers.h"
+#include "base/socketaddress.h"
+#include "p2p/base/stunport.h"
+#include "p2p/base/teststunserver.h"
 
 using talk_base::SocketAddress;
 

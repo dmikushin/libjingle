@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/basictypes.h"
+#include "base/basictypes.h"
 
-#include "talk/base/gunit.h"
+#include "base/gunit.h"
 
 namespace talk_base {
 

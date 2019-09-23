@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/base/thread.h"
-#include "talk/session/media/call.h"
-#include "talk/session/media/currentspeakermonitor.h"
+#include "base/gunit.h"
+#include "base/thread.h"
+#include "session/media/call.h"
+#include "session/media/currentspeakermonitor.h"
 
 namespace cricket {
 

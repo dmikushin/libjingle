@@ -25,14 +25,14 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/peerconnectionproxy.h"
+#include "app/webrtc/peerconnectionproxy.h"
 
 #include <string>
 
-#include "talk/base/refcount.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/thread.h"
-#include "talk/base/gunit.h"
+#include "base/refcount.h"
+#include "base/scoped_ptr.h"
+#include "base/thread.h"
+#include "base/gunit.h"
 #include "testing/base/public/gmock.h"
 
 using ::testing::_;

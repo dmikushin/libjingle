@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/test/fakeaudiocapturemodule.h"
+#include "app/webrtc/test/fakeaudiocapturemodule.h"
 
 #include <algorithm>
 
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ref_ptr.h"
-#include "talk/base/thread.h"
+#include "base/gunit.h"
+#include "base/scoped_ref_ptr.h"
+#include "base/thread.h"
 
 using std::min;
 

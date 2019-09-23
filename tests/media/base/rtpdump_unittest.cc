@@ -27,12 +27,12 @@
 
 #include <string>
 
-#include "talk/base/bytebuffer.h"
-#include "talk/base/gunit.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/rtpdump.h"
-#include "talk/media/base/rtputils.h"
-#include "talk/media/base/testutils.h"
+#include "base/bytebuffer.h"
+#include "base/gunit.h"
+#include "base/thread.h"
+#include "media/base/rtpdump.h"
+#include "media/base/rtputils.h"
+#include "media/base/testutils.h"
 
 namespace cricket {
 

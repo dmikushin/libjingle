@@ -26,8 +26,8 @@
  */
 
 #include <vector>
-#include "talk/base/gunit.h"
-#include "talk/base/json.h"
+#include "base/gunit.h"
+#include "base/json.h"
 
 static Json::Value in_s("foo");
 static Json::Value in_sn("99");

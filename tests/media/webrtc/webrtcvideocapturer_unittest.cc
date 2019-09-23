@@ -25,14 +25,14 @@
 
 #include <stdio.h>
 #include <vector>
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/testutils.h"
-#include "talk/media/base/videocommon.h"
-#include "talk/media/webrtc/fakewebrtcvcmfactory.h"
-#include "talk/media/webrtc/webrtcvideocapturer.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "media/base/testutils.h"
+#include "media/base/videocommon.h"
+#include "media/webrtc/fakewebrtcvcmfactory.h"
+#include "media/webrtc/webrtcvideocapturer.h"
 
 using cricket::VideoFormat;
 

@@ -27,17 +27,17 @@
 
 #include <string>
 
-#include "talk/app/webrtc/audiotrack.h"
-#include "talk/app/webrtc/mediastream.h"
-#include "talk/app/webrtc/mediastreamsignaling.h"
-#include "talk/app/webrtc/streamcollection.h"
-#include "talk/app/webrtc/test/fakeconstraints.h"
-#include "talk/app/webrtc/videotrack.h"
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/sessiondescription.h"
+#include "app/webrtc/audiotrack.h"
+#include "app/webrtc/mediastream.h"
+#include "app/webrtc/mediastreamsignaling.h"
+#include "app/webrtc/streamcollection.h"
+#include "app/webrtc/test/fakeconstraints.h"
+#include "app/webrtc/videotrack.h"
+#include "base/gunit.h"
+#include "base/scoped_ptr.h"
+#include "base/thread.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/sessiondescription.h"
 
 static const char kStreams[][8] = {"stream1", "stream2"};
 static const char kAudioTracks[][32] = {"audiotrack0", "audiotrack1"};

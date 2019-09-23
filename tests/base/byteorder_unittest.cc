@@ -25,10 +25,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/byteorder.h"
+#include "base/byteorder.h"
 
-#include "talk/base/basictypes.h"
-#include "talk/base/gunit.h"
+#include "base/basictypes.h"
+#include "base/gunit.h"
 
 namespace talk_base {
 

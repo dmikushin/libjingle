@@ -25,18 +25,18 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/app/webrtc/mediastreamhandler.h"
+#include "app/webrtc/mediastreamhandler.h"
 
 #include <string>
 
-#include "talk/app/webrtc/audiotrack.h"
-#include "talk/app/webrtc/localvideosource.h"
-#include "talk/app/webrtc/mediastream.h"
-#include "talk/app/webrtc/streamcollection.h"
-#include "talk/app/webrtc/videotrack.h"
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakevideocapturer.h"
-#include "talk/media/base/mediachannel.h"
+#include "app/webrtc/audiotrack.h"
+#include "app/webrtc/localvideosource.h"
+#include "app/webrtc/mediastream.h"
+#include "app/webrtc/streamcollection.h"
+#include "app/webrtc/videotrack.h"
+#include "base/gunit.h"
+#include "media/base/fakevideocapturer.h"
+#include "media/base/mediachannel.h"
 #include "testing/base/public/gmock.h"
 
 using ::testing::_;

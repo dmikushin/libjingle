@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/session/media/mediamessages.h"
+#include "session/media/mediamessages.h"
 
 #include <string>
 #include <vector>
 
-#include "talk/base/gunit.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/session/media/mediasessionclient.h"
-#include "talk/xmllite/xmlelement.h"
+#include "base/gunit.h"
+#include "base/scoped_ptr.h"
+#include "p2p/base/constants.h"
+#include "session/media/mediasessionclient.h"
+#include "xmlelement.h"
 
 // Unit tests for mediamessages.cc.
 

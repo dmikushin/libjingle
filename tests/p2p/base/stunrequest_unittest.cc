@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/timeutils.h"
-#include "talk/p2p/base/stunrequest.h"
+#include "base/gunit.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/timeutils.h"
+#include "p2p/base/stunrequest.h"
 
 using namespace cricket;
 

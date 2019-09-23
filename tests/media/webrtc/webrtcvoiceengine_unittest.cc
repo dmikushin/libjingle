@@ -3,19 +3,19 @@
 // Author: Justin Uberti (juberti@google.com)
 
 #ifdef WIN32
-#include "talk/base/win32.h"
+#include "base/win32.h"
 #include <objbase.h>
 #endif
 
-#include "talk/base/byteorder.h"
-#include "talk/base/gunit.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/fakemediaprocessor.h"
-#include "talk/media/base/fakertp.h"
-#include "talk/media/webrtc/fakewebrtcvoiceengine.h"
-#include "talk/media/webrtc/webrtcvoiceengine.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/session/media/channel.h"
+#include "base/byteorder.h"
+#include "base/gunit.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/fakemediaprocessor.h"
+#include "media/base/fakertp.h"
+#include "media/webrtc/fakewebrtcvoiceengine.h"
+#include "media/webrtc/webrtcvoiceengine.h"
+#include "p2p/base/fakesession.h"
+#include "session/media/channel.h"
 
 // Tests for the WebRtcVoiceEngine/VoiceChannel code.
 

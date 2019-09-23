@@ -25,20 +25,20 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/basicpacketsocketfactory.h"
-#include "talk/base/buffer.h"
-#include "talk/base/logging.h"
-#include "talk/base/gunit.h"
-#include "talk/base/helpers.h"
-#include "talk/base/physicalsocketserver.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/socketaddress.h"
-#include "talk/base/thread.h"
-#include "talk/base/virtualsocketserver.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/testturnserver.h"
-#include "talk/p2p/base/turnport.h"
-#include "talk/p2p/base/udpport.h"
+#include "base/basicpacketsocketfactory.h"
+#include "base/buffer.h"
+#include "base/logging.h"
+#include "base/gunit.h"
+#include "base/helpers.h"
+#include "base/physicalsocketserver.h"
+#include "base/scoped_ptr.h"
+#include "base/socketaddress.h"
+#include "base/thread.h"
+#include "base/virtualsocketserver.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/testturnserver.h"
+#include "p2p/base/turnport.h"
+#include "p2p/base/udpport.h"
 
 using talk_base::SocketAddress;
 using cricket::Connection;

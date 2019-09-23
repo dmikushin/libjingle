@@ -27,13 +27,13 @@
 
 #include <string>
 
-#include "talk/base/bytebuffer.h"
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/messagedigest.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/socketaddress.h"
-#include "talk/p2p/base/stun.h"
+#include "base/bytebuffer.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/messagedigest.h"
+#include "base/scoped_ptr.h"
+#include "base/socketaddress.h"
+#include "p2p/base/stun.h"
 
 namespace cricket {
 

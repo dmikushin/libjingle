@@ -28,18 +28,18 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/gunit.h"
-#include "talk/base/logging.h"
-#include "talk/base/scoped_ptr.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/devices/fakedevicemanager.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/client/basicportallocator.h"
-#include "talk/session/media/mediasessionclient.h"
-#include "talk/xmllite/xmlbuilder.h"
-#include "talk/xmllite/xmlelement.h"
-#include "talk/xmllite/xmlprinter.h"
-#include "talk/xmpp/constants.h"
+#include "base/gunit.h"
+#include "base/logging.h"
+#include "base/scoped_ptr.h"
+#include "media/base/fakemediaengine.h"
+#include "media/devices/fakedevicemanager.h"
+#include "p2p/base/constants.h"
+#include "p2p/client/basicportallocator.h"
+#include "session/media/mediasessionclient.h"
+#include "xmlbuilder.h"
+#include "xmlelement.h"
+#include "xmlprinter.h"
+#include "constants.h"
 
 // The codecs that our FakeMediaEngine will support. Order is important, since
 // the tests check that our messages have codecs in the correct order.

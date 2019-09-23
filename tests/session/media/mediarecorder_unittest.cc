@@ -25,17 +25,17 @@
 
 #include <string>
 
-#include "talk/base/bytebuffer.h"
-#include "talk/base/fileutils.h"
-#include "talk/base/gunit.h"
-#include "talk/base/pathutils.h"
-#include "talk/base/thread.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/rtpdump.h"
-#include "talk/media/base/testutils.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/session/media/channel.h"
-#include "talk/session/media/mediarecorder.h"
+#include "base/bytebuffer.h"
+#include "base/fileutils.h"
+#include "base/gunit.h"
+#include "base/pathutils.h"
+#include "base/thread.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/rtpdump.h"
+#include "media/base/testutils.h"
+#include "p2p/base/fakesession.h"
+#include "session/media/channel.h"
+#include "session/media/mediarecorder.h"
 
 namespace cricket {
 

@@ -25,17 +25,17 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/fakesslidentity.h"
-#include "talk/base/gunit.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/constants.h"
-#include "talk/p2p/base/fakesession.h"
-#include "talk/p2p/base/parsing.h"
-#include "talk/p2p/base/p2ptransport.h"
-#include "talk/p2p/base/rawtransport.h"
-#include "talk/p2p/base/sessionmessages.h"
-#include "talk/xmllite/xmlelement.h"
-#include "talk/xmpp/constants.h"
+#include "base/fakesslidentity.h"
+#include "base/gunit.h"
+#include "base/thread.h"
+#include "p2p/base/constants.h"
+#include "p2p/base/fakesession.h"
+#include "p2p/base/parsing.h"
+#include "p2p/base/p2ptransport.h"
+#include "p2p/base/rawtransport.h"
+#include "p2p/base/sessionmessages.h"
+#include "xmlelement.h"
+#include "constants.h"
 
 using cricket::Candidate;
 using cricket::Candidates;

@@ -72,9 +72,9 @@ class LATE_BINDING_SYMBOL_TABLE_CLASS_NAME :
   ~LATE_BINDING_SYMBOL_TABLE_CLASS_NAME();
 
 #define X(sym) \
-  typeof(&::sym) sym() const { \
+  decltype(&::sym) sym() const { \
     ASSERT(::talk_base::LateBindingSymbolTable::IsLoaded()); \
-    return reinterpret_cast<typeof(&::sym)>(table_[SYMBOL_TABLE_INDEX_##sym]); \
+    return reinterpret_cast<decltype(&::sym)>(table_[SYMBOL_TABLE_INDEX_##sym]); \
   }
 LATE_BINDING_SYMBOL_TABLE_SYMBOLS_LIST
 #undef X

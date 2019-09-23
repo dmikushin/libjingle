@@ -25,8 +25,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/gunit.h"
-#include "talk/base/host.h"
+#include "base/gunit.h"
+#include "base/host.h"
 
 TEST(Host, GetHostName) {
   EXPECT_NE("", talk_base::GetHostName());
