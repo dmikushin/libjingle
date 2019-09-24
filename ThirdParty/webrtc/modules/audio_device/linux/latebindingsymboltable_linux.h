@@ -187,7 +187,7 @@ const char *const ClassName##_kSymbolNames[ClassName##_SYMBOL_TABLE_SIZE] = {
 
 // Returns a reference to the given late-binded symbol, with the correct type.
 #define LATESYM_GET(ClassName, inst, sym) \
-  (*reinterpret_cast<typeof(&sym)>( \
+  (*reinterpret_cast<decltype(&sym)>( \
       (inst)->GetSymbol(LATESYM_INDEXOF(ClassName, sym))))
 
 }  // namespace webrtc_adm_linux

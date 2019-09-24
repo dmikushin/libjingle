@@ -70,7 +70,10 @@ file(GLOB_RECURSE jingle_media_UNIT_TESTS
 list(REMOVE_ITEM jingle_media_UNIT_TESTS
 	"${CMAKE_CURRENT_SOURCE_DIR}/media/webrtc/webrtcvideoframe_unittest.cc")
 
-if (FALSE)
+list(APPEND jingle_media_UNIT_TESTS
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/testutils.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/media/base/unittest_main.cc")
+
 add_executable(jingle_media_unittest ${jingle_media_UNIT_TESTS})
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
@@ -78,12 +81,11 @@ target_include_directories(jingle_media_unittest PRIVATE "${gtest_SOURCE_DIR}/in
 target_include_directories(jingle_media_unittest PRIVATE "${gmock_SOURCE_DIR}/include")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc")
-target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc/webrtc")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/libyuv/include")
 target_include_directories(jingle_media_unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
-target_link_libraries(jingle_media_unittest jingle jingle_media gtest gtest_main jingle xmllite)
-endif()
+target_link_libraries(jingle_media_unittest jingle jingle_media jingle_sound gtest gtest_main jingle xmllite webrtc)
 
 file(GLOB_RECURSE jingle_p2p_UNIT_TESTS
 	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/*_unittest.cc")

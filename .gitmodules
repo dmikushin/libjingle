@@ -7,3 +7,6 @@
 [submodule "ThirdParty/libyuv"]
 	path = ThirdParty/libyuv
 	url = https://chromium.googlesource.com/libyuv/libyuv
+[submodule "ThirdParty/libvpx"]
+	path = ThirdParty/libvpx
+	url = https://github.com/webmproject/libvpx.git

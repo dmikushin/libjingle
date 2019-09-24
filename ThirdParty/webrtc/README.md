@@ -17,6 +17,12 @@ Date:   Tue Feb 12 04:57:56 2013 +0000
     git-svn-id: http://webrtc.googlecode.com/svn/trunk@3503 4adac7df-926f-26a2-2b94-8c16560cd09d
 ```
 
+## Prerequisites
+
+```
+sudo apt install libopus-dev
+```
+
 ---
 
 URL: http://www.webrtc.org

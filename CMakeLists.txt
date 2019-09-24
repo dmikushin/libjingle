@@ -41,7 +41,7 @@ find_package(NSS REQUIRED)
 find_package(NSPR REQUIRED)
 
 add_compile_options(-DPOSIX)
-add_compile_options(-DWEBRTC_POSIX)
+add_compile_options(-DWEBRTC_LINUX)
 add_compile_options(-DEXPAT_RELATIVE_PATH)
 add_compile_options(-DFEATURE_ENABLE_VOICEMAIL)
 add_compile_options(-DGTEST_RELATIVE_PATH)
@@ -176,6 +176,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${NSPR_INCLUDE_DIRS}")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmllite")
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/xmpp")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/libyuv")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/webrtc")
 
 set(JSONCPP_WITH_TESTS OFF CACHE BOOL "")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp" EXCLUDE_FROM_ALL)
