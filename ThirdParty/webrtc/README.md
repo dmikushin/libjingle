@@ -20,7 +20,7 @@ Date:   Tue Feb 12 04:57:56 2013 +0000
 ## Prerequisites
 
 ```
-sudo apt install libopus-dev
+sudo apt install libopus-dev libvpx-dev
 ```
 
 ---

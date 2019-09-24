@@ -11,7 +11,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(Opus REQUIRED)
 find_package(JPEG REQUIRED)
-find_package(PulseAudio REQUIRED)
+find_package(LibVpx REQUIRED)
 
 # Collect all sources not belonging to tests or specific architectures.
 macro(add_sources SRCS BASE_PATH)
@@ -66,6 +66,7 @@ add_includes(modules_audio_conference_mixer_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE
 
 add_sources(modules_audio_device_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/audio_device")
 add_includes(modules_audio_device_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/modules/audio_device")
+list(APPEND modules_audio_device_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/audio_device/linux/pulseaudiosymboltable_linux.cc")
 
 add_sources(modules_audio_processing_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/audio_processing")
 add_includes(modules_audio_processing_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/modules/audio_processing")
@@ -136,10 +137,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/..")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../libyuv/include")
-target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../libvpx")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/modules/interface")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/test")
 target_include_directories(${PROJECT_NAME} PRIVATE ${OPUS_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PRIVATE ${LIBVPX_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${common_audio_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${common_video_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${modules_audio_coding_INCLUDE_DIRS})
@@ -160,5 +161,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${modules_video_render_INCLUD
 target_include_directories(${PROJECT_NAME} PRIVATE ${video_engine_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${voice_engine_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${system_wrappers_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${OPUS_LIBRARIES} yuv_shared ${JPEG_LIBRARIES} ${PULSEAUDIO_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${OPUS_LIBRARIES} yuv_shared ${JPEG_LIBRARIES} ${LIBVPX_LIBRARIES})
 
