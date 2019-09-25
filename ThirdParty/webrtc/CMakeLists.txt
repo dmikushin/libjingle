@@ -99,6 +99,7 @@ list(REMOVE_ITEM modules_video_capture_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules
 
 add_sources(modules_video_coding_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/video_coding")
 add_includes(modules_video_coding_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/modules/video_coding")
+list(REMOVE_ITEM modules_video_coding_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/video_coding/codecs/vp8/vp8_sequence_coder.cc")
 
 add_sources(modules_video_processing_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/modules/video_processing")
 add_includes(modules_video_processing_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/modules/video_processing")
@@ -127,11 +128,8 @@ add_library(${PROJECT_NAME} SHARED
 	${modules_udp_transport_SRCS} ${modules_utility_SRCS}
 	${modules_video_capture_SRCS} ${modules_video_coding_SRCS} ${modules_video_processing_SRCS} ${modules_video_render_SRCS}
 	${system_wrappers_SRCS}
-	"${CMAKE_CURRENT_SOURCE_DIR}/tools/simple_command_line_parser.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/test/testsupport/fileutils.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/test/testsupport/metrics/video_metrics.cc")
-target_include_directories(${PROJECT_NAME} PRIVATE "${gtest_SOURCE_DIR}/include")
-target_include_directories(${PROJECT_NAME} PRIVATE "${gmock_SOURCE_DIR}/include")
 target_compile_definitions(${PROJECT_NAME} PRIVATE WEBRTC_LINUX WEBRTC_SVNREVISION="git" WEBRTC_NS_FLOAT)
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
