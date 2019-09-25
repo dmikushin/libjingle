@@ -38,6 +38,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(NSS REQUIRED)
+find_package(OpenSSL REQUIRED)
 find_package(NSPR REQUIRED)
 
 add_compile_options(-DPOSIX)
@@ -188,7 +189,7 @@ set(JSONCPP_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/jsoncpp/include
 set(JSONCPP_LIBRARY jsoncpp_lib_static)
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
-target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${NSPR_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
+target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${OPENSSL_LIBRARIES} ${NSPR_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
 
 #add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
