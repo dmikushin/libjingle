@@ -91,6 +91,10 @@ class ByteBuffer {
   // seek positions.
   void Resize(size_t size);
 
+  // Drops |size| bytes from the front of the buffer. Return false if
+  // there is less than |size| bytes left in the buffer.
+  void Shift(size_t size);
+
   // Moves current position |size| bytes forward. Returns false if
   // there is less than |size| bytes left in the buffer. Consume doesn't
   // permanently remove data, so remembered read positions are still valid
