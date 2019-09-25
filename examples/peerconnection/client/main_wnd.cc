@@ -25,13 +25,13 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/client/main_wnd.h"
+#include "peerconnection/client/main_wnd.h"
 
 #include <math.h>
 
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/examples/peerconnection/client/defaults.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "peerconnection/client/defaults.h"
 
 ATOM MainWnd::wnd_class_ = 0;
 const wchar_t MainWnd::kClassName[] = L"WebRTC_MainWnd";

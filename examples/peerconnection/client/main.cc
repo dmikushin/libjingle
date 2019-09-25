@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/client/conductor.h"
-#include "talk/examples/peerconnection/client/main_wnd.h"
-#include "talk/examples/peerconnection/client/peer_connection_client.h"
-#include "talk/base/win32socketinit.h"
-#include "talk/base/win32socketserver.h"
+#include "peerconnection/client/conductor.h"
+#include "peerconnection/client/main_wnd.h"
+#include "peerconnection/client/peer_connection_client.h"
+#include "base/win32socketinit.h"
+#include "base/win32socketserver.h"
 
 
 int PASCAL wWinMain(HINSTANCE instance, HINSTANCE prev_instance,

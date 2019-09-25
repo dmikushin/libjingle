@@ -28,10 +28,10 @@
 #ifndef _PHONE_CLIENT_ROSTERTASK_H_
 #define _PHONE_CLIENT_ROSTERTASK_H_
 
-#include "talk/xmpp/xmppclient.h"
-#include "talk/xmpp/xmpptask.h"
-#include "talk/app/rosteritem.h"
-#include "talk/base/sigslot.h"
+#include "xmppclient.h"
+#include "xmpptask.h"
+#include "app/rosteritem.h"
+#include "base/sigslot.h"
 
 namespace buzz {
 

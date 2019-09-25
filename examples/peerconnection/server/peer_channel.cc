@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/server/peer_channel.h"
+#include "peerconnection/server/peer_channel.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,8 +33,8 @@
 
 #include <algorithm>
 
-#include "talk/examples/peerconnection/server/data_socket.h"
-#include "talk/examples/peerconnection/server/utils.h"
+#include "peerconnection/server/data_socket.h"
+#include "peerconnection/server/utils.h"
 
 // Set to the peer id of the originator when messages are being
 // exchanged between peers, but set to the id of the receiving peer

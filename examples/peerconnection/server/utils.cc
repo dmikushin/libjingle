@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/server/utils.h"
+#include "peerconnection/server/utils.h"
 
 #include <stdio.h>
 

@@ -28,7 +28,7 @@
 #include <iostream>
 #include <string>
 
-#include "talk/libjingle-plus/libjingleplus.h"
+#include "libjingle-plus/libjingleplus.h"
 
 class Notifier : virtual public LibjinglePlusNotify {
   virtual void OnStateChange(buzz::XmppEngine::State state) {

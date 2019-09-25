@@ -32,16 +32,16 @@
 #include <string>
 #include <vector>
 
-#include "talk/base/scoped_ptr.h"
-#include "talk/base/sslidentity.h"
-#include "talk/examples/call/console.h"
-#include "talk/media/base/mediachannel.h"
-#include "talk/p2p/base/session.h"
-#include "talk/session/media/mediamessages.h"
-#include "talk/session/media/mediasessionclient.h"
-#include "talk/xmpp/hangoutpubsubclient.h"
-#include "talk/xmpp/presencestatus.h"
-#include "talk/xmpp/xmppclient.h"
+#include "base/scoped_ptr.h"
+#include "base/sslidentity.h"
+#include "call/console.h"
+#include "media/base/mediachannel.h"
+#include "p2p/base/session.h"
+#include "session/media/mediamessages.h"
+#include "session/media/mediasessionclient.h"
+#include "hangoutpubsubclient.h"
+#include "presencestatus.h"
+#include "xmppclient.h"
 
 namespace buzz {
 class PresencePushTask;

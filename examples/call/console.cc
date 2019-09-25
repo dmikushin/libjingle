@@ -33,11 +33,11 @@
 #include <unistd.h>
 #endif  // POSIX
 #include <cassert>
-#include "talk/base/logging.h"
-#include "talk/base/messagequeue.h"
-#include "talk/base/stringutils.h"
-#include "talk/examples/call/console.h"
-#include "talk/examples/call/callclient.h"
+#include "base/logging.h"
+#include "base/messagequeue.h"
+#include "base/stringutils.h"
+#include "call/console.h"
+#include "call/callclient.h"
 
 #ifdef POSIX
 static void DoNothing(int unused) {}

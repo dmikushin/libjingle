@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/base/stringencode.h"
+#include "base/stringencode.h"
 #include "presencepushtask.h"
-#include "talk/xmpp/constants.h"
+#include "constants.h"
 #include <sstream>
 
 

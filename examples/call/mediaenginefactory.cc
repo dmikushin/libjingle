@@ -25,12 +25,12 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#include "talk/examples/call/mediaenginefactory.h"
+#include "call/mediaenginefactory.h"
 
-#include "talk/base/stringutils.h"
-#include "talk/media/base/fakemediaengine.h"
-#include "talk/media/base/filemediaengine.h"
-#include "talk/media/base/mediaengine.h"
+#include "base/stringutils.h"
+#include "media/base/fakemediaengine.h"
+#include "media/base/filemediaengine.h"
+#include "media/base/mediaengine.h"
 
 std::vector<cricket::AudioCodec> RequiredAudioCodecs() {
   std::vector<cricket::AudioCodec> audio_codecs;

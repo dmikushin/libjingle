@@ -26,8 +26,8 @@
  */
 
 #include "testing/base/gunit.h"
-#include "talk/libjingle-plus/libjingleplus.h"
-#include "talk/libjingle-plus/testutil/libjingleplus_test_notifier.h"
+#include "libjingle-plus/libjingleplus.h"
+#include "libjingle-plus/testutil/libjingleplus_test_notifier.h"
 
 #if defined(_MSC_VER) && (_MSC_VER < 1400)
 void __cdecl std::_Throw(const std::exception &) {}

@@ -27,12 +27,12 @@
 
 #include <gtk/gtk.h>
 
-#include "talk/examples/peerconnection/client/conductor.h"
-#include "talk/examples/peerconnection/client/flagdefs.h"
-#include "talk/examples/peerconnection/client/linux/main_wnd.h"
-#include "talk/examples/peerconnection/client/peer_connection_client.h"
+#include "peerconnection/client/conductor.h"
+#include "peerconnection/client/flagdefs.h"
+#include "peerconnection/client/linux/main_wnd.h"
+#include "peerconnection/client/peer_connection_client.h"
 
-#include "talk/base/thread.h"
+#include "base/thread.h"
 
 class CustomSocketServer : public talk_base::PhysicalSocketServer {
  public:

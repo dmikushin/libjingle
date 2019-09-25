@@ -30,9 +30,9 @@
 
 #include <vector>
 
-#include "talk/base/sigslot.h"
-#include "talk/xmpp/xmppengine.h"
-#include "talk/xmpp/xmpptask.h"
+#include "base/sigslot.h"
+#include "xmppengine.h"
+#include "xmpptask.h"
 
 namespace buzz {
 

@@ -14,31 +14,31 @@
 #include "config.h"
 #endif  // HAVE_CONFIG_H
 
-#include "talk/base/sslconfig.h"  // For SSL_USE_*
+#include "base/sslconfig.h"  // For SSL_USE_*
 
 #if SSL_USE_OPENSSL
 #define USE_SSL_TUNNEL
 #endif
 
-#include "talk/base/basicdefs.h"
-#include "talk/base/common.h"
-#include "talk/base/helpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/ssladapter.h"
-#include "talk/base/stringutils.h"
-#include "talk/base/thread.h"
-#include "talk/p2p/base/sessionmanager.h"
-#include "talk/p2p/client/autoportallocator.h"
-#include "talk/p2p/client/sessionmanagertask.h"
-#include "talk/xmpp/xmppengine.h"
+#include "base/basicdefs.h"
+#include "base/common.h"
+#include "base/helpers.h"
+#include "base/logging.h"
+#include "base/ssladapter.h"
+#include "base/stringutils.h"
+#include "base/thread.h"
+#include "p2p/base/sessionmanager.h"
+#include "p2p/client/autoportallocator.h"
+#include "p2p/client/sessionmanagertask.h"
+#include "xmppengine.h"
 #ifdef USE_SSL_TUNNEL
-#include "talk/session/tunnel/securetunnelsessionclient.h"
+#include "session/tunnel/securetunnelsessionclient.h"
 #endif
-#include "talk/session/tunnel/tunnelsessionclient.h"
-#include "talk/xmpp/xmppclient.h"
-#include "talk/xmpp/xmppclientsettings.h"
-#include "talk/xmpp/xmpppump.h"
-#include "talk/xmpp/xmppsocket.h"
+#include "session/tunnel/tunnelsessionclient.h"
+#include "xmppclient.h"
+#include "xmppclientsettings.h"
+#include "xmpppump.h"
+#include "xmppsocket.h"
 
 #ifndef MAX_PATH
 #define MAX_PATH 256

@@ -25,172 +25,50 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-{
-  'includes': [
-    'build/common.gypi',
-  ],
-  'targets': [
-    {
-      'target_name': 'libjingle_xmpphelp',
-      'type': 'static_library',
-      'dependencies': [
-        '<(DEPTH)/third_party/expat/expat.gyp:expat',
-        'libjingle.gyp:libjingle',
-        'libjingle.gyp:libjingle_p2p',
-      ],
-      'sources': [
-        'xmpp/jingleinfotask.cc',
-      ],
-    },  # target libjingle_xmpphelp
-    {
-      'target_name': 'relayserver',
-      'type': 'executable',
-      'dependencies': [
-        'libjingle.gyp:libjingle',
-        'libjingle.gyp:libjingle_p2p',
-      ],
-      'sources': [
-        'p2p/base/relayserver_main.cc',
-      ],
-    },  # target relayserver
-    {
-      'target_name': 'stunserver',
-      'type': 'executable',
-      'dependencies': [
-        'libjingle.gyp:libjingle',
-        'libjingle.gyp:libjingle_p2p',
-      ],
-      'sources': [
-        'p2p/base/stunserver_main.cc',
-      ],
-    },  # target stunserver
-    {
-      'target_name': 'login',
-      'type': 'executable',
-      'dependencies': [
-        'libjingle_xmpphelp',
-      ],
-      'sources': [
-        'examples/login/login_main.cc',
-      ],
-    },  # target login
-    {
-      'target_name': 'peerconnection_server',
-      'type': 'executable',
-      'sources': [
-        'examples/peerconnection/server/data_socket.cc',
-        'examples/peerconnection/server/data_socket.h',
-        'examples/peerconnection/server/main.cc',
-        'examples/peerconnection/server/peer_channel.cc',
-        'examples/peerconnection/server/peer_channel.h',
-        'examples/peerconnection/server/utils.cc',
-        'examples/peerconnection/server/utils.h',
-      ],
-      'dependencies': [
-        'libjingle.gyp:libjingle',
-      ],
-      # TODO(ronghuawu): crbug.com/167187 fix size_t to int truncations.
-      'msvs_disabled_warnings': [ 4309, ],
-    }, # target peerconnection_server
-  ],
-  'conditions': [
-    ['OS!="android"', {
-      'targets': [
-        {
-          'target_name': 'call',
-          'type': 'executable',
-          'dependencies': [
-            'libjingle.gyp:libjingle_p2p',
-            'libjingle_xmpphelp',
-          ],
-          'sources': [
-            'examples/call/call_main.cc',
-            'examples/call/callclient.cc',
-            'examples/call/console.cc',
-            'examples/call/friendinvitesendtask.cc',
-            'examples/call/mediaenginefactory.cc',
-            'examples/call/mucinviterecvtask.cc',
-            'examples/call/mucinvitesendtask.cc',
-            'examples/call/presencepushtask.cc',
-          ],
-          'conditions': [
-            ['OS=="linux"', {
-              'link_settings': {
-                'libraries': [
-                  '<!@(pkg-config --libs-only-l gtk+-2.0 gthread-2.0)',
-                ],
-              },
-            }],
-            ['OS=="win"', {
-              'msvs_settings': {
-                'VCLinkerTool': {
-                  'AdditionalDependencies': [
-                    'strmiids.lib',
-                  ],
-                },
-              },
-            }],
-          ],  # conditions
-        },  # target call
-      ], # targets
-    }],  # OS!="android"
-    ['OS=="linux" or OS=="win"', {
-      'targets': [
-        {
-          'target_name': 'peerconnection_client',
-          'type': 'executable',
-          'sources': [
-            'examples/peerconnection/client/conductor.cc',
-            'examples/peerconnection/client/conductor.h',
-            'examples/peerconnection/client/defaults.cc',
-            'examples/peerconnection/client/defaults.h',
-            'examples/peerconnection/client/peer_connection_client.cc',
-            'examples/peerconnection/client/peer_connection_client.h',
-          ],
-          'dependencies': [
-            '<(DEPTH)/third_party/jsoncpp/jsoncpp.gyp:jsoncpp',
-            'libjingle.gyp:libjingle_peerconnection',
-          ],
-          'conditions': [
-            # TODO(ronghuawu): Move these files to a win/ directory then they
-            # can be excluded automatically.
-            ['OS=="win"', {
-              'sources': [
-                'examples/peerconnection/client/main.cc',
-                'examples/peerconnection/client/main_wnd.cc',
-                'examples/peerconnection/client/main_wnd.h',
-              ],
-              'msvs_settings': {
-                'VCLinkerTool': {
-                 'SubSystem': '2',  # Windows
-                },
-              },
-            }],  # OS=="win"
-            ['OS=="linux"', {
-              'sources': [
-                'examples/peerconnection/client/linux/main.cc',
-                'examples/peerconnection/client/linux/main_wnd.cc',
-                'examples/peerconnection/client/linux/main_wnd.h',
-              ],
-              'cflags': [
-                '<!@(pkg-config --cflags gtk+-2.0)',
-              ],
-              'link_settings': {
-                'ldflags': [
-                  '<!@(pkg-config --libs-only-L --libs-only-other gtk+-2.0 gthread-2.0)',
-                ],
-                'libraries': [
-                  '<!@(pkg-config --libs-only-l gtk+-2.0 gthread-2.0)',
-                  '-lX11',
-                  '-lXcomposite',
-                  '-lXext',
-                  '-lXrender',
-                ],
-              },
-            }],  # OS=="linux"
-          ],  # conditions
-        },  # target peerconnection_client
-      ], # targets
-    }],  # OS=="linux" or OS=="win"
-  ],
-}
+cmake_minimum_required (VERSION 3.1)
+
+project(jingle_examples)
+
+file(GLOB jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/*.cc")
+list(REMOVE_ITEM jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/call_unittest.cc")
+list(REMOVE_ITEM jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/callclient_unittest.cc")
+
+add_executable(jingle_example_call ${jingle_example_call_SRCS})
+target_include_directories(jingle_example_call PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_call PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_example_call PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_example_call PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_link_libraries(jingle_example_call xmpp xmllite jingle_p2p jingle_media jingle_sound jingle webrtc)
+
+file(GLOB jingle_example_login_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/login/*.cc")
+
+add_executable(jingle_example_login ${jingle_example_login_SRCS})
+target_include_directories(jingle_example_login PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_login PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_example_login PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_example_login PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_link_libraries(jingle_example_login jingle xmpp xmllite)
+
+file(GLOB jingle_example_pcp_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pcp/*.cc")
+
+add_executable(jingle_example_pcp ${jingle_example_pcp_SRCS})
+target_include_directories(jingle_example_pcp PRIVATE "${gtest_SOURCE_DIR}/include")
+target_include_directories(jingle_example_pcp PRIVATE "${gmock_SOURCE_DIR}/include")
+target_include_directories(jingle_example_pcp PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_pcp PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_example_pcp PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_example_pcp PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_link_libraries(jingle_example_pcp jingle_p2p jingle xmpp xmllite)
+
+if (FALSE)
+file(GLOB jingle_example_plus_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/plus/*.cc")
+list(REMOVE_ITEM jingle_example_plus_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/plus/testutil/libjingleplus_unittest.cc")
+
+add_executable(jingle_example_plus ${jingle_example_plus_SRCS})
+target_include_directories(jingle_example_plus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_plus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_example_plus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_example_plus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_link_libraries(jingle_example_plus jingle_p2p jingle xmpp xmllite)
+endif()
+

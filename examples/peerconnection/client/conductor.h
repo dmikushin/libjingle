@@ -34,11 +34,11 @@
 #include <set>
 #include <string>
 
-#include "talk/examples/peerconnection/client/main_wnd.h"
-#include "talk/examples/peerconnection/client/peer_connection_client.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/base/scoped_ptr.h"
+#include "peerconnection/client/main_wnd.h"
+#include "peerconnection/client/peer_connection_client.h"
+#include "app/webrtc/mediastreaminterface.h"
+#include "app/webrtc/peerconnectioninterface.h"
+#include "base/scoped_ptr.h"
 
 namespace webrtc {
 class VideoCaptureModule;

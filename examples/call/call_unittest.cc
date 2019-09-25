@@ -25,9 +25,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Main function for all unit tests in talk/examples/call
+// Main function for all unit tests in call
 
-#include "talk/base/logging.h"
+#include "base/logging.h"
 #include "testing/base/public/gunit.h"
 
 int main(int argc, char **argv) {

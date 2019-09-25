@@ -25,7 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/server/data_socket.h"
+#include "peerconnection/server/data_socket.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,7 +34,7 @@
 #include <unistd.h>
 #endif
 
-#include "talk/examples/peerconnection/server/utils.h"
+#include "peerconnection/server/utils.h"
 
 static const char kHeaderTerminator[] = "\r\n\r\n";
 static const int kHeaderTerminatorLength = sizeof(kHeaderTerminator) - 1;

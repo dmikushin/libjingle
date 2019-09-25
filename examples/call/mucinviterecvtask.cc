@@ -25,8 +25,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/xmpp/constants.h"
-#include "talk/examples/call/mucinviterecvtask.h"
+#include "constants.h"
+#include "call/mucinviterecvtask.h"
 
 namespace buzz {
 

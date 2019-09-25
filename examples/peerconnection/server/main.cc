@@ -31,10 +31,10 @@
 
 #include <vector>
 
-#include "talk/base/flags.h"
-#include "talk/examples/peerconnection/server/data_socket.h"
-#include "talk/examples/peerconnection/server/peer_channel.h"
-#include "talk/examples/peerconnection/server/utils.h"
+#include "base/flags.h"
+#include "peerconnection/server/data_socket.h"
+#include "peerconnection/server/peer_channel.h"
+#include "peerconnection/server/utils.h"
 
 DEFINE_bool(help, false, "Prints this message");
 DEFINE_int(port, 8888, "The port on which to listen.");

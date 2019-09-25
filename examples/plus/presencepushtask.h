@@ -28,10 +28,10 @@
 #ifndef _PRESENCEPUSHTASK_H_
 #define _PRESENCEPUSHTASK_H_
 
-#include "talk/xmpp/xmppengine.h"
-#include "talk/xmpp/xmpptask.h"
-#include "talk/base/sigslot.h"
-#include "talk/app/status.h"
+#include "xmppengine.h"
+#include "xmpptask.h"
+#include "base/sigslot.h"
+#include "app/status.h"
 
 namespace buzz {
 

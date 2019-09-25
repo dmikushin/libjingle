@@ -25,16 +25,16 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/client/peer_connection_client.h"
+#include "peerconnection/client/peer_connection_client.h"
 
-#include "talk/examples/peerconnection/client/defaults.h"
-#include "talk/base/common.h"
-#include "talk/base/nethelpers.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
+#include "peerconnection/client/defaults.h"
+#include "base/common.h"
+#include "base/nethelpers.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
 
 #ifdef WIN32
-#include "talk/base/win32socketserver.h"
+#include "base/win32socketserver.h"
 #endif
 
 using talk_base::sprintfn;

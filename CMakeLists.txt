@@ -191,6 +191,6 @@ set(JSONCPP_LIBRARY jsoncpp_lib_static)
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
 target_link_libraries(${PROJECT_NAME} ${NSS_LIBRARIES} ${OPENSSL_LIBRARIES} ${NSPR_LIBRARIES} ${JSONCPP_LIBRARY} dl rt Xext X11 Xcomposite Xrender)
 
-#add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
 

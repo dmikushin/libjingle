@@ -28,11 +28,11 @@
 #include <cstdio>
 #include <iostream>
 
-#include "talk/base/thread.h"
-#include "talk/xmpp/constants.h"
-#include "talk/xmpp/xmppclientsettings.h"
-#include "talk/xmpp/xmppengine.h"
-#include "talk/xmpp/xmppthread.h"
+#include "base/thread.h"
+#include "constants.h"
+#include "xmppclientsettings.h"
+#include "xmppengine.h"
+#include "xmppthread.h"
 
 int main(int argc, char **argv) {
   std::cout << "OAuth Access Token: ";

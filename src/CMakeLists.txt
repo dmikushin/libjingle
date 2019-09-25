@@ -29,10 +29,13 @@ cmake_minimum_required (VERSION 3.1)
 
 project(jingle_core)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 find_package(SRTP REQUIRED)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK2 REQUIRED gtk+-2.0)
+pkg_check_modules(GTK2 REQUIRED gtk+-2.0 gthread-2.0)
 
 set(jingle_sound_SRCS 
 	"${CMAKE_CURRENT_SOURCE_DIR}/sound/nullsoundsystem.cc"
@@ -154,7 +157,7 @@ target_include_directories(jingle_p2p PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../in
 target_include_directories(jingle_p2p PUBLIC "${gtest_SOURCE_DIR}/include")
 target_include_directories(jingle_p2p PUBLIC "${gmock_SOURCE_DIR}/include")
 target_include_directories(jingle_p2p PUBLIC "${SRTP_INCLUDE_DIRS}")
-target_link_libraries(jingle_p2p ${SRTP_LIBRARIES})
+target_link_libraries(jingle_p2p ${SRTP_LIBRARIES} Threads::Threads)
 
 set(jingle_peerconnection_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/app/webrtc/audiotrack.cc"

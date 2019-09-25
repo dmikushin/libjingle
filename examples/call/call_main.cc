@@ -32,28 +32,28 @@
 #include <iostream>
 #include <vector>
 
-#include "talk/base/flags.h"
-#include "talk/base/logging.h"
+#include "base/flags.h"
+#include "base/logging.h"
 #ifdef OSX
-#include "talk/base/maccocoasocketserver.h"
+#include "base/maccocoasocketserver.h"
 #endif
-#include "talk/base/pathutils.h"
-#include "talk/base/ssladapter.h"
-#include "talk/base/stream.h"
-#include "talk/base/win32socketserver.h"
-#include "talk/examples/call/callclient.h"
-#include "talk/examples/call/console.h"
-#include "talk/examples/call/mediaenginefactory.h"
-#include "talk/p2p/base/constants.h"
+#include "base/pathutils.h"
+#include "base/ssladapter.h"
+#include "base/stream.h"
+#include "base/win32socketserver.h"
+#include "call/callclient.h"
+#include "call/console.h"
+#include "call/mediaenginefactory.h"
+#include "p2p/base/constants.h"
 #ifdef ANDROID
-#include "talk/media/other/androidmediaengine.h"
+#include "media/other/androidmediaengine.h"
 #endif
-#include "talk/session/media/mediasessionclient.h"
-#include "talk/session/media/srtpfilter.h"
-#include "talk/xmpp/xmppauth.h"
-#include "talk/xmpp/xmppclientsettings.h"
-#include "talk/xmpp/xmpppump.h"
-#include "talk/xmpp/xmppsocket.h"
+#include "session/media/mediasessionclient.h"
+#include "session/media/srtpfilter.h"
+#include "xmppauth.h"
+#include "xmppclientsettings.h"
+#include "xmpppump.h"
+#include "xmppsocket.h"
 
 class DebugLog : public sigslot::has_slots<> {
  public:

@@ -25,15 +25,15 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/peerconnection/client/conductor.h"
+#include "peerconnection/client/conductor.h"
 
 #include <utility>
 
-#include "talk/base/common.h"
-#include "talk/base/json.h"
-#include "talk/base/logging.h"
-#include "talk/examples/peerconnection/client/defaults.h"
-#include "talk/media/devices/devicemanager.h"
+#include "base/common.h"
+#include "base/json.h"
+#include "base/logging.h"
+#include "peerconnection/client/defaults.h"
+#include "media/devices/devicemanager.h"
 
 // Names used for a IceCandidate JSON object.
 const char kCandidateSdpMidName[] = "sdpMid";

@@ -28,22 +28,22 @@
 #include <iostream>
 #include "libjingleplus.h"
 #ifdef WIN32
-#include "talk/base/win32socketserver.h"
+#include "base/win32socketserver.h"
 #endif
-#include "talk/base/physicalsocketserver.h"
-#include "talk/base/logging.h"
-#include "talk/examples/login/xmppauth.h"
-#include "talk/examples/login/xmppsocket.h"
-#include "talk/examples/login/xmpppump.h"
+#include "base/physicalsocketserver.h"
+#include "base/logging.h"
+#include "login/xmppauth.h"
+#include "login/xmppsocket.h"
+#include "login/xmpppump.h"
 #include "presencepushtask.h"
-#include "talk/app/status.h"
-#include "talk/app/message.h"
+#include "app/status.h"
+#include "app/message.h"
 #include "rostertask.h"
-#include "talk/app/iqtask.h"
-#include "talk/app/presenceouttask.h"
-#include "talk/app/receivemessagetask.h"
-#include "talk/app/rostersettask.h"
-#include "talk/app/sendmessagetask.h"
+#include "app/iqtask.h"
+#include "app/presenceouttask.h"
+#include "app/receivemessagetask.h"
+#include "app/rostersettask.h"
+#include "app/sendmessagetask.h"
 
 enum {
   MSG_START,

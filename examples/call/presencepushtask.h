@@ -30,11 +30,11 @@
 
 #include <vector>
 
-#include "talk/xmpp/xmppengine.h"
-#include "talk/xmpp/xmpptask.h"
-#include "talk/xmpp/presencestatus.h"
-#include "talk/base/sigslot.h"
-#include "talk/examples/call/callclient.h"
+#include "xmppengine.h"
+#include "xmpptask.h"
+#include "presencestatus.h"
+#include "base/sigslot.h"
+#include "call/callclient.h"
 
 namespace buzz {
 

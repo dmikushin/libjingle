@@ -25,11 +25,11 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "talk/examples/call/presencepushtask.h"
+#include "call/presencepushtask.h"
 
-#include "talk/base/stringencode.h"
-#include "talk/examples/call/muc.h"
-#include "talk/xmpp/constants.h"
+#include "base/stringencode.h"
+#include "call/muc.h"
+#include "constants.h"
 
 
 

@@ -26,16 +26,16 @@
  */
 
 
-#include "talk/examples/peerconnection/client/linux/main_wnd.h"
+#include "peerconnection/client/linux/main_wnd.h"
 
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <stddef.h>
 
-#include "talk/examples/peerconnection/client/defaults.h"
-#include "talk/base/common.h"
-#include "talk/base/logging.h"
-#include "talk/base/stringutils.h"
+#include "peerconnection/client/defaults.h"
+#include "base/common.h"
+#include "base/logging.h"
+#include "base/stringutils.h"
 
 using talk_base::sprintfn;
 

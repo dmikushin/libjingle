@@ -31,12 +31,12 @@
 #ifndef LIBJINGLEPLUS_H__
 #define LIBJINGLEPLUS_H__
 
-#include "talk/base/basicdefs.h"
-#include "talk/app/rosteritem.h"
-#include "talk/app/message.h"
-#include "talk/app/status.h"
-#include "talk/xmpp/xmppengine.h"
-#include "talk/base/scoped_ptr.h"
+#include "base/basicdefs.h"
+#include "app/rosteritem.h"
+#include "app/message.h"
+#include "app/status.h"
+#include "xmppengine.h"
+#include "base/scoped_ptr.h"
 
 
 class LibjinglePlusWorker;
