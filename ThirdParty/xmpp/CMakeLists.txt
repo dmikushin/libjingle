@@ -36,6 +36,7 @@ set(${PROJECT_NAME}_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/hangoutpubsubclient.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/iqtask.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/jid.cc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/jingleinfotask.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/moduleimpl.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/mucroomconfigtask.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/mucroomdiscoverytask.cc"
@@ -63,6 +64,8 @@ set(${PROJECT_NAME}_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/xmppthread.cc")
 
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRCS})
+target_include_directories(${PROJECT_NAME} PUBLIC "${gtest_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME} PUBLIC "${gmock_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../xmllite/include")

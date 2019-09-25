@@ -25,12 +25,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "xmpp/jingleinfotask.h"
+#include "jingleinfotask.h"
 
 #include "base/socketaddress.h"
-#include "xmpp/constants.h"
-#include "xmpp/xmppclient.h"
-#include "xmpp/xmpptask.h"
+#include "constants.h"
+#include "xmppclient.h"
+#include "xmpptask.h"
 
 namespace buzz {
 
