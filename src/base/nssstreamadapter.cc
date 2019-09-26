@@ -722,7 +722,9 @@ void NSSStreamAdapter::OnEvent(StreamInterface* stream, int events,
     if (state_ != SSL_WAIT) {
       ASSERT(state_ == SSL_NONE);
       events_to_signal |= SE_OPEN;
-    } else {
+      state_ = SSL_WAIT;
+    }
+    if (state_ == SSL_WAIT) {
       state_ = SSL_CONNECTING;
       if (int err = BeginSSL()) {
         Error("BeginSSL", err, true);
