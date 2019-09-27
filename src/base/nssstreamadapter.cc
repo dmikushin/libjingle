@@ -393,17 +393,10 @@ bool NSSStreamAdapter::Init() {
   }
 
   SECStatus rv;
-  // Turn on security.
-  rv = SSL_OptionSet(ssl_fd, SSL_SECURITY, PR_TRUE);
+  // Start with disabled SSL.
+  rv = SSL_OptionSet(ssl_fd, SSL_SECURITY, PR_FALSE);
   if (rv != SECSuccess) {
     LOG(LS_ERROR) << "Error enabling security on SSL Socket";
-    return false;
-  }
-
-  // Disable SSLv2.
-  rv = SSL_OptionSet(ssl_fd, SSL_ENABLE_SSL2, PR_FALSE);
-  if (rv != SECSuccess) {
-    LOG(LS_ERROR) << "Error disabling SSL2";
     return false;
   }
 
@@ -450,13 +443,6 @@ NSSStreamAdapter::~NSSStreamAdapter() {
 
 
 int NSSStreamAdapter::BeginSSL() {
-  SECStatus rv;
-
-  if (!Init()) {
-    Error("Init", -1, false);
-    return -1;
-  }
-
   ASSERT(state_ == SSL_CONNECTING);
   // The underlying stream has been opened. If we are in peer-to-peer mode
   // then a peer certificate must have been specified by now.
@@ -466,6 +452,14 @@ int NSSStreamAdapter::BeginSSL() {
   LOG(LS_INFO) << "BeginSSL: "
                << (!ssl_server_name_.empty() ? ssl_server_name_ :
                                                "with peer");
+
+  SECStatus rv;
+  // Now enable SSL.
+  rv = SSL_OptionSet(ssl_fd_, SSL_SECURITY, PR_TRUE);
+  if (rv != SECSuccess) {
+    LOG(LS_ERROR) << "Error enabling security on SSL Socket";
+    return false;
+  }
 
   if (role_ == SSL_CLIENT) {
     LOG(LS_INFO) << "BeginSSL: as client";
@@ -509,12 +503,10 @@ int NSSStreamAdapter::BeginSSL() {
     }
   }
 
-  // Set the version range.
+  // Enable the latest TLS versions range and the corresponding SSL versions.
   SSLVersionRange vrange;
-  vrange.min =  (ssl_mode_ == SSL_MODE_DTLS) ?
-      SSL_LIBRARY_VERSION_TLS_1_1 :
-      SSL_LIBRARY_VERSION_TLS_1_0;
-  vrange.max = SSL_LIBRARY_VERSION_TLS_1_1;
+  vrange.min = SSL_LIBRARY_VERSION_TLS_1_2;
+  vrange.max = SSL_LIBRARY_VERSION_TLS_1_3;
   
   rv = SSL_VersionRangeSet(ssl_fd_, &vrange);
   if (rv != SECSuccess) {
@@ -626,11 +618,11 @@ StreamResult NSSStreamAdapter::Read(void* data, size_t data_len,
                                     size_t* read, int* error) {
   // SSL_CONNECTED sanity check.
   switch (state_) {
-    case SSL_NONE:
     case SSL_WAIT:
     case SSL_CONNECTING:
       return SR_BLOCK;
 
+    case SSL_NONE:
     case SSL_CONNECTED:
       break;
 
@@ -659,7 +651,8 @@ StreamResult NSSStreamAdapter::Read(void* data, size_t data_len,
         return SR_BLOCK;
       default:
         Error("Read", -1, false);
-        *error = err;  // libjingle semantics are that this is impl-specific
+        if (error)
+          *error = err;  // libjingle semantics are that this is impl-specific
         return SR_ERROR;
     }
   }
@@ -672,13 +665,22 @@ StreamResult NSSStreamAdapter::Read(void* data, size_t data_len,
 
 StreamResult NSSStreamAdapter::Write(const void* data, size_t data_len,
                                      size_t* written, int* error) {
+  if (!ssl_fd_) {
+    if (!Init()) {
+      Error("Init", -1, false);
+      if (error)
+        *error = -1;
+      return SR_ERROR;
+    }
+  }
+
   // SSL_CONNECTED sanity check.
   switch (state_) {
-    case SSL_NONE:
     case SSL_WAIT:
     case SSL_CONNECTING:
       return SR_BLOCK;
 
+    case SSL_NONE:
     case SSL_CONNECTED:
       break;
       
@@ -701,7 +703,8 @@ StreamResult NSSStreamAdapter::Write(const void* data, size_t data_len,
         return SR_BLOCK;
       default:
         Error("Write", -1, false);
-        *error = err;  // libjingle semantics are that this is impl-specific
+        if (error)
+          *error = err;  // libjingle semantics are that this is impl-specific
         return SR_ERROR;
     }
   }
@@ -722,9 +725,7 @@ void NSSStreamAdapter::OnEvent(StreamInterface* stream, int events,
     if (state_ != SSL_WAIT) {
       ASSERT(state_ == SSL_NONE);
       events_to_signal |= SE_OPEN;
-      state_ = SSL_WAIT;
-    }
-    if (state_ == SSL_WAIT) {
+    } else {
       state_ = SSL_CONNECTING;
       if (int err = BeginSSL()) {
         Error("BeginSSL", err, true);
@@ -818,7 +819,12 @@ SECStatus NSSStreamAdapter::AuthCertificateHook(void *arg,
   } else {
     // Other modes, but we haven't implemented yet
     // TODO(ekr@rtfm.com): Implement real certificate validation
+#if 0
     UNIMPLEMENTED;
+#else
+    LOG(LS_WARNING) << "Cert is not validated (unimplemented)";
+    ok = true;
+#endif
   }
 
   if (ok) {
