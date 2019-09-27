@@ -33,10 +33,8 @@ illustrate the basic concepts of how the provided classes work.
 Prerequisites:
 
 ```
-sudo apt install gcc cmake libnss3-dev libasound2-dev gtk+2.0 libexpat-dev libsrtp-dev libnspr4-dev
+sudo apt install g++ cmake libnss3-dev libasound2-dev gtk+2.0 libexpat-dev libsrtp-dev libnspr4-dev
 ```
-
-`HAS_OPENSSL_1_0`
 
 Building from source with CMake:
 
@@ -50,8 +48,33 @@ make -j48
 
 ## Testing
 
-When the build is complete, you can run the
-examples, login or call. For the call sample, you can specify the input and
+The source code comes with two major client application examples: `examples/login` and `examples/call`. In order to test them, you first need an XMPP server, e.g. prosody:
+
+```
+sudo apt install prosody
+```
+
+Create a test user in prosody server:
+
+```
+sudo prosodyctl register robot localhost simplepassword
+sudo prosodyctl restart
+```
+
+Now a call example can connect to the server:
+
+```
+cd build/
+examples/jingle_example_call -s localhost -d
+```
+
+Type in `robot@localhost` and `simplepassword` when prompted.
+
+**Note the SSL sockets are currently broken and being fixed.**
+
+## Further testing
+
+For the call sample, you can specify the input and
 output RTP dump for voice and video. This package provides two samples of input
 RTP dump: voice.rtpdump is a single channel, 16Khz voice encoded with G722, and
 video.rtpdump is 320x240 video encoded with H264 AVC at 30 frames per second.
