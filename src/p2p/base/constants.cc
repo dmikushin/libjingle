@@ -157,6 +157,12 @@ const buzz::StaticQName QN_NETWORK = { cricket::NS_EMPTY, "network" };
 const buzz::StaticQName QN_GENERATION = { cricket::NS_EMPTY, "generation" };
 const buzz::StaticQName QN_PRIORITY = { cricket::NS_EMPTY, "priority" };
 const buzz::StaticQName QN_PROTOCOL = { cricket::NS_EMPTY, "protocol" };
+const buzz::StaticQName QN_FOUNDATION = { cricket::NS_EMPTY, "foundation" };
+const buzz::StaticQName QN_REMADDR = { cricket::NS_EMPTY, "rem-addr" };
+const buzz::StaticQName QN_REMPORT = { cricket::NS_EMPTY, "rem-port" };
+const buzz::StaticQName QN_RELADDR = { cricket::NS_EMPTY, "rel-addr" };
+const buzz::StaticQName QN_RELPORT = { cricket::NS_EMPTY, "rel-port" };
+const buzz::StaticQName QN_TCPTYPE = { cricket::NS_EMPTY, "tcptype" };
 const char ICE_CANDIDATE_TYPE_PEER_STUN[] = "prflx";
 const char ICE_CANDIDATE_TYPE_SERVER_STUN[] = "srflx";
 // Minimum ufrag length is 4 characters as per RFC5245. We chose 16 because

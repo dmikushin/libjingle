@@ -62,6 +62,10 @@ class Candidate {
 
   int component() const { return component_; }
   void set_component(int component) { component_ = component; }
+  void set_component_str(const std::string& str) {
+    std::istringstream ist(str);
+    ist >> component_;
+  }
 
   const std::string & protocol() const { return protocol_; }
   void set_protocol(const std::string & protocol) { protocol_ = protocol; }
@@ -73,6 +77,10 @@ class Candidate {
 
   uint32 priority() const { return priority_; }
   void set_priority(const uint32 priority) { priority_ = priority; }
+  void set_priority_str(const std::string& str) {
+    std::istringstream ist(str);
+    ist >> priority_;
+  }
 
 //  void set_type_preference(uint32 type_preference) {
 //    priority_ = GetPriority(type_preference);
@@ -125,7 +133,6 @@ class Candidate {
   const std::string& foundation() const {
     return foundation_;
   }
-
   void set_foundation(const std::string& foundation) {
     foundation_ = foundation;
   }
@@ -138,8 +145,25 @@ class Candidate {
     related_address_ = related_address;
   }
 
+  const talk_base::SocketAddress & remote_address() const {
+    return remote_address_;
+  }
+  void set_remote_address(
+      const talk_base::SocketAddress & remote_address) {
+    remote_address_ = remote_address;
+  }
+
+  const std::string& tcptype() const {
+    return tcptype_;
+  }
+  void set_tcptype(const std::string& tcptype) {
+    tcptype_ = tcptype_;
+  }
+
   // Determines whether this candidate is equivalent to the given one.
   bool IsEquivalent(const Candidate& c) const {
+    // TODO Must be refactored similarly to P2PTransportParser::ParseCandidate
+    
     // We ignore the network name, since that is just debug information, and
     // the priority, since that should be the same if the rest is (and it's
     // a float so equality checking is always worrisome).
@@ -156,6 +180,8 @@ class Candidate {
   }
 
   std::string ToString() const {
+    // TODO Must be refactored similarly to P2PTransportParser::ParseCandidate
+
     std::ostringstream ost;
     ost << "Cand[" << id_ << ":" << component_ << ":"
         << type_ << ":" << protocol_ << ":"
@@ -186,6 +212,8 @@ class Candidate {
   uint32 generation_;
   std::string foundation_;
   talk_base::SocketAddress related_address_;
+  talk_base::SocketAddress remote_address_;
+  std::string tcptype_;
 };
 
 }  // namespace cricket

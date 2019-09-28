@@ -56,7 +56,8 @@ enum SecurePolicy {
 enum TransportProtocol {
   ICEPROTO_GOOGLE,  // Google version of ICE protocol.
   ICEPROTO_HYBRID,  // ICE, but can fall back to the Google version.
-  ICEPROTO_RFC5245  // Standard RFC 5245 version of ICE.
+  ICEPROTO_RFC5245, // Standard RFC 5245 version of ICE.
+  ICEPROTO_XEP0176, // Jingle ICE-UDP Transport
 };
 // The old name for TransportProtocol.
 // TODO(juberti): remove this.
