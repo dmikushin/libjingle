@@ -1,13 +1,6 @@
 # Libjingle
 
-## Introduction
-
-Libjingle is a set of components provided by Google to implement Jingle
-protocols XEP-166 (http://xmpp.org/extensions/xep-0166.html) and XEP-167
-(http://xmpp.org/extensions/xep-0167.html). Libjingle is also backward
-compatible with
-[Google Talk Call Signaling](http://code.google.com/apis/talk/call_signaling.html). This package will
-create several static libraries you may link to your projects as needed.
+Libjingle is a set of components to implement Jingle protocols [XEP-166](http://xmpp.org/extensions/xep-0166.html) and [XEP-167](http://xmpp.org/extensions/xep-0167.html). Libjingle was originally developed by Google for its [Goolge Talk service](http://code.google.com/apis/talk/call_signaling.html), which is no longer available. This package builds into a set of libraries that can still be used to develop XMPP clients.
 
 ```
 |-base              - Contains basic low-level portable utility functions for
@@ -25,8 +18,7 @@ create several static libraries you may link to your projects as needed.
 |-xmpp              - XMPP engine
 ```
 
-In addition, this package contains two examples in talk/examples which
-illustrate the basic concepts of how the provided classes work.
+In addition, this package contains two examples in talk/examples which illustrate the basic concepts of how the provided classes work.
 
 ## Building
 
@@ -54,7 +46,24 @@ The source code comes with two major client application examples: `examples/logi
 sudo apt install prosody
 ```
 
-Create test users in prosody server:
+Prosody must be restricted to the recent TLS 1.2 (1.2+ for Prosody 0.10) in `/etc/prosody/conf.d/localhost.cfg.lua`:
+
+```
+-- Section for localhost
+
+-- This allows clients to connect to localhost. No harm in it.
+VirtualHost "localhost"
+        ssl = {
+                key = "/etc/prosody/certs/localhost.key";
+                certificate = "/etc/prosody/certs/localhost.crt";
+                protocol = "tlsv1_2+";
+        }
+
+-- Set up a MUC (multi-user chat) room server on conference.localhost:
+Component "conference.localhost" "muc"
+```
+
+Create test users in prosody server and restart:
 
 ```
 sudo prosodyctl register robot user simplepassword
@@ -118,4 +127,18 @@ To use LinphoneMediaEngine, you need to perform the following additional steps:
   * In the libjingle.scons file, add the following line into the "srcs = [ ..."
     section of the "libjingle" Library.
       "session/phone/linphonemediaengine.cc",
+
+# Troubleshooting
+
+## DNS errors in Prosody log
+
+```
+Sep 29 14:46:23 mod_s2s debug   First attempt to connect to locahost, starting with SRV lookup...
+...
+Sep 29 14:46:23 s2sout55c2a7467860      info    Failed in all attempts to connect to locahost
+Sep 29 14:46:23 mod_s2s debug   No other records to try for locahost - destroying
+Sep 29 14:46:23 s2sout55c2a7467860      debug   Destroying outgoing session localhost->locahost: DNS resolution failed
+```
+
+Prosody's roaster has cached a pending roster subscription request, which contains an invalid hostname, e.g. `robot@locahost`. It will appear in the log again and again, until the corresponding record in `/var/lib/prosody/localhost/roster` is deleted.
 
