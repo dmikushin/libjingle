@@ -25,6 +25,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "base/helpers.h"
 #include "constants.h"
 #include "call/friendinvitesendtask.h"
 
@@ -37,6 +38,7 @@ FriendInviteSendTask::Send(const Jid& user) {
 
   // Need to first add to roster, then subscribe to presence.
   XmlElement* iq = new XmlElement(QN_IQ);
+  iq->AddAttr(buzz::QN_ID, talk_base::CreateRandomString(16));
   iq->AddAttr(QN_TYPE, STR_SET);
   XmlElement* query = new XmlElement(QN_ROSTER_QUERY);
   XmlElement* item = new XmlElement(QN_ROSTER_ITEM);
@@ -48,6 +50,7 @@ FriendInviteSendTask::Send(const Jid& user) {
 
   // Subscribe to presence
   XmlElement* presence = new XmlElement(QN_PRESENCE);
+  presence->AddAttr(buzz::QN_ID, talk_base::CreateRandomString(16));
   presence->AddAttr(QN_TO, user.Str());
   presence->AddAttr(QN_TYPE, STR_SUBSCRIBE);
   XmlElement* invitation = new XmlElement(QN_INVITATION);
