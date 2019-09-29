@@ -313,7 +313,10 @@ void CallClient::ParseLine(const std::string& line) {
       buzz::Jid jid(words[1]);
       if (jid.IsValid()) {
         last_sent_to_ = words[1];
-        SendChat(words[1], words[2]);
+        std::string msg = "";
+        if (words.size() > 2)
+          msg = words[2];
+        SendChat(words[1], msg);
       } else if (!last_sent_to_.empty()) {
         SendChat(last_sent_to_, words[1]);
       } else {

@@ -54,9 +54,10 @@ The source code comes with two major client application examples: `examples/logi
 sudo apt install prosody
 ```
 
-Create a test user in prosody server:
+Create test users in prosody server:
 
 ```
+sudo prosodyctl register robot user simplepassword
 sudo prosodyctl register robot localhost simplepassword
 sudo prosodyctl restart
 ```
@@ -65,12 +66,20 @@ Now a call example can connect to the server:
 
 ```
 cd build/
-examples/jingle_example_call -s localhost -d
+examples/jingle_example_call -s localhost
 ```
 
 Type in `robot@localhost` and `simplepassword` when prompted.
 
-**Note the SSL sockets are currently broken and being fixed.**
+Execute another instance of test with a different username: `user@localhost`
+
+In both instances of `jingle_example_call` type `join test@conference.localhost`. Both users shall be joined to the new `test` chart room. On behalf of `user` send a message to `robot` using `send` command:
+
+```
+send robot@localhost Hello
+```
+
+The username is cached, so subsequent messages can be sent with `send` omitting the username.
 
 ## Further testing
 
