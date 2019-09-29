@@ -639,7 +639,8 @@ bool MediaSessionClient::ParseContent(SignalingProtocol protocol,
       return ParseJingleAudioContent(content_elem, content, error);
     } else if (media == JINGLE_CONTENT_MEDIA_VIDEO) {
       return ParseJingleVideoContent(content_elem, content, error);
-    } else if (media == JINGLE_CONTENT_MEDIA_DATA) {
+    } else if ((media == JINGLE_CONTENT_MEDIA_DATA) ||
+               (media == JINGLE_CONTENT_MEDIA_APPLICATION)) {
       return ParseJingleDataContent(content_elem, content, error);
     } else {
       return BadParse("Unknown media: " + media, error);

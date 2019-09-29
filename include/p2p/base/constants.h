@@ -69,6 +69,7 @@ extern const buzz::StaticQName QN_JINGLE_DRAFT_GROUP_TYPE;
 extern const char JINGLE_CONTENT_MEDIA_AUDIO[];
 extern const char JINGLE_CONTENT_MEDIA_VIDEO[];
 extern const char JINGLE_CONTENT_MEDIA_DATA[];
+extern const char JINGLE_CONTENT_MEDIA_APPLICATION[];
 extern const char JINGLE_ACTION_SESSION_INITIATE[];
 extern const char JINGLE_ACTION_SESSION_INFO[];
 extern const char JINGLE_ACTION_SESSION_ACCEPT[];
