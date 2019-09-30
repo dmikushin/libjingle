@@ -778,7 +778,7 @@ void CallClient::InviteFriend(const std::string& name) {
   // run the friend command as the other user too to create the linkage
   // (and you won't be notified to do so).
   friend_invite_send_->Send(jid);
-  console_->PrintLine("Requesting to befriend %s.", name.c_str());
+  console_->PrintLine("Requesting to be friend %s.", name.c_str());
 }
 
 bool CallClient::FindJid(const std::string& name, buzz::Jid* found_jid,
