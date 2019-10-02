@@ -29,6 +29,10 @@ cmake_minimum_required (VERSION 3.1)
 
 project(jingle)
 
+# Default to debug build
+set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Release)
+
 # Enable C++ 11 support
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)

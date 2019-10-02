@@ -131,6 +131,7 @@ add_library(${PROJECT_NAME} SHARED
 	"${CMAKE_CURRENT_SOURCE_DIR}/test/testsupport/fileutils.cc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/test/testsupport/metrics/video_metrics.cc")
 target_compile_definitions(${PROJECT_NAME} PRIVATE WEBRTC_LINUX WEBRTC_SVNREVISION="git" WEBRTC_NS_FLOAT)
+target_compile_definitions(${PROJECT_NAME} PRIVATE LINUX_PULSE LINUX_ALSA NETEQ_ALL_CODECS)
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/..")

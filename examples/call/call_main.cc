@@ -221,14 +221,12 @@ int main(int argc, char **argv) {
   // by MediaSessionClient as its worker thread.
 
   // define options
-  DEFINE_string(s, "talk.google.com", "The connection server to use.");
   DEFINE_string(tls, "require",
       "Select connection encryption: disable, enable, require.");
   DEFINE_bool(allowplain, false, "Allow plain authentication.");
-  DEFINE_bool(testserver, false, "Use test server.");
   DEFINE_string(oauth, "", "OAuth2 access token.");
   DEFINE_bool(a, false, "Turn on auto accept for incoming calls.");
-  DEFINE_string(signaling, "hybrid",
+  DEFINE_string(signaling, "jingle",
       "Initial signaling protocol to use: jingle, gingle, or hybrid.");
   DEFINE_string(transport, "hybrid",
       "Initial transport protocol to use: ice, gice, or hybrid.");
@@ -267,13 +265,11 @@ int main(int argc, char **argv) {
   std::string log = FLAG_log;
   std::string signaling = FLAG_signaling;
   std::string transport = FLAG_transport;
-  bool test_server = FLAG_testserver;
   bool allow_plain = FLAG_allowplain;
   std::string tls = FLAG_tls;
   std::string oauth_token = FLAG_oauth;
   int32 portallocator_flags = FLAG_portallocator;
   std::string pmuc_domain = FLAG_pmuc;
-  std::string server = FLAG_s;
   std::string sdes = FLAG_sdes;
   std::string dtls = FLAG_dtls;
   std::string caps_node = FLAG_capsnode;
@@ -310,17 +306,25 @@ int main(int argc, char **argv) {
   // Parse username and password, if present.
   buzz::Jid jid;
   std::string username;
+  std::string server;
   talk_base::InsecureCryptStringImpl pass;
   if (argc > 1) {
-    username = argv[1];
+    server = argv[1];
     if (argc > 2) {
-      pass.password() = argv[2];
+      username = argv[2];
+      if (argc > 3) {
+        pass.password() = argv[3];
+      }
     }
   }
 
+  if (server.empty()) {
+    Print("server: ");
+    std::cin >> server;
+  }
   if (username.empty()) {
     Print("JID: ");
-    std::cin >> username;
+    username = "user";
   }
   if (username.find('@') == std::string::npos) {
     username.append("@localhost");
@@ -330,13 +334,14 @@ int main(int argc, char **argv) {
     Print("Invalid JID. JIDs should be in the form user@domain\n");
     return 1;
   }
-  if (pass.password().empty() && !test_server && oauth_token.empty()) {
+  if (pass.password().empty() && oauth_token.empty()) {
     Console::SetEcho(false);
     Print("Password: ");
     std::cin >> pass.password();
     Console::SetEcho(true);
     Print("\n");
   }
+  
 
   // Decide on the connection settings.
   buzz::XmppClientSettings xcs;
@@ -356,12 +361,6 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  if (test_server) {
-    pass.password() = jid.node();
-    xcs.set_allow_plain(true);
-    xcs.set_use_tls(buzz::TLS_DISABLED);
-    xcs.set_test_server_domain("google.com");
-  }
   xcs.set_pass(talk_base::CryptString(pass));
   if (!oauth_token.empty()) {
     xcs.set_auth_token(buzz::AUTH_MECHANISM_OAUTH2, oauth_token);
