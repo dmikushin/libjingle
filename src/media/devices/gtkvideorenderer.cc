@@ -42,6 +42,7 @@ struct GtkWidgets {
   GtkWidget *drawing_area;
   std::vector<uint8> argbPixels;
   int frameWidth, frameHeight;
+  std::string text;
 };
 
 GtkVideoRenderer::GtkVideoRenderer(int x, int y)
@@ -126,6 +127,14 @@ static gboolean OnDrawFrame(GtkWidget *widget, cairo_t *cr, GtkWidgets* widgets)
   cairo_rectangle(cr, x, y, x + w, y + h);
   cairo_fill(cr);
 
+  if (widgets->text != "") {
+    cairo_select_font_face(cr, "monospace", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+    cairo_set_font_size(cr, 14);
+    cairo_set_source_rgb(cr, 255, 0, 0);
+    cairo_move_to(cr, x + 10, allocation.height - y - 10);
+    cairo_show_text(cr, widgets->text.c_str());
+  }
+
   g_object_unref(pxbscaled);
 
   return FALSE;
@@ -190,6 +199,11 @@ bool GtkVideoRenderer::RenderFrame(const VideoFrame* frame) {
 
   // Pass through the gtk events queue.
   Pump();
+  return true;
+}
+
+bool GtkVideoRenderer::RenderText(const std::string& text_) {
+  widgets->text = text_;
   return true;
 }
 

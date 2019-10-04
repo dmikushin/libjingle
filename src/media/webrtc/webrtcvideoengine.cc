@@ -818,6 +818,7 @@ void WebRtcVideoEngine::OnFrameCaptured(VideoCapturer* capturer,
       local_renderer_->SetSize(local_renderer_w_ = i420_frame.GetWidth(),
                                local_renderer_h_ = i420_frame.GetHeight(), 0);
     }
+    local_renderer_->RenderText("local capture");
     local_renderer_->RenderFrame(&i420_frame);
   }
   // Send I420 frame to the registered senders.

@@ -49,6 +49,7 @@ class GtkVideoRenderer : public VideoRenderer {
   // SetSize is called before RenderFrame.
   virtual bool SetSize(int width, int height, int reserved);
   virtual bool RenderFrame(const VideoFrame* frame);
+  virtual bool RenderText(const std::string& text);
 
   bool RenderFrame(int width, int height, uint8* argbPixels);
 
