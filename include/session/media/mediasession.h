@@ -79,9 +79,9 @@ const int kBufferedModeDisabled = 0;
 
 struct MediaSessionOptions {
   MediaSessionOptions() :
-      has_audio(true),  // Audio enabled by default.
-      has_video(false),
-      has_data(false),
+      has_audio(true),
+      has_video(true),
+      has_data(true),
       is_muc(false),
       rtcp_mux_enabled(true),
       bundle_enabled(false),

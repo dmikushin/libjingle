@@ -358,6 +358,14 @@ bool ChannelManager::Init() {
         LOG(LS_WARNING) << "Failed to SetVideoOptions with camera: "
                         << camera_device_;
       }
+      if (!SetVideoCapturer(CreateVideoCapturer()) && !camera_device_.empty()) {
+        LOG(LS_WARNING) << "Failed to SetVideoCapturer with camera: "
+                        << camera_device_;
+      }
+      if (!SetVideoCapture(true) && !camera_device_.empty()) {
+        LOG(LS_WARNING) << "Failed to SetVideoCapture with camera: "
+                        << camera_device_;
+      }
 
       // Restore the user preferences.
       audio_in_device_ = preferred_audio_in_device;
