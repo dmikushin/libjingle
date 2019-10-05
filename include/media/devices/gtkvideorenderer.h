@@ -33,13 +33,15 @@
 #include "base/scoped_ptr.h"
 #include "media/base/videorenderer.h"
 
-typedef struct _GtkWidget GtkWidget;  // forward declaration, defined in gtk.h
+#include <memory>
 
 namespace cricket {
 
+class GtkWidgets;
+
 class GtkVideoRenderer : public VideoRenderer {
  public:
-  GtkVideoRenderer(int x, int y);
+  GtkVideoRenderer(int x = 0, int y = 0);
   virtual ~GtkVideoRenderer();
 
   // Implementation of pure virtual methods of VideoRenderer.
@@ -47,6 +49,8 @@ class GtkVideoRenderer : public VideoRenderer {
   // SetSize is called before RenderFrame.
   virtual bool SetSize(int width, int height, int reserved);
   virtual bool RenderFrame(const VideoFrame* frame);
+
+  bool RenderFrame(int width, int height, uint8* argbPixels);
 
  private:
   // Initialize the attributes when the first frame arrives.
@@ -56,9 +60,8 @@ class GtkVideoRenderer : public VideoRenderer {
   // Check if the window has been closed.
   bool IsClosed() const;
 
-  talk_base::scoped_array<uint8> image_;
-  GtkWidget* window_;
-  GtkWidget* draw_area_;
+  std::unique_ptr<GtkWidgets> widgets;
+
   // The initial position of the window.
   int initial_x_;
   int initial_y_;
@@ -67,3 +70,4 @@ class GtkVideoRenderer : public VideoRenderer {
 }  // namespace cricket
 
 #endif  // TALK_MEDIA_DEVICES_GTKVIDEORENDERER_H_
+

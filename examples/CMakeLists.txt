@@ -29,6 +29,13 @@ cmake_minimum_required (VERSION 3.1)
 
 project(jingle_examples)
 
+file(GLOB jingle_example_gtk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/gtk/*.cc")
+
+add_executable(jingle_example_gtk ${jingle_example_gtk_SRCS})
+target_include_directories(jingle_example_gtk PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_gtk PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_link_libraries(jingle_example_gtk jingle_media jingle_sound jingle webrtc)
+
 file(GLOB jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/*.cc")
 list(REMOVE_ITEM jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/call_unittest.cc")
 list(REMOVE_ITEM jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/callclient_unittest.cc")

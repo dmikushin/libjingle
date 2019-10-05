@@ -28,106 +28,183 @@
 #include "media/devices/gtkvideorenderer.h"
 
 #include <gtk/gtk.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <mutex>
+#include <vector>
 
 #include "media/base/videocommon.h"
 #include "media/base/videoframe.h"
 
 namespace cricket {
 
-class ScopedGdkLock {
- public:
-  ScopedGdkLock() {
-    gdk_threads_enter();
-  }
-
-  ~ScopedGdkLock() {
-    gdk_threads_leave();
-  }
+struct GtkWidgets {
+  GtkWidget *window;
+  GtkWidget *drawing_area;
+  std::vector<uint8> argbPixels;
+  int frameWidth, frameHeight;
 };
 
 GtkVideoRenderer::GtkVideoRenderer(int x, int y)
-    : window_(NULL),
-      draw_area_(NULL),
-      initial_x_(x),
+    : initial_x_(x),
       initial_y_(y) {
-  g_thread_init(NULL);
-  gdk_threads_init();
+
+  widgets.reset(new GtkWidgets());
+  widgets->window = NULL;
+  widgets->drawing_area = NULL;
+  widgets->frameWidth = 0;
+  widgets->frameHeight = 0;
 }
 
 GtkVideoRenderer::~GtkVideoRenderer() {
-  if (window_) {
-    ScopedGdkLock lock;
-    gtk_widget_destroy(window_);
+  if (widgets->window) {
+    gtk_widget_destroy(widgets->window);
     // Run the Gtk main loop to tear down the window.
     Pump();
   }
-  // Don't need to destroy draw_area_ because it is not top-level, so it is
-  // implicitly destroyed by the above.
 }
 
 bool GtkVideoRenderer::SetSize(int width, int height, int reserved) {
-  ScopedGdkLock lock;
-
   // For the first frame, initialize the GTK window
-  if ((!window_ && !Initialize(width, height)) || IsClosed()) {
+  if ((!widgets->window && !Initialize(width, height)) || IsClosed()) {
     return false;
   }
 
-  image_.reset(new uint8[width * height * 4]);
-  gtk_widget_set_size_request(draw_area_, width, height);
+  gtk_window_resize(GTK_WINDOW(widgets->window), width, height);
+
   return true;
 }
 
+std::mutex mtx;
+
+static gboolean OnDrawFrame(GtkWidget *widget, cairo_t *cr, GtkWidgets* widgets) {
+
+  int x = 0;
+  int y = 0;
+  int h;
+  int w;
+
+  GdkRectangle allocation;
+  allocation.width = gtk_widget_get_allocated_width (widgets->drawing_area);
+  allocation.height = gtk_widget_get_allocated_height (widgets->drawing_area);
+
+  GdkPixbuf* pxbscaled = NULL;
+  {
+    std::lock_guard<std::mutex> lck(mtx);
+    
+    if (!widgets->frameWidth || !widgets->frameHeight)
+      return FALSE;
+  
+    const double aspect = (double)widgets->frameWidth / widgets->frameHeight;
+    h = allocation.height;
+    w = aspect * h;
+    if (w > allocation.width)
+    {
+      w = allocation.width;
+      h = w / aspect;
+    }
+    
+    if (!w || !h)
+      return FALSE;
+
+    GBytes* gBytes = g_bytes_new_static(reinterpret_cast<uint8*>(&widgets->argbPixels[0]),
+                                        widgets->argbPixels.size());
+
+    GdkPixbuf* pixbuf = gdk_pixbuf_new_from_bytes(gBytes, GDK_COLORSPACE_RGB, TRUE, 8,
+      widgets->frameWidth, widgets->frameHeight, widgets->frameWidth * 4);
+
+    pxbscaled = gdk_pixbuf_scale_simple(pixbuf, w, h, GDK_INTERP_BILINEAR);
+
+    g_object_unref(pixbuf);
+  }
+
+  if (w < allocation.width)
+     x = (allocation.width - w) / 2;
+  if (h < allocation.height)
+     y = (allocation.height - h) / 2;
+
+  gdk_cairo_set_source_pixbuf(cr, pxbscaled, x, y);
+  cairo_rectangle(cr, x, y, x + w, y + h);
+  cairo_fill(cr);
+
+  g_object_unref(pxbscaled);
+
+  return FALSE;
+}
+
+bool GtkVideoRenderer::RenderFrame(int width, int height, uint8* argbPixels_)
+{
+  // For the first frame, initialize the GTK window
+  if ((!widgets->window && !Initialize(width, height)) || IsClosed()) {
+    return false;
+  }
+
+  // Just exit, if locked - the next frame will be drawn.
+  if (mtx.try_lock()) {
+    widgets->frameWidth = width;
+    widgets->frameHeight = height;
+
+    if (widgets->argbPixels.size() < widgets->frameWidth * widgets->frameHeight * 4)
+      widgets->argbPixels.resize(widgets->frameWidth * widgets->frameHeight * 4);
+
+    memcpy(reinterpret_cast<uint8*>(&widgets->argbPixels[0]), argbPixels_, width * height * 4);
+    
+    mtx.unlock();
+  }
+
+  // Draw new frame.
+  gtk_widget_queue_draw(widgets->drawing_area);
+
+  // Pass through the gtk events queue.
+  Pump();
+  return true;
+}
+ 
 bool GtkVideoRenderer::RenderFrame(const VideoFrame* frame) {
-  if (!frame) {
+
+  // For the first frame, initialize the GTK window
+  if ((!widgets->window && !Initialize(frame->GetWidth(), frame->GetHeight())) || IsClosed()) {
     return false;
   }
 
-  // convert I420 frame to ABGR format, which is accepted by GTK
-  frame->ConvertToRgbBuffer(cricket::FOURCC_ABGR,
-                            image_.get(),
-                            frame->GetWidth() * frame->GetHeight() * 4,
-                            frame->GetWidth() * 4);
-
-  ScopedGdkLock lock;
-
-  if (IsClosed()) {
+  if (!frame)
     return false;
+
+  // Just exit, if locked - the next frame will be drawn.
+  if (mtx.try_lock()) {
+    widgets->frameWidth = frame->GetWidth();
+    widgets->frameHeight = frame->GetHeight();
+  
+    if (widgets->argbPixels.size() < widgets->frameWidth * widgets->frameHeight * 4)
+      widgets->argbPixels.resize(widgets->frameWidth * widgets->frameHeight * 4);
+
+    // convert I420 frame to ABGR format, which is accepted by GTK
+    frame->ConvertToRgbBuffer(cricket::FOURCC_ABGR,
+                              reinterpret_cast<uint8*>(&widgets->argbPixels[0]),
+                              widgets->frameWidth * widgets->frameHeight * 4,
+                              widgets->frameWidth * 4);
+    mtx.unlock();
   }
 
-  // draw the ABGR image
-  gdk_draw_rgb_32_image(draw_area_->window,
-                        draw_area_->style->fg_gc[GTK_STATE_NORMAL],
-                        0,
-                        0,
-                        frame->GetWidth(),
-                        frame->GetHeight(),
-                        GDK_RGB_DITHER_MAX,
-                        image_.get(),
-                        frame->GetWidth() * 4);
+  // Draw new frame.
+  gtk_widget_queue_draw(widgets->drawing_area);
 
-  // Run the Gtk main loop to refresh the window.
+  // Pass through the gtk events queue.
   Pump();
   return true;
 }
 
 bool GtkVideoRenderer::Initialize(int width, int height) {
   gtk_init(NULL, NULL);
-  window_ = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-  draw_area_ = gtk_drawing_area_new();
-  if (!window_ || !draw_area_) {
-    return false;
-  }
+  widgets->window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  widgets->drawing_area = gtk_drawing_area_new();
 
-  gtk_window_set_position(GTK_WINDOW(window_), GTK_WIN_POS_CENTER);
-  gtk_window_set_title(GTK_WINDOW(window_), "Video Renderer");
-  gtk_window_set_resizable(GTK_WINDOW(window_), FALSE);
-  gtk_widget_set_size_request(draw_area_, width, height);
-  gtk_container_add(GTK_CONTAINER(window_), draw_area_);
-  gtk_widget_show_all(window_);
-  gtk_window_move(GTK_WINDOW(window_), initial_x_, initial_y_);
+  gtk_container_add(GTK_CONTAINER(widgets->window), widgets->drawing_area);
 
-  image_.reset(new uint8[width * height * 4]);
+  gtk_widget_set_size_request(GTK_WIDGET(widgets->window), 100, 100);
+  gtk_window_set_resizable(GTK_WINDOW(widgets->window), TRUE);
+  gtk_widget_show_all(GTK_WIDGET(widgets->window));
+
+  g_signal_connect(widgets->drawing_area, "draw", G_CALLBACK(OnDrawFrame), widgets.get());
   return true;
 }
 
@@ -138,12 +215,12 @@ void GtkVideoRenderer::Pump() {
 }
 
 bool GtkVideoRenderer::IsClosed() const {
-  if (!window_) {
+  if (!widgets->window) {
     // Not initialized yet, so hasn't been closed.
     return false;
   }
 
-  if (!GTK_IS_WINDOW(window_) || !GTK_IS_DRAWING_AREA(draw_area_)) {
+  if (!GTK_IS_WINDOW(widgets->window) || !GTK_IS_DRAWING_AREA(widgets->drawing_area)) {
     return true;
   }
 
@@ -151,3 +228,4 @@ bool GtkVideoRenderer::IsClosed() const {
 }
 
 }  // namespace cricket
+

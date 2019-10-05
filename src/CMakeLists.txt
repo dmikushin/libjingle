@@ -35,7 +35,7 @@ find_package(Threads REQUIRED)
 find_package(SRTP REQUIRED)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK2 REQUIRED gtk+-2.0 gthread-2.0)
+pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 
 set(jingle_sound_SRCS 
 	"${CMAKE_CURRENT_SOURCE_DIR}/sound/nullsoundsystem.cc"
@@ -91,9 +91,9 @@ target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../
 target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/webrtc")
 target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/libyuv/include")
 target_include_directories(jingle_media PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
-target_include_directories(jingle_media PRIVATE ${GTK2_INCLUDE_DIRS})
-set_target_properties(jingle_media PROPERTIES COMPILE_FLAGS ${GTK2_CFLAGS_OTHER})
-target_link_libraries(jingle_media ${GTK2_LIBRARIES} rt Xext X11)
+target_include_directories(jingle_media PRIVATE ${GTK3_INCLUDE_DIRS})
+set_target_properties(jingle_media PROPERTIES COMPILE_FLAGS ${GTK3_CFLAGS_OTHER})
+target_link_libraries(jingle_media ${GTK3_LIBRARIES} rt Xext X11)
 
 set(jingle_p2p_SRCS
 	"${CMAKE_CURRENT_SOURCE_DIR}/p2p/base/constants.cc"
