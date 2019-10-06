@@ -84,39 +84,36 @@ static gboolean OnDrawFrame(GtkWidget *widget, cairo_t *cr, GtkWidgets* widgets)
   int h;
   int w;
 
+  std::lock_guard<std::mutex> lck(mtx);
+
   GdkRectangle allocation;
   allocation.width = gtk_widget_get_allocated_width (widgets->drawing_area);
   allocation.height = gtk_widget_get_allocated_height (widgets->drawing_area);
 
-  GdkPixbuf* pxbscaled = NULL;
-  {
-    std::lock_guard<std::mutex> lck(mtx);
-    
-    if (!widgets->frameWidth || !widgets->frameHeight)
-      return FALSE;
+  if (!widgets->frameWidth || !widgets->frameHeight)
+    return FALSE;
   
-    const double aspect = (double)widgets->frameWidth / widgets->frameHeight;
-    h = allocation.height;
-    w = aspect * h;
-    if (w > allocation.width)
-    {
-      w = allocation.width;
-      h = w / aspect;
-    }
-    
-    if (!w || !h)
-      return FALSE;
-
-    GBytes* gBytes = g_bytes_new_static(reinterpret_cast<uint8*>(&widgets->argbPixels[0]),
-                                        widgets->argbPixels.size());
-
-    GdkPixbuf* pixbuf = gdk_pixbuf_new_from_bytes(gBytes, GDK_COLORSPACE_RGB, TRUE, 8,
-      widgets->frameWidth, widgets->frameHeight, widgets->frameWidth * 4);
-
-    pxbscaled = gdk_pixbuf_scale_simple(pixbuf, w, h, GDK_INTERP_BILINEAR);
-
-    g_object_unref(pixbuf);
+  const double aspect = (double)widgets->frameWidth / widgets->frameHeight;
+  h = allocation.height;
+  w = aspect * h;
+  if (w > allocation.width)
+  {
+    w = allocation.width;
+    h = w / aspect;
   }
+    
+  if (!w || !h)
+    return FALSE;
+
+  GBytes* gBytes = g_bytes_new_static(reinterpret_cast<uint8*>(&widgets->argbPixels[0]),
+                                      widgets->argbPixels.size());
+
+  GdkPixbuf* pixbuf = gdk_pixbuf_new_from_bytes(gBytes, GDK_COLORSPACE_RGB, TRUE, 8,
+    widgets->frameWidth, widgets->frameHeight, widgets->frameWidth * 4);
+
+  GdkPixbuf* pxbscaled = gdk_pixbuf_scale_simple(pixbuf, w, h, GDK_INTERP_BILINEAR);
+
+  g_object_unref(pixbuf);
 
   if (w < allocation.width)
      x = (allocation.width - w) / 2;
@@ -157,11 +154,11 @@ bool GtkVideoRenderer::RenderFrame(int width, int height, uint8* argbPixels_)
 
     memcpy(reinterpret_cast<uint8*>(&widgets->argbPixels[0]), argbPixels_, width * height * 4);
     
+    // Draw new frame.
+    gtk_widget_queue_draw(widgets->drawing_area);
+
     mtx.unlock();
   }
-
-  // Draw new frame.
-  gtk_widget_queue_draw(widgets->drawing_area);
 
   // Pass through the gtk events queue.
   Pump();
@@ -191,11 +188,12 @@ bool GtkVideoRenderer::RenderFrame(const VideoFrame* frame) {
                               reinterpret_cast<uint8*>(&widgets->argbPixels[0]),
                               widgets->frameWidth * widgets->frameHeight * 4,
                               widgets->frameWidth * 4);
+
+    // Draw new frame.
+    gtk_widget_queue_draw(widgets->drawing_area);
+
     mtx.unlock();
   }
-
-  // Draw new frame.
-  gtk_widget_queue_draw(widgets->drawing_area);
 
   // Pass through the gtk events queue.
   Pump();
