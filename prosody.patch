@@ -1,0 +1,29 @@
+diff -u -r a/prosody/modules/mod_presence.lua b/prosody/modules/mod_presence.lua
+--- a/prosody/modules/mod_presence.lua	2019-10-07 01:17:47.563017806 +0200
++++ b/prosody/modules/mod_presence.lua	2019-09-30 03:53:19.272421784 +0200
+@@ -219,14 +219,22 @@
+ 			core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="subscribed"}), true); -- already subscribed
+ 			-- Sending presence is not clearly stated in the RFC, but it seems appropriate
+ 			if 0 == send_presence_of_available_resources(node, host, from_bare, origin) then
+-				core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true); -- TODO send last activity
++				core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true);
+ 			end
+ 		else
+-			core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true); -- acknowledging receipt
+ 			if not rostermanager.is_contact_pending_in(node, host, from_bare) then
+ 				if rostermanager.set_contact_pending_in(node, host, from_bare) then
+-					sessionmanager.send_to_available_resources(node, host, stanza);
++					if 0 == send_presence_of_available_resources(node, host, from_bare, origin) then
++						core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true);
++					end
++				else
++					log("debug", "unable to set contact %s@%s as pending from %s", node, host, from_bare)				
++					core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true);
+ 				end -- TODO else return error, unable to save
++			else
++				if 0 == send_presence_of_available_resources(node, host, from_bare, origin) then
++					core_post_stanza(hosts[host], st.presence({from=to_bare, to=from_bare, type="unavailable"}), true);
++				end
+ 			end
+ 		end
+ 	elseif stanza.attr.type == "unsubscribe" then
