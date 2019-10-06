@@ -207,9 +207,8 @@ std::string VideoCapturer::ToString(const CapturedFrame* captured_frame) const {
 
 void VideoCapturer::OnFrameCaptured(VideoCapturer*,
                                     const CapturedFrame* captured_frame) {
-  if (SignalVideoFrame.is_empty()) {
+  if (SignalVideoFrame.is_empty() && !video_processors_.size())
     return;
-  }
 #if defined(HAVE_WEBRTC_VIDEO)
 #define VIDEO_FRAME_NAME WebRtcVideoFrame
 #endif
@@ -268,7 +267,8 @@ void VideoCapturer::OnFrameCaptured(VideoCapturer*,
     // Processor dropped the frame.
     return;
   }
-  SignalVideoFrame(this, &i420_frame);
+  if (!SignalVideoFrame.is_empty())
+    SignalVideoFrame(this, &i420_frame);
 #endif  // VIDEO_FRAME_NAME
 }
 

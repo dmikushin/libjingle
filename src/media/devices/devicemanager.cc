@@ -181,6 +181,18 @@ bool DeviceManager::GetVideoCaptureDevice(const std::string& name,
       return true;
     }
   }
+  
+  // If |name| starts with /dev/, treat it as a Linux device file.
+  if (talk_base::starts_with(name.c_str(), "/dev/")) {
+    for (std::vector<Device>::const_iterator it = devices.begin();
+        it != devices.end(); ++it) {
+      if (name == it->id) {
+        LOG(LS_INFO) << "Creating VideoCapturer for " << name;
+        *out = *it;
+        return true;
+      }
+    }
+  }
 
   // If |name| is a valid name for a file, return a file video capturer device.
   if (talk_base::Filesystem::IsFile(name)) {

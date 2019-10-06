@@ -34,7 +34,16 @@ file(GLOB jingle_example_gtk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/gtk/*.cc")
 add_executable(jingle_example_gtk ${jingle_example_gtk_SRCS})
 target_include_directories(jingle_example_gtk PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 target_include_directories(jingle_example_gtk PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
-target_link_libraries(jingle_example_gtk jingle_media jingle_sound jingle webrtc)
+target_link_libraries(jingle_example_gtk jingle_media jingle webrtc)
+
+file(GLOB jingle_example_camera_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/camera/*.cc")
+
+add_executable(jingle_example_camera ${jingle_example_camera_SRCS})
+target_include_directories(jingle_example_camera PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(jingle_example_camera PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+target_include_directories(jingle_example_camera PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmllite/include")
+target_include_directories(jingle_example_camera PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/xmpp/include")
+target_link_libraries(jingle_example_camera xmpp xmllite jingle_p2p jingle_media jingle_sound jingle webrtc)
 
 file(GLOB jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/*.cc")
 list(REMOVE_ITEM jingle_example_call_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/call/call_unittest.cc")

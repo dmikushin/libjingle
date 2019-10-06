@@ -235,7 +235,10 @@ static std::string GetVideoDeviceName(MetaType meta,
 
   LOG(LS_INFO) << "Name for " << device_file_name << " is " << device_name;
 
-  return Trim(device_name);
+  // Must be original unmodified device name here; otherwise,
+  // other parts of the code may retrieve it independently
+  // and report a mismatch.
+  return device_name;
 }
 
 static void ScanV4L2Devices(std::vector<Device>* devices) {
