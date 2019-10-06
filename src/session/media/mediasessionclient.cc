@@ -58,6 +58,19 @@ MediaSessionClient::MediaSessionClient(
 
 MediaSessionClient::MediaSessionClient(
     const buzz::Jid& jid, SessionManager *manager,
+    ChannelManager *channel_manager)
+    : jid_(jid),
+      session_manager_(manager),
+      focus_call_(NULL),
+      channel_manager_(channel_manager),
+      desc_factory_(channel_manager_,
+                    session_manager_->transport_desc_factory()) {
+  Construct();
+}
+
+
+MediaSessionClient::MediaSessionClient(
+    const buzz::Jid& jid, SessionManager *manager,
     MediaEngineInterface* media_engine,
     DataEngineInterface* data_media_engine,
     DeviceManagerInterface* device_manager)

@@ -30,6 +30,8 @@
 #include <time.h>
 #include <iomanip>
 #include <iostream>
+#include <sys/types.h>
+#include <unistd.h>
 #include <vector>
 
 #include "base/flags.h"
@@ -54,6 +56,8 @@
 #include "xmppclientsettings.h"
 #include "xmpppump.h"
 #include "xmppsocket.h"
+
+std::string camera;
 
 class DebugLog : public sigslot::has_slots<> {
  public:
@@ -219,6 +223,7 @@ int main(int argc, char **argv) {
   // will get input from the console, parse it, and pass the appropriate
   // message back to the XMPP client's thread. A third thread is used
   // by MediaSessionClient as its worker thread.
+  printf("%s @ pid = %d\n", argv[0], (int)getpid());
 
   // define options
   DEFINE_string(tls, "require",
@@ -314,6 +319,8 @@ int main(int argc, char **argv) {
       username = argv[2];
       if (argc > 3) {
         pass.password() = argv[3];
+        if (argc > 4)
+          camera = argv[4];
       }
     }
   }

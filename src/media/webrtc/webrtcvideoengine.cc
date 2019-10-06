@@ -33,7 +33,10 @@
 #endif
 
 #include <math.h>
-
+#include <sstream>
+#include <sys/types.h>
+#include <unistd.h>
+       
 #include "base/basictypes.h"
 #include "base/buffer.h"
 #include "base/byteorder.h"
@@ -818,7 +821,15 @@ void WebRtcVideoEngine::OnFrameCaptured(VideoCapturer* capturer,
       local_renderer_->SetSize(local_renderer_w_ = i420_frame.GetWidth(),
                                local_renderer_h_ = i420_frame.GetHeight(), 0);
     }
-    local_renderer_->RenderText("local capture");
+    static std::string local_capture;
+    if (local_capture == "")
+    {
+    	std::stringstream ss;
+    	ss << "local capture @ pid = ";
+    	ss << getpid();
+    	local_capture = ss.str();
+    }
+    local_renderer_->RenderText(local_capture);
     local_renderer_->RenderFrame(&i420_frame);
   }
   // Send I420 frame to the registered senders.

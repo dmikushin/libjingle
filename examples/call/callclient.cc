@@ -43,6 +43,7 @@
 #include "call/mucinviterecvtask.h"
 #include "call/mucinvitesendtask.h"
 #include "call/presencepushtask.h"
+#include "media/base/capturemanager.h"
 #include "media/base/mediacommon.h"
 #include "media/base/mediaengine.h"
 #include "media/base/rtpdataengine.h"
@@ -60,6 +61,8 @@
 #include "mucroomlookuptask.h"
 #include "presenceouttask.h"
 #include "pingtask.h"
+
+extern std::string camera;
 
 namespace {
 
@@ -376,6 +379,7 @@ CallClient::CallClient(buzz::XmppClient* xmpp_client,
       worker_thread_(NULL),
       media_engine_(NULL),
       data_engine_(NULL),
+      channel_manager_(NULL),
       media_client_(NULL),
       call_(NULL),
       hangout_pubsub_client_(NULL),
@@ -403,6 +407,7 @@ CallClient::CallClient(buzz::XmppClient* xmpp_client,
 
 CallClient::~CallClient() {
   delete media_client_;
+  delete channel_manager_;
   delete roster_;
   delete worker_thread_;
 }
@@ -520,13 +525,20 @@ void CallClient::InitMedia() {
     // engines.
     data_engine_ = new cricket::RtpDataEngine();
   }
+  
+  channel_manager_ = new cricket::ChannelManager(
+      media_engine_,
+      data_engine_,
+      cricket::DeviceManagerFactory::Create(),
+      new cricket::CaptureManager(),
+      session_manager_->worker_thread());
+  if (camera != "")
+    channel_manager_->SetVideoOptions(camera);
 
   media_client_ = new cricket::MediaSessionClient(
       xmpp_client_->jid(),
       session_manager_,
-      media_engine_,
-      data_engine_,
-      cricket::DeviceManagerFactory::Create());
+      channel_manager_);
   media_client_->SignalCallCreate.connect(this, &CallClient::OnCallCreate);
   media_client_->SignalCallDestroy.connect(this, &CallClient::OnCallDestroy);
   media_client_->SignalDevicesChange.connect(this,

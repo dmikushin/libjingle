@@ -306,6 +306,7 @@ class CallClient: public sigslot::has_slots<> {
   cricket::SessionManagerTask* session_manager_task_;
   cricket::MediaEngineInterface* media_engine_;
   cricket::DataEngineInterface* data_engine_;
+  cricket::ChannelManager* channel_manager_;
   cricket::MediaSessionClient* media_client_;
   MucMap mucs_;
 

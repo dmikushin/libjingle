@@ -2,6 +2,8 @@
 
 Libjingle is a set of components to implement Jingle protocols [XEP-166](http://xmpp.org/extensions/xep-0166.html) and [XEP-167](http://xmpp.org/extensions/xep-0167.html). Libjingle was originally developed by Google for its [Goolge Talk service](http://code.google.com/apis/talk/call_signaling.html), which is no longer available. This package builds into a set of libraries that can still be used to develop XMPP clients.
 
+<img src="screenshot.png" width="600"/>
+
 ```
 |-base              - Contains basic low-level portable utility functions for
 |                     things like threads and sockets
@@ -93,7 +95,7 @@ send robot@localhost Hello
 
 The username is cached, so subsequent messages can be sent with `send` omitting the username.
 
-## Testing audo calls
+## Testing audio calls
 
 In order to perform audio/video calls, users must be "friends", or "subscribed" to each other in terms of XMPP. The purpose of subscription is that is contains audio/video capabilities announcement needed for establishing calls.
 
@@ -113,43 +115,34 @@ accept
 
 As long as both `user` and `robot` are running on the same `localhost` machine, you should hear your own voice with an infinite echo.
 
+## Testing video calls
+
+For testing video calls on localhost we need two cameras (unless you have some special system driver to share a single camera). Each of two users selects its dedicated camera upon startup:
+
+```
+examples/jingle_example_call localhost robot simplepassword /dev/video0
+examples/jingle_example_call localhost user simplepassword /dev/video1
+```
+
+Make `robot` and `user` friends of each other in the corresponding `example_call` sessions:
+
+```
+friend robot@localhost
+friend user@localhost
+```
+
+Now instead of audio `call` we do video `vcall`:
+
+```
+vcall robot@localhost
+accept
+```
+
+Each of the two processes shall open two GTK windows: video from the local camera being broadcasted and video received from friend through the call. On the screenshot both users observe the same scene using two different cameras.
+
 ## Further testing
 
-For the call sample, you can specify the input and
-output RTP dump for voice and video. This package provides two samples of input
-RTP dump: voice.rtpdump is a single channel, 16Khz voice encoded with G722, and
-video.rtpdump is 320x240 video encoded with H264 AVC at 30 frames per second.
-These provided samples will inter-operate with Google Talk Video. If you use
-other input RTP dump, you may need to change the codecs in `call_main.cc`, lines
-215 - 222.
-
-Libjingle also builds two server tools, a relay server and a STUN server. The
-relay server may be used to relay traffic when a direct peer-to-peer connection
-could not be established. The STUN Server implements the STUN protocol for
-Session Traversal Utilities for NAT(rfc5389), and the TURN server is in active
-development to reach compatibility with rfc5766. See the
-[Libjingle Developer Guide](http://developers.google.com/talk/libjingle/developer_guide) for
-information about configuring a client to use this relay server and this STUN
-server.
-
-## LinphoneMediaEngine
-
-To use LinphoneMediaEngine, you need to perform the following additional steps:
-  * Download and install the "MediaStreamer" library on your
-    machine.
-  * Add the following lines into the libjingle.scons file.
-    In the "talk.Library(env, name = "libjingle",..." section, you need to add:
-      "HAVE_LINPHONE",
-      "HAVE_SPEEX",
-      "HAVE_ILBC",
-    to the "cppdefines = [".
-
-    In the "talk.App(env, name = "call",..." section, you need to add:
-      "mediastreamer",
-    to the "libs = [".
-  * In the libjingle.scons file, add the following line into the "srcs = [ ..."
-    section of the "libjingle" Library.
-      "session/phone/linphonemediaengine.cc",
+Libjingle also builds two server tools, a relay server and a STUN server. The relay server may be used to relay traffic when a direct peer-to-peer connection could not be established. The STUN Server implements the STUN protocol for Session Traversal Utilities for NAT(rfc5389), and the TURN server is in active development to reach compatibility with rfc5766. See the [Libjingle Developer Guide](http://developers.google.com/talk/libjingle/developer_guide) for information about configuring a client to use this relay server and this STUN server.
 
 # Troubleshooting
 
