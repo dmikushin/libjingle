@@ -175,7 +175,8 @@ void NetworkManagerBase::MergeNetworkList(const NetworkList& new_networks,
 
 BasicNetworkManager::BasicNetworkManager()
     : thread_(NULL),
-      start_count_(0) {
+      start_count_(0), 
+      sent_first_update_(false) {
 }
 
 BasicNetworkManager::~BasicNetworkManager() {
